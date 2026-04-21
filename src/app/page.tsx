@@ -37,7 +37,7 @@ export default function HomePage() {
             href="/main"
             className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
           >
-            Lee la comparativa en «Sobre los repos»
+            Vuelve al hub de entrada para elegir track o ver capturas
           </Link>
           .
         </p>
