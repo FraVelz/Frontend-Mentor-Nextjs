@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.css";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+
+import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -32,10 +32,9 @@ export default function RootLayout({
       lang="es"
       className={`${outfit.variable} ${jetbrainsMono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans selection:bg-sky-400 selection:text-slate-950">
-        <SiteHeader />
+      <body className="flex min-h-full flex-col font-sans selection:bg-sky-400 selection:text-slate-950">
+        <Header />
         {children}
-        <SiteFooter />
       </body>
     </html>
   );
