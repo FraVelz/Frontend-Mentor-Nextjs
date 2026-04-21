@@ -23,6 +23,7 @@ export function Footer() {
             profesional.
           </p>
         </div>
+
         <nav aria-label="Enlaces">
           <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-slate-500 uppercase">
             Enlaces
@@ -61,6 +62,7 @@ export function Footer() {
           </ul>
         </nav>
       </div>
+
       <div className="border-t border-white/5 py-4 text-center">
         <p className="text-xs text-slate-500">
           © {year} Fravelz ·{" "}

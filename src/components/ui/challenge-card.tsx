@@ -1,12 +1,9 @@
-import type { Challenge } from "@/data/challenges";
-import { difficultyLabels } from "@/data/challenges";
+import type { Challenge } from "@/data/challenges-card";
+import { difficultyLabels } from "@/data/challenges-card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-const difficultyStyles: Record<
-  Challenge["difficulty"],
-  string
-> = {
+const difficultyStyles: Record<Challenge["difficulty"], string> = {
   newbie: "bg-emerald-500/15 text-emerald-300 ring-emerald-400/25",
   junior: "bg-sky-500/15 text-sky-300 ring-sky-400/25",
   intermediate: "bg-amber-500/15 text-amber-200 ring-amber-400/25",
@@ -52,7 +49,7 @@ function CardBody({ challenge }: { challenge: Challenge }) {
         <div className="flex flex-wrap items-center gap-2">
           <span
             className={cn(
-              "inline-flex items-center rounded-md px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ring-1 ring-inset",
+              "inline-flex items-center rounded-md px-2 py-0.5 text-[0.65rem] font-semibold tracking-wide uppercase ring-1 ring-inset",
               difficultyStyles[challenge.difficulty],
             )}
           >
@@ -72,7 +69,9 @@ function CardBody({ challenge }: { challenge: Challenge }) {
             <span className="block text-base font-semibold tracking-tight text-slate-100">
               {challenge.title}
             </span>
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{challenge.shortDescription}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
+              {challenge.shortDescription}
+            </p>
             <span className="mt-2 block truncate font-mono text-xs font-medium text-sky-400/95">
               /{challenge.slug}/
             </span>

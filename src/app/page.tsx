@@ -1,5 +1,5 @@
 import { ChallengeCard } from "@/components/ui/challenge-card";
-import { challenges } from "@/data/challenges";
+import { challenges } from "@/data/challenges-card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
