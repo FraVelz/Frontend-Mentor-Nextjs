@@ -2,11 +2,12 @@
  * Conversión del `index.html` del ZIP: mismo contenido, en JSX.
  * Componentes, estilos y datos extra van en esta carpeta (`src/features/{folder_name}/`).
  */
+
 export default function ResultsSummaryComponentPage() {
   return (
-    <>
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10 sm:px-6 sm:py-14">
-        <p>Your Result</p>
+    <div className="bg-[hsl(221, 100%, 96%)] flex min-h-screen w-screen flex-col">
+      <main className="mx-auto w-full max-w-[700px] bg-white px-4 py-10 sm:px-6 sm:py-14">
+        <p className="bg-red-500">Your Result</p>
         <p>76</p>
         <p>of 100</p>
         <p>Great</p>
@@ -22,12 +23,6 @@ export default function ResultsSummaryComponentPage() {
         <p>72 / 100</p>
         <p>Continue</p>
       </main>
-
-      <footer className="attribution text-[0.6875rem] text-center [&_a]:text-[hsl(228,45%,44%)]">
-        Challenge by{" "}
-        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by{" "}
-        <a href="#">Your Name Here</a>.
-      </footer>
-    </>
+    </div>
   );
 }

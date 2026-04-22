@@ -1,6 +1,6 @@
 # Frontend Mentor - Results summary component
 
-![Design preview for the Results summary component coding challenge](./preview.jpg)
+![Design preview for the Results summary component coding challenge](../docs/challenges/results-summary-component/preview.jpg)
 
 ## Welcome! 👋
 
@@ -30,7 +30,7 @@ Your users should be able to:
 
 ## Where to find everything
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+Your task is to build out the project to the designs inside [`docs/challenges/results-summary-component/design/`](../docs/challenges/results-summary-component/design/). You will find both a mobile and a desktop version of the design. 
 
 The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
 
@@ -40,7 +40,7 @@ All the required assets for this project are in the `/assets` folder. The images
 
 We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+There is also [`style-guide.md`](../docs/challenges/results-summary-component/style-guide.md) containing the information you'll need, such as color palette and fonts.
 
 ## Using AI coding assistants
 
@@ -76,11 +76,11 @@ You can host your site using one of these solutions or any of our other trusted 
 
 ## Create a custom `README.md`
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+We strongly recommend overwriting this `README.md` with a custom one. In this monorepo, the template lives at [`docs/challenges/results-summary-component/readme.md`](../docs/challenges/results-summary-component/readme.md) (equivalent to the ZIP’s `README-template.md`).
 
 The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+Once you've added your information to the template, replace this file with your version or link it from the repository root `README.md` as needed.
 
 ## Submitting your solution
 

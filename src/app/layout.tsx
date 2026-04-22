@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Outfit } from "next/font/google";
-import "./globals.css";
-
-import { Header } from "@/components/layout/Header";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -28,14 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${outfit.variable} ${jetbrainsMono.variable} h-full scroll-smooth antialiased`}
-    >
-      <body className="flex min-h-full flex-col font-sans selection:bg-sky-400 selection:text-slate-950">
-        <Header />
-        {children}
-      </body>
+    <html lang="es" className={`${outfit.variable} ${jetbrainsMono.variable} min-h-screen scroll-smooth antialiased`}>
+      <body>{children}</body>
     </html>
   );
 }

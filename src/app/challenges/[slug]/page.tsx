@@ -5,11 +5,11 @@ import { challengePages } from "./_utils/lazy-imports";
 import { challengeMetadata } from "./_utils/metadata";
 
 type PageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const { slug } = params;
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
   const meta = challengeMetadata[slug];
 
   if (!meta) {
@@ -20,7 +20,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 export default async function ChallengeBySlugPage({ params }: PageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const loadPage = challengePages[slug];
   if (!loadPage) {
