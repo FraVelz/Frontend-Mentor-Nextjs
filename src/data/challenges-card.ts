@@ -12,7 +12,7 @@ export interface Challenge {
   status: ChallengeStatus;
   /** Gradiente CSS para la vista previa cuando no hay imagen */
   previewGradient: string;
-  /** Ruta interna cuando el reto está implementado en la app, p. ej. /challenges/slug */
+  /** Ruta interna cuando el reto está implementado en la app, p. ej. /{slug} */
   implementationHref?: string;
 }
 
@@ -28,7 +28,7 @@ export const challenges: Challenge[] = [
     status: "en-progreso",
     previewGradient:
       "linear-gradient(135deg, hsl(252, 100%, 67%) 0%, hsl(241, 81%, 54%) 100%)",
-    implementationHref: "/challenges/results-summary-component",
+    implementationHref: "/results-summary-component",
   },
   {
     slug: "qr-code-component",

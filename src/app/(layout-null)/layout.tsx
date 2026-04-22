@@ -1,5 +1,3 @@
-import "./_utils/style.css";
-
 export default function Layout({
   children,
 }: Readonly<{

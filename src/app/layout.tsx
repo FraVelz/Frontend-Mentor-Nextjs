@@ -1,32 +1,21 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Outfit } from "next/font/google";
+import type { ReactNode } from "react";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+import "./global.css";
 
 export const metadata: Metadata = {
-  title: "Frontend Mentor — Retos (Next.js)",
-  description:
-    "Índice de retos Frontend Mentor en Next.js: dificultad, etiquetas y enlaces. Versión orientada a práctica profesional con App Router.",
+  title: "Fravelz · Frontend Mentor",
+  description: "Retos y soluciones Frontend Mentor: exploración por stack y demos con metadatos.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${outfit.variable} ${jetbrainsMono.variable} min-h-screen scroll-smooth antialiased`}>
-      <body>{children}</body>
+    <html lang="es">
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
