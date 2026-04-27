@@ -1,7 +1,10 @@
 # Opcional
 
-# ej. carpeta que dejaste en /
-folder_name: results-summary-component 
+# eg. the ZIP / challenge folder name (kebab-case)
+folder_name: ecommerce-product-page
+
+# Imágenes y SVG del reto: src/features/{folder_name}/images/ (import en JSX)
+# Fuentes u otros con URL fija: public/{folder_name}/ p. ej. fonts/
 
 # newbie | junior | intermediate | advanced | guru
-difficulty: newbie 
+difficulty: intermediate

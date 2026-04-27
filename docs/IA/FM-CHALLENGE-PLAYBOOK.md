@@ -69,7 +69,7 @@ difficulty: newbie # opcional; newbie | junior | intermediate | advanced | guru
 | `fmUrl` | Enlaces en el README o búsqueda; si falla, placeholder + aviso. |
 | `status` | `en-progreso` al organizar; `listo` solo si el usuario lo dice. |
 | `previewGradient` | `docs/challenges/{folder_name}/style-guide.md` (si existe) o neutro. |
-| `has_data_json` | Existe `/{folder_name}/data.json`. |
+| `has_data_json` | Existe `data.json` (o equivalente) en el ZIP; en el repo puede vivir como `data.json` o `data.ts` bajo el feature. |
 | `primary_font_note` | `docs/challenges/.../style-guide.md` / `/{folder_name}/assets/fonts/`. |
 
 Antes de escribir en [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts), **mostrar** el bloque inferido al usuario.
@@ -92,16 +92,16 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 
 | Parte del HTML | Dónde va en Next |
 | --- | --- |
-| `<title>`, `favicon`, descripción | Objeto por slug en [`_utils/metadata.ts`](../../src/app/challenges/[slug]/_utils/metadata.ts) (`challengeMetadata`); en [`page.tsx`](../../src/app/challenges/[slug]/page.tsx), `generateMetadata` lee ese mapa por `slug`. |
+| `<title>`, `favicon`, descripción | Objeto por slug en [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) (`challengeMetadata`); en [`page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx), `generateMetadata` lee ese mapa por `slug`. Favicon: **importar** el PNG desde `src/features/{folder_name}/images/` (misma carpeta que el resto de assets del reto) y usar p. ej. `icon: favicon.src` en `icons`. |
 | Contenido de `<body>` (estructura y texto) | **`src/features/{folder_name}/page.tsx`** — export default del “screen” del reto. |
-| Estilos globales del reto | Preferir colocal: `*.module.css`, Tailwind en el mismo árbol, o tokens bajo `src/features/{folder_name}/`. Evita ensuciar [`src/app/globals.css`](../../src/app/globals.css) salvo petición. |
-| `<img src="./assets/...">` | Archivos en **`public/{folder_name}/...`** y rutas absolutas `/folder_name/...` en JSX. |
+| Estilos globales del reto | Preferir colocal: `*.module.css`, Tailwind en el mismo árbol, o tokens bajo `src/features/{folder_name}/`. Evita ensuciar [`src/app/global.css`](../../src/app/global.css) salvo petición. |
+| `<img src="./assets/...">` (fotos, ilustraciones, **SVG**) | Colocar archivos en **`src/features/{folder_name}/images/`** y referenciarlos con **`import`** en el componente (ruta publicada por el bundler). **No** volcar imágenes ni SVG de la UI en `public/`. (Fuentes u otros recursos que deban servirse con URL fija: `public/{folder_name}/` — p. ej. `fonts/`.) |
 
-**Registro del slug:** la URL es `/challenges/{slug}` con `slug === folder_name`.
+**Registro del slug (este monorepo):** la URL pública es `/{slug}` con `slug === folder_name` (ruta dinámica en [`(layout-null)/[slug]`](../../src/app/(layout-null)/[slug]/page.tsx)).
 
-1. Añade una entrada en [`_utils/lazy-imports.ts`](../../src/app/challenges/[slug]/_utils/lazy-imports.ts): `challengePages[slug] = () => import("@/features/{folder_name}/page")` (import dinámico; un reto = un chunk).
-2. Añade la misma clave en [`_utils/metadata.ts`](../../src/app/challenges/[slug]/_utils/metadata.ts) dentro de `challengeMetadata` (título, `icons` con favicon bajo `/folder_name/...`, `description` si aplica).
-3. [`page.tsx`](../../src/app/challenges/[slug]/page.tsx) del segmento **no** debe acumular mapas: solo llama a los helpers / importa los registros y hace `notFound()` si el slug no existe.
+1. Añade una entrada en [`_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts): `challengePages[slug] = () => import("@/features/{folder_name}/page")` (import dinámico; un reto = un chunk).
+2. Añade la misma clave en [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) dentro de `challengeMetadata` (título, `icons` con favicon importado desde `@/features/{folder_name}/images/...`, `description` si aplica).
+3. [`page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx) del segmento **no** debe acumular mapas: solo llama a los helpers / importa los registros y hace `notFound()` si el slug no existe.
 
 ---
 
@@ -109,14 +109,15 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 
 | Rol | Ubicación |
 | --- | --- |
-| **Referencia** | `/{folder_name}/` en la raíz (ZIP descomprimido; **no** es código de la app). |
+| **Referencia (ZIP original)** | Al descargar: `/{folder_name}/` en la raíz. **Tras la fase A,** ver [§7](#7-git-y-la-carpeta-del-zip): mover a `backups/{folder_name}/` (recomendado; **no** es código de la app). |
 | **Docs del reto (plantilla, guía, previews, JPGs)** | `docs/challenges/{folder_name}/` — `readme.md` (ex-`README-template.md`), `style-guide.md`, `preview.jpg`, `design/`. |
-| **Assets estáticos** | `public/{folder_name}/` ← copia de `/{folder_name}/assets/` (imágenes, fuentes servidas por URL, etc.). |
-| **JSON / datos** | `src/features/{folder_name}/data.json` (o `.ts`) si existe en el ZIP; rutas públicas de iconos → `/{folder_name}/...`. |
+| **Imágenes y SVG (UI del reto)** | **`src/features/{folder_name}/images/`** — copia desde `/{folder_name}/assets/` (o equivalente). Uso: `import` en componentes. |
+| **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` solo para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes/SVG de la maquetación del reto. |
+| **JSON / datos** | `src/features/{folder_name}/data.json` o **`data.ts`** si conviene: para iconos/rutas a assets, preferir **imports** desde `./images/...` en TypeScript (evita depender de `public/`). |
 | **Código UI del reto** | `src/features/{folder_name}/` — componentes, hooks, estilos, `page.tsx`. |
-| **Imports dinámicos por slug** | [`src/app/challenges/[slug]/_utils/lazy-imports.ts`](../../src/app/challenges/[slug]/_utils/lazy-imports.ts) — mapa `challengePages`. |
-| **Metadatos por slug** | [`src/app/challenges/[slug]/_utils/metadata.ts`](../../src/app/challenges/[slug]/_utils/metadata.ts) — mapa `challengeMetadata` (lo consume `generateMetadata` en `page.tsx`). |
-| **Orquestación de la ruta** | [`src/app/challenges/[slug]/page.tsx`](../../src/app/challenges/[slug]/page.tsx) — `generateMetadata` + `default` que hace `await challengePages[slug]()` y renderiza el `default` del feature. |
+| **Imports dinámicos por slug** | [`src/app/(layout-null)/[slug]/_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts) — mapa `challengePages`. |
+| **Metadatos por slug** | [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) — mapa `challengeMetadata` (lo consume `generateMetadata` en `page.tsx`). |
+| **Orquestación de la ruta** | [`src/app/(layout-null)/[slug]/page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx) — `generateMetadata` + `default` que hace `await challengePages[slug]()` y renderiza el `default` del feature. |
 
 ### Fuentes
 
@@ -126,8 +127,8 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 
 ## 4. Extensión del código compartido (índice y tarjetas)
 
-1. **`Challenge.implementationHref?`** — Rellenar cuando exista una página en `/challenges/{slug}` (aunque sea **solo un stub** de organización).
-2. **`ChallengeCard`** — Con `implementationHref`, enlace principal interno + enlace secundario a `fmUrl` ([`src/components/challenge-card.tsx`](../../src/components/challenge-card.tsx)).
+1. **`Challenge.implementationHref?`** — Rellenar cuando exista una página en `/{slug}` (aunque sea **solo un stub** de organización).
+2. **`ChallengeCard`** — Con `implementationHref`, enlace principal a la ruta interna ([`src/components/ui/challenge-card.tsx`](../../src/components/ui/challenge-card.tsx)).
 3. **Página dinámica** — `slug` validado contra `challengePages`; el UI sale del default export de `src/features/{folder_name}/page.tsx`.
 
 ---
@@ -142,15 +143,16 @@ El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 2. **Documentación en `docs/challenges/{folder_name}/`:** si vienen en el ZIP, mover (o copiar y eliminar duplicados) `README-template.md` renombrado a **`readme.md`**, más **`style-guide.md`**, **`preview.jpg`** y la carpeta **`design/`**. Ajustar enlaces en `/{folder_name}/README.md` para que sigan siendo válidos.
 3. Inferir metadatos (§1.2) y **mostrarlos** al usuario.
 4. Revisar `docs/challenges/{folder_name}/style-guide.md` y el README del ZIP (`/{folder_name}/README.md`) para **resumir** requisitos (responsive, datos, bonus) en el mensaje; **no** implementarlos aún.
-5. Crear `public/{folder_name}/` y copiar assets necesarios desde el ZIP; indicar omisiones.
-6. Si hay `data.json` en el ZIP: copiar a `src/features/{folder_name}/data.json` y **ajustar rutas** de assets a `/{folder_name}/...` si hace falta.
+5. Crear **`src/features/{folder_name}/images/`** y copiar **imágenes y SVG** del ZIP; **no** poner esos archivos en `public/`. Si hace falta, crear **`public/{folder_name}/fonts/`** (u otra subcarpeta) solo para fuentes u otros recursos con URL fija; indicar omisiones.
+6. Si hay `data.json` en el ZIP: copiar a `src/features/{folder_name}/` y, si los datos apuntan a iconos, convertir a **`data.ts`** con `import` desde `./images/...` (o ajustar referencias) para no depender de `public/`.
 7. **Opcional:** esqueleto `fonts.ts` (o comentario en README del folder del reto) si hay fuentes locales; no hace falta usarlos en UI todavía.
-8. **Página del reto:** crear `src/features/{folder_name}/page.tsx` a partir de `index.html` (§2): mismo contenido en JSX; puede ser un **stub** con enlaces de referencia (ZIP, `docs/challenges/{folder_name}/design/`, `style-guide.md` allí, datos, `public/{folder_name}/`) **sin** sustituir la maquetación final.
-9. **Registro App Router:** en [`_utils/lazy-imports.ts`](../../src/app/challenges/[slug]/_utils/lazy-imports.ts) añadir el loader del nuevo slug; en [`_utils/metadata.ts`](../../src/app/challenges/[slug]/_utils/metadata.ts) añadir `title` / `icons` / `description` coherentes con el HTML de referencia. No duplicar mapas en [`page.tsx`](../../src/app/challenges/[slug]/page.tsx). Comprobar `notFound()` para slugs no registrados (ya cubierto si solo se usan esos registros).
-10. Actualizar [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts) con `implementationHref: "/challenges/{slug}"` (`slug` = `folder_name`).
+8. **Página del reto:** crear `src/features/{folder_name}/page.tsx` a partir de `index.html` (§2): mismo contenido en JSX; puede ser un **stub** con enlaces de referencia (ZIP, `docs/challenges/{folder_name}/design/`, `style-guide.md` allí, datos, `src/features/{folder_name}/images/`, `public/{folder_name}/` solo si aplica p. ej. fuentes) **sin** sustituir la maquetación final.
+9. **Registro App Router:** en [`_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts) añadir el loader del nuevo slug; en [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) añadir `title` / `icons` / `description` coherentes con el HTML de referencia. No duplicar mapas en [`page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx). Comprobar `notFound()` para slugs no registrados (ya cubierto si solo se usan esos registros).
+10. Actualizar [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts) con `implementationHref: "/{slug}"` (`slug` = `folder_name`, misma ruta pública).
 11. Comprobar tipo `Challenge` y `ChallengeCard` (§4).
+12. **Carpeta del ZIP (recomendado en este monorepo):** mover `/{folder_name}/` a **`backups/{folder_name}/`** para dejar la raíz limpia. Ver [§7](#7-git-y-la-carpeta-del-zip). Si el asistente no puede (permisos, carpeta ya movida, etc.), indicarlo al usuario.
 
-**Fin de la fase A.** El usuario abre `/challenges/{slug}` y ve el stub o la conversión mínima del HTML; desde ahí implementa en `src/features/{folder_name}/`.
+**Fin de la fase A.** El usuario abre `/{slug}` y ve el stub o la conversión mínima del HTML; desde ahí implementa en `src/features/{folder_name}/`.
 
 ### Fase B — Implementación del diseño (solo si el usuario lo pide)
 
@@ -160,7 +162,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `doc
 
 ## 6. Qué no hacer (anti-mezcla)
 
-- No volcar assets en `public/` sin subcarpeta **`{folder_name}/`** (un reto = un prefijo de URL claro).
+- No colocar **imágenes ni SVG** del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`), nunca la galería de imágenes del feature mezclada sin convención.
 - No mezclar código de dos retos en la misma carpeta bajo `src/features/`.
 - No meter UI del reto ni componentes del feature dentro de `_utils/`; ahí solo registro de imports y metadatos (o helpers mínimos de eso).
 - No reemplazar [`src/app/page.tsx`](../../src/app/page.tsx) con el HTML del ZIP.
@@ -170,26 +172,37 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `doc
 
 ## 7. Git y la carpeta del ZIP
 
-Versionar `/{folder_name}/` conviene para diseños y guías offline. `.gitignore` puntual solo si hace falta.
+En este repositorio, **`backups/`** está en [`.gitignore`](../../.gitignore): no se sube a Git. Sirve para **guardar en local** la carpeta del ZIP **después** de completar la fase A, sin dejar un duplicado en la raíz.
+
+**Recomendación:** cuando ya estén copiados `docs/challenges/{folder_name}/`, `src/features/{folder_name}/images/`, y —solo si aplica— `public/{folder_name}/` (p. ej. fuentes) junto con el código bajo `src/features/{folder_name}/`:
+
+```bash
+mkdir -p backups
+mv "{folder_name}" "backups/{folder_name}"
+```
+
+- **Así** la referencia “oficial” en el repo es `docs/challenges/…` + imágenes/SVG bajo el feature (versionables) + `public/{folder_name}/` solo si hay fuentes u otros no gráficos, y tú sigues pudiendo abrir el ZIP completo bajo `backups/…` sin ensuciar la raíz.
+- Si quieres **versionar** el directorio del ZIP en Git, deja `/{folder_name}/` en la raíz (o quita `backups/` del `.gitignore` solo si tu equipo acuerda otra política; puede subir el tamaño del repo).
 
 ---
 
 ## 8. Flujo rápido para el humano
 
 1. Descargar el ZIP y colocar la carpeta en la raíz del repo.
-2. Rellenar [`note.yaml`](note.yaml) o escribir `folder_name` (y `difficulty`) en el chat.
+2. Rellenar [`note.yaml`](note.yaml) o escribir `folder_name` (y `difficulty`) en el chat (el YAML incluye el recordatorio: gráficos en `src/features/{folder_name}/images/`, `public/{folder_name}/` solo p. ej. para fuentes).
 3. Pedir **«organiza este reto con el playbook»** (fase A).
-4. Abrir `/challenges/{slug}` y `src/features/{folder_name}/` y **implementar tú** el diseño (o pedir fase B).
-5. Cuando quieras ayuda puntual (flex, JSON, fuentes), pregunta en mensajes aparte.
+4. **Mover** la carpeta del ZIP a `backups/{folder_name}/` (o pedir al asistente que lo haga) una vez hechos los copiados; ver [§7](#7-git-y-la-carpeta-del-zip).
+5. Abrir `/{slug}` y `src/features/{folder_name}/` y **implementar tú** el diseño (o pedir fase B).
+6. Cuando quieras ayuda puntual (flex, JSON, fuentes), pregunta en mensajes aparte.
 
 ---
 
 ## Referencias en el repo
 
 - [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts)
-- [`src/components/challenge-card.tsx`](../../src/components/challenge-card.tsx)
-- [`src/app/challenges/[slug]/page.tsx`](../../src/app/challenges/[slug]/page.tsx)
-- [`src/app/challenges/[slug]/_utils/lazy-imports.ts`](../../src/app/challenges/[slug]/_utils/lazy-imports.ts)
-- [`src/app/challenges/[slug]/_utils/metadata.ts`](../../src/app/challenges/[slug]/_utils/metadata.ts)
+- [`src/components/ui/challenge-card.tsx`](../../src/components/ui/challenge-card.tsx)
+- [`src/app/(layout-null)/[slug]/page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx)
+- [`src/app/(layout-null)/[slug]/_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts)
+- [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts)
 - [`src/app/layout.tsx`](../../src/app/layout.tsx)
 - [`README.md`](../../README.md)
