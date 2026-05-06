@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+import ecommerceFavicon from "@/features/ecommerce-product-page/images/favicon-32x32.png";
+import resultsSummaryFavicon from "@/features/results-summary-component/images/favicon-32x32.png";
+
 export const challengeMetadata: Record<
   string,
   Pick<Metadata, "title" | "description" | "icons">
@@ -9,7 +12,15 @@ export const challengeMetadata: Record<
     description:
       "Results summary component: layout responsive, estados hover/focus y datos opcionales desde JSON.",
     icons: {
-      icon: "/results-summary-component/images/favicon-32x32.png",
+      icon: resultsSummaryFavicon.src,
+    },
+  },
+  "ecommerce-product-page": {
+    title: "Frontend Mentor | E-commerce product page",
+    description:
+      "Página de producto e-commerce: galería, lightbox, carrito y layout responsive (stub de organización).",
+    icons: {
+      icon: ecommerceFavicon.src,
     },
   },
 };

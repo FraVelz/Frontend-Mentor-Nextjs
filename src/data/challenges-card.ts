@@ -19,6 +19,31 @@ export interface Challenge {
 /** Datos de muestra: sustituye o amplía cuando añadas rutas reales en la app. */
 export const challenges: Challenge[] = [
   {
+    slug: "ecommerce-product-page",
+    title: "E-commerce product page",
+    shortDescription:
+      "Página de producto con galería/lightbox, selector de cantidad, carrito y menú mobile; mobile y desktop 1440px.",
+    difficulty: "intermediate",
+    tags: ["HTML", "CSS","JS", "TailwindCSS", "React", "Next"],
+    status: "en-progreso",
+    previewGradient:
+      "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
+    implementationHref: "/ecommerce-product-page",
+  },
+  
+
+];
+
+export const difficultyLabels: Record<Difficulty, string> = {
+  newbie: "Newbie",
+  junior: "Junior",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
+  guru: "Guru",
+};
+
+/*
+{
     slug: "results-summary-component",
     title: "Results summary component",
     shortDescription:
@@ -48,18 +73,6 @@ export const challenges: Challenge[] = [
     status: "ejemplo",
     previewGradient: "linear-gradient(135deg, #14532d 0%, #022c22 45%, #134e4a 100%)",
   },
-
-];
-
-export const difficultyLabels: Record<Difficulty, string> = {
-  newbie: "Newbie",
-  junior: "Junior",
-  intermediate: "Intermediate",
-  advanced: "Advanced",
-  guru: "Guru",
-};
-
-/*
   {
     slug: "social-links-profile",
     title: "Social links profile",
