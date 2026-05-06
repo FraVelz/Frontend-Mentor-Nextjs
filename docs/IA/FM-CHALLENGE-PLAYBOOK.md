@@ -68,15 +68,15 @@ difficulty: newbie # opcional; newbie | junior | intermediate | advanced | guru
 | `tags` | Stack y foco del enunciado. |
 | `fmUrl` | Enlaces en el README o búsqueda; si falla, placeholder + aviso. |
 | `status` | `en-progreso` al organizar; `listo` solo si el usuario lo dice. |
-| `previewGradient` | `docs/challenges/{folder_name}/style-guide.md` (si existe) o neutro. |
+| `previewGradient` | `src/features/{folder_name}/docs/style-guide.md` (si existe) o neutro. |
 | `has_data_json` | Existe `data.json` (o equivalente) en el ZIP; en el repo puede vivir como `data.json` o `data.ts` bajo el feature. |
-| `primary_font_note` | `docs/challenges/.../style-guide.md` / `/{folder_name}/assets/fonts/`. |
+| `primary_font_note` | `src/features/.../docs/style-guide.md` / `/{folder_name}/assets/fonts/`. |
 
 Antes de escribir en [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts), **mostrar** el bloque inferido al usuario.
 
 ### 1.3 Estructura esperada de la carpeta del ZIP
 
-Suele parecerse a [`results-summary-component/`](../../results-summary-component/): `README.md`, `assets/`, a veces `data.json`, **`index.html`**, `AGENTS.md`, `CLAUDE.md`. Al organizar el reto en este repo, **`README-template.md` → `docs/challenges/{folder_name}/readme.md`**, y en la misma carpeta de docs van **`style-guide.md`**, **`preview.jpg`** y **`design/`** (JPGs de referencia), para no mezclarlos con código ni con `public/`.
+Suele parecerse a [`results-summary-component/`](../../results-summary-component/): `README.md`, `assets/`, a veces `data.json`, **`index.html`**, `AGENTS.md`, `CLAUDE.md`. Al organizar el reto en este repo, **`README-template.md` → `src/features/{folder_name}/readme.md`**, y el material de referencia FM (**`style-guide.md`**, **`preview.jpg`**, **`design/`**) va en **`src/features/{folder_name}/docs/`**, para no mezclarlo con código (`page.tsx`, componentes) ni con `public/`.
 
 ### 1.4 Campos en TypeScript (`Challenge`)
 
@@ -110,7 +110,7 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 | Rol | Ubicación |
 | --- | --- |
 | **Referencia (ZIP original)** | Al descargar: `/{folder_name}/` en la raíz. **Tras la fase A,** ver [§7](#7-git-y-la-carpeta-del-zip): mover a `backups/{folder_name}/` (recomendado; **no** es código de la app). |
-| **Docs del reto (plantilla, guía, previews, JPGs)** | `docs/challenges/{folder_name}/` — `readme.md` (ex-`README-template.md`), `style-guide.md`, `preview.jpg`, `design/`. |
+| **Docs del reto (plantilla, guía, previews, JPGs)** | **`src/features/{folder_name}/readme.md`** (ex-`README-template.md`) y **`src/features/{folder_name}/docs/`** — `style-guide.md`, `preview.jpg`, `design/`. |
 | **Imágenes y SVG (UI del reto)** | **`src/features/{folder_name}/images/`** — copia desde `/{folder_name}/assets/` (o equivalente). Uso: `import` en componentes. |
 | **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` solo para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes/SVG de la maquetación del reto. |
 | **JSON / datos** | `src/features/{folder_name}/data.json` o **`data.ts`** si conviene: para iconos/rutas a assets, preferir **imports** desde `./images/...` en TypeScript (evita depender de `public/`). |
@@ -140,13 +140,13 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
 1. Comprobar `/{folder_name}/` en la raíz (§1.3). Leer [`note.yaml`](note.yaml) si existe.
-2. **Documentación en `docs/challenges/{folder_name}/`:** si vienen en el ZIP, mover (o copiar y eliminar duplicados) `README-template.md` renombrado a **`readme.md`**, más **`style-guide.md`**, **`preview.jpg`** y la carpeta **`design/`**. Ajustar enlaces en `/{folder_name}/README.md` para que sigan siendo válidos.
+2. **Documentación en el feature:** si vienen en el ZIP, mover (o copiar y eliminar duplicados) `README-template.md` como **`src/features/{folder_name}/readme.md`**, y **`style-guide.md`**, **`preview.jpg`** y la carpeta **`design/`** bajo **`src/features/{folder_name}/docs/`**. Ajustar enlaces en `/{folder_name}/README.md` (ZIP) y en `readme.md` del feature (`./docs/...`) para que sigan siendo válidos.
 3. Inferir metadatos (§1.2) y **mostrarlos** al usuario.
-4. Revisar `docs/challenges/{folder_name}/style-guide.md` y el README del ZIP (`/{folder_name}/README.md`) para **resumir** requisitos (responsive, datos, bonus) en el mensaje; **no** implementarlos aún.
+4. Revisar `src/features/{folder_name}/docs/style-guide.md` y el README del ZIP (`/{folder_name}/README.md`) para **resumir** requisitos (responsive, datos, bonus) en el mensaje; **no** implementarlos aún.
 5. Crear **`src/features/{folder_name}/images/`** y copiar **imágenes y SVG** del ZIP; **no** poner esos archivos en `public/`. Si hace falta, crear **`public/{folder_name}/fonts/`** (u otra subcarpeta) solo para fuentes u otros recursos con URL fija; indicar omisiones.
 6. Si hay `data.json` en el ZIP: copiar a `src/features/{folder_name}/` y, si los datos apuntan a iconos, convertir a **`data.ts`** con `import` desde `./images/...` (o ajustar referencias) para no depender de `public/`.
 7. **Opcional:** esqueleto `fonts.ts` (o comentario en README del folder del reto) si hay fuentes locales; no hace falta usarlos en UI todavía.
-8. **Página del reto:** crear `src/features/{folder_name}/page.tsx` a partir de `index.html` (§2): mismo contenido en JSX; puede ser un **stub** con enlaces de referencia (ZIP, `docs/challenges/{folder_name}/design/`, `style-guide.md` allí, datos, `src/features/{folder_name}/images/`, `public/{folder_name}/` solo si aplica p. ej. fuentes) **sin** sustituir la maquetación final.
+8. **Página del reto:** crear `src/features/{folder_name}/page.tsx` a partir de `index.html` (§2): mismo contenido en JSX; puede ser un **stub** con enlaces de referencia (ZIP, `src/features/{folder_name}/docs/design/`, `src/features/{folder_name}/docs/style-guide.md`, datos, `src/features/{folder_name}/images/`, `public/{folder_name}/` solo si aplica p. ej. fuentes) **sin** sustituir la maquetación final.
 9. **Registro App Router:** en [`_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts) añadir el loader del nuevo slug; en [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) añadir `title` / `icons` / `description` coherentes con el HTML de referencia. No duplicar mapas en [`page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx). Comprobar `notFound()` para slugs no registrados (ya cubierto si solo se usan esos registros).
 10. Actualizar [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts) con `implementationHref: "/{slug}"` (`slug` = `folder_name`, misma ruta pública).
 11. Comprobar tipo `Challenge` y `ChallengeCard` (§4).
@@ -156,7 +156,7 @@ El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
 ### Fase B — Implementación del diseño (solo si el usuario lo pide)
 
-Solo entonces el asistente puede maquetar y completar el reto según JPG en `docs/challenges/{folder_name}/design/` y `docs/challenges/{folder_name}/style-guide.md` (componentes, estilos, accesibilidad, datos dinámicos, etc.).
+Solo entonces el asistente puede maquetar y completar el reto según JPG en `src/features/{folder_name}/docs/design/` y `src/features/{folder_name}/docs/style-guide.md` (componentes, estilos, accesibilidad, datos dinámicos, etc.).
 
 ---
 
@@ -174,14 +174,14 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `doc
 
 En este repositorio, **`backups/`** está en [`.gitignore`](../../.gitignore): no se sube a Git. Sirve para **guardar en local** la carpeta del ZIP **después** de completar la fase A, sin dejar un duplicado en la raíz.
 
-**Recomendación:** cuando ya estén copiados `docs/challenges/{folder_name}/`, `src/features/{folder_name}/images/`, y —solo si aplica— `public/{folder_name}/` (p. ej. fuentes) junto con el código bajo `src/features/{folder_name}/`:
+**Recomendación:** cuando ya estén copiados `src/features/{folder_name}/readme.md`, `src/features/{folder_name}/docs/`, `src/features/{folder_name}/images/`, y —solo si aplica— `public/{folder_name}/` (p. ej. fuentes) junto con el código bajo `src/features/{folder_name}/`:
 
 ```bash
 mkdir -p backups
 mv "{folder_name}" "backups/{folder_name}"
 ```
 
-- **Así** la referencia “oficial” en el repo es `docs/challenges/…` + imágenes/SVG bajo el feature (versionables) + `public/{folder_name}/` solo si hay fuentes u otros no gráficos, y tú sigues pudiendo abrir el ZIP completo bajo `backups/…` sin ensuciar la raíz.
+- **Así** la referencia “oficial” en el repo es la documentación junto al feature (`readme.md` + `docs/`) + imágenes/SVG de la UI bajo `src/features/{folder_name}/images/` (versionables) + `public/{folder_name}/` solo si hay fuentes u otros no gráficos, y tú sigues pudiendo abrir el ZIP completo bajo `backups/…` sin ensuciar la raíz.
 - Si quieres **versionar** el directorio del ZIP en Git, deja `/{folder_name}/` en la raíz (o quita `backups/` del `.gitignore` solo si tu equipo acuerda otra política; puede subir el tamaño del repo).
 
 ---

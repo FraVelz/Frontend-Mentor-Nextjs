@@ -10,16 +10,16 @@ Cuando el reto está **listo** (diseño implementado, datos en su sitio, ruta p�
 
 ---
 
-## 1. Actualizar la documentación del reto en `docs/`
+## 1. Actualizar la documentación del reto en el feature
 
-Carpeta del reto: `docs/challenges/{folder_name}/` (mismo `folder_name` kebab-case que en `src/features/{folder_name}/`).
+Carpeta del reto: `src/features/{folder_name}/` (mismo `folder_name` kebab-case que el slug). Ahí van **`readme.md`** en la raíz del feature y el material de referencia bajo **`docs/`**.
 
-| Comprobar / actualizar | Notas |
-| --- | --- |
-| `readme.md` | Alineado con el enunciado FM; enlace a la solución en vivo si aplica. |
-| `style-guide.md` | Colores, tipografías y tokens si el diseño final difiere del stub. |
-| `preview.jpg` | Sustituir o regenerar si quieres que el preview del challenge refleje la solución. |
-| `design/` | Los JPG de referencia del ZIP; añade los que faltaron en fase A si hace falta. |
+| Comprobar / actualizar | Ubicación | Notas |
+| --- | --- | --- |
+| `readme.md` | `src/features/{folder_name}/readme.md` | Alineado con el enunciado FM; enlace a la solución en vivo si aplica. |
+| `style-guide.md` | `src/features/{folder_name}/docs/style-guide.md` | Colores, tipografías y tokens si el diseño final difiere del stub. |
+| `preview.jpg` | `src/features/{folder_name}/docs/preview.jpg` | Sustituir o regenerar si quieres que el preview del challenge refleje la solución. |
+| `design/` | `src/features/{folder_name}/docs/design/` | Los JPG de referencia del ZIP; añade los que faltaron en fase A si hace falta. |
 
 Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `src/features/{folder_name}/images/` (ver playbook §6).
 
@@ -41,20 +41,20 @@ Si aún tenías la carpeta del ZIP en la raíz, tras la fase A debería estar en
 ## 4. Commit con estilo del repositorio (Conventional Commits + push)
 
 1. Revisa cambios: `git status` y, si aplica, `git diff`.
-2. Añade solo lo del cierre: `git add` archivos puntuales o `git add` por carpetas (`docs/challenges/...`, `src/features/...`, `src/data/challenges-card.ts`, etc.).
+2. Añade solo lo del cierre: `git add` archivos puntuales o `git add` por carpetas (`src/features/{folder_name}/readme.md`, `src/features/{folder_name}/docs/`, `src/data/challenges-card.ts`, etc.).
 
 **Mensaje de commit** (un solo bloque o varios `tipo: descripción` en la misma línea, como en el log del repo):
 
 - Prefijos habituales: `feat:` (funcionalidad o reto), `docs:` (solo documentación), `fix:`, `refactor:`, `chore:`.
 - Ejemplos alineados con el historial local:
   - `feat: complete {folder_name} challenge`
-  - `docs: update docs/challenges/{folder_name} for completed solution`
+  - `docs: update src/features/{folder_name} docs for completed solution`
   - `feat: complete {folder_name} docs: refresh preview and style-guide` (un solo commit con varias frases, estilo visto en commits recientes)
 
 3. Sube al remoto:
 
 ```bash
-git commit -m "feat: complete {folder_name} challenge docs: update docs/challenges/{folder_name}"
+git commit -m "feat: complete {folder_name} challenge docs: update src/features/{folder_name}"
 git push
 ```
 
@@ -64,7 +64,7 @@ Sustituye `{folder_name}` y ajusta el mensaje a lo que realmente cambiaste. Si u
 
 ## 5. Resumen rápido
 
-1. `docs/challenges/{folder_name}/` coherente con la solución.
+1. `src/features/{folder_name}/readme.md` y `src/features/{folder_name}/docs/` coherentes con la solución.
 2. `challenges-card.ts` con `status: "listo"` (y metadatos correctos).
 3. Commit con prefijos `feat:` / `docs:` / etc., como en el resto del proyecto.
 4. `git push` al remoto.

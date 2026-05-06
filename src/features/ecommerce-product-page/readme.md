@@ -15,7 +15,7 @@ El usuario puede:
 
 ## Vista previa
 
-![Vista previa de la solución](./preview.jpg)
+![Vista previa de la solución](./docs/preview.jpg)
 
 ## Enlaces
 
@@ -28,4 +28,4 @@ El usuario puede:
 - Estilos con **Tailwind CSS**; tipografía **Kumbh Sans** vía `next/font`.
 - Estado del carrito con contexto React; lightbox y modal de carrito como capas sobre la página.
 
-Detalle visual (colores, tipografía): [style-guide.md](./style-guide.md).
+Detalle visual (colores, tipografía): [style-guide.md](./docs/style-guide.md).
