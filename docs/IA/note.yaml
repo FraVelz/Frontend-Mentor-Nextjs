@@ -1,12 +1,12 @@
 # Opcional
 
 # eg. the ZIP / challenge folder name (kebab-case)
-folder_name: ecommerce-product-page
+folder_name: bmi-calculator
 
 # Documentación del reto junto al código: src/features/{folder_name}/readme.md y src/features/{folder_name}/docs/
 # Imágenes y SVG del reto: src/features/{folder_name}/images/ (import en JSX)
 # Fuentes u otros con URL fija: public/{folder_name}/ p. ej. fonts/
-# OG/Twitter screenshot public/{slug}/screenshot.png: NEXT_PUBLIC_SITE_URL en prod (src/lib/og-image-url.ts)
+# OG/Twitter screenshot public/{slug}/screenshot.png: NEXT_PUBLIC_SITE_URL en prod (ver src/lib/og-image-url.ts)
 
 # newbie | junior | intermediate | advanced | guru
-difficulty: intermediate
+difficulty: junior
