@@ -33,7 +33,7 @@ Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `s
 | --- | --- |
 | Colocar o actualizar la captura | Exporta un PNG (p. ej. viewport desktop) de la solución y guárdalo con ese nombre. Si la captura está **en la raíz del repo** o con nombre tipo `{folder_name}-screenshot.png`, **mueve o renómbrala** a `public/{folder_name}/screenshot.png` para que coincida la convención. |
 | [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts) | Añade `screenshotSrc: "/{folder_name}/screenshot.png"` en la entrada del reto para que el **ChallengeCard** muestre la imagen (si omites el campo, se usa solo el gradiente). |
-| [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) | Para Open Graph / Twitter (`summary_large_image`), añade en la entrada del slug las propiedades `openGraph.images` y `twitter.images` apuntando a `"/{folder_name}/screenshot.png"` (siguiendo el ejemplo de `ecommerce-product-page`). El [`metadataBase`](../../src/app/layout.tsx) usa `NEXT_PUBLIC_SITE_URL` para resolver URLs absolutas en redes sociales. |
+| [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) | Open Graph / Twitter: usa URLs **absolutas** para las imágenes (ver [`ogImageAbsoluteUrl`](../../src/lib/og-image-url.ts)). Con **`NEXT_PUBLIC_SITE_URL`** las capturas salen desde tu dominio; sin variable, fallback **`raw.githubusercontent.com`**, no enlaces tipo `github.com/.../blob/main/...?raw=true` (los crawlers sociales fallan). Opcional: `NEXT_PUBLIC_OG_FALLBACK_RAW_BASE` apuntando a `https://raw.githubusercontent.com/Usuario/repo/RAMA/public`. [`metadataBase`](../../src/app/layout.tsx) debe ser tu URL pública cuando despliegues. |
 
 **Enlaces en la tarjeta** (mismos campos en `challenges-card.ts`):
 
@@ -42,7 +42,7 @@ Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `s
 - **`livePreviewUrl`**: URL del deploy (Vercel, etc.). Si se omite y existe `NEXT_PUBLIC_SITE_URL`, se usa automáticamente **`SITE_URL` + `implementationHref`**. Si tampoco hay variable, «Vista previa en vivo» apunta a la **ruta interna** del proyecto en esta app.
 - **`sourceCodeUrl`**: URL al código en GitHub; por defecto se usa `…/tree/main/src/features/{folder_name}` (ver [`src/lib/challenge-external-urls.ts`](../../src/lib/challenge-external-urls.ts)).
 
-Variable opcional en `.env` local o en el proveedor de hosting: `NEXT_PUBLIC_SITE_URL=https://tudominio.com` (sin barra final).
+Variable opcional en `.env` local o en el proveedor de hosting: `NEXT_PUBLIC_SITE_URL=https://tudominio.com` (sin barra final). Sin ella, las imágenes OG del código usan el **raw de GitHub** bajo `public/` para que previews en redes no apunten a `localhost`.
 
 ---
 

@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 
 import ecommerceFavicon from "@/features/ecommerce-product-page/images/favicon-32x32.png";
 import resultsSummaryFavicon from "@/features/results-summary-component/images/favicon-32x32.png";
+import { ogImageAbsoluteUrl } from "@/lib/og-image-url";
+
+const ecommerceOgImageUrl = ogImageAbsoluteUrl("/ecommerce-product-page/screenshot.png");
 
 export const challengeMetadata: Record<string, Metadata> = {
   "results-summary-component": {
@@ -25,7 +28,7 @@ export const challengeMetadata: Record<string, Metadata> = {
         "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
       images: [
         {
-          url: "/ecommerce-product-page/screenshot.png",
+          url: ecommerceOgImageUrl,
           width: 1200,
           height: 800,
           alt: "Captura de la solución E-commerce product page",
@@ -37,7 +40,7 @@ export const challengeMetadata: Record<string, Metadata> = {
       title: "Frontend Mentor | E-commerce product page",
       description:
         "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
-      images: ["/ecommerce-product-page/screenshot.png"],
+      images: [ecommerceOgImageUrl],
     },
   },
 };

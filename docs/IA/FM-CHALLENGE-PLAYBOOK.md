@@ -205,5 +205,6 @@ mv "{folder_name}" "backups/{folder_name}"
 - [`src/app/(layout-null)/[slug]/page.tsx`](../../src/app/(layout-null)/[slug]/page.tsx)
 - [`src/app/(layout-null)/[slug]/_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts)
 - [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts)
+- [`src/lib/og-image-url.ts`](../../src/lib/og-image-url.ts) — URLs absolutas OG/Twitter para capturas bajo `public/`
 - [`src/app/layout.tsx`](../../src/app/layout.tsx)
 - [`README.md`](../../README.md)
