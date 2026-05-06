@@ -18,7 +18,7 @@ export const challengeMetadata: Record<
   "ecommerce-product-page": {
     title: "Frontend Mentor | E-commerce product page",
     description:
-      "Página de producto e-commerce: galería, lightbox, carrito y layout responsive (stub de organización).",
+      "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
     icons: {
       icon: ecommerceFavicon.src,
     },

@@ -24,8 +24,8 @@ export const challenges: Challenge[] = [
     shortDescription:
       "Página de producto con galería/lightbox, selector de cantidad, carrito y menú mobile; mobile y desktop 1440px.",
     difficulty: "intermediate",
-    tags: ["HTML", "CSS","JS", "TailwindCSS", "React", "Next"],
-    status: "en-progreso",
+    tags: ["HTML", "CSS", "JS", "TailwindCSS", "React", "Next"],
+    status: "listo",
     previewGradient:
       "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
     implementationHref: "/ecommerce-product-page",
