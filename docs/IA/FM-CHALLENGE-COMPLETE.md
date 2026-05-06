@@ -25,23 +25,44 @@ Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `s
 
 ---
 
-## 2. Metadatos y estado en el proyecto
+## 2. Captura para tarjeta del índice, SEO y convención `public/{folder_name}/`
 
-- En [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts): `status: "listo"`, título, descripción corta, `implementationHref` y demás campos ya definidos en el playbook; revisa coherencia con `readme.md`.
-- Si el reto añade o cambia SEO por slug: [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) y, si aplica, README raíz.
+**Ubicación fija (versionada en Git):** `public/{folder_name}/screenshot.png` — en la app equivale a la URL **`/{folder_name}/screenshot.png`**.
+
+| Acción | Notas |
+| --- | --- |
+| Colocar o actualizar la captura | Exporta un PNG (p. ej. viewport desktop) de la solución y guárdalo con ese nombre. Si la captura está **en la raíz del repo** o con nombre tipo `{folder_name}-screenshot.png`, **mueve o renómbrala** a `public/{folder_name}/screenshot.png` para que coincida la convención. |
+| [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts) | Añade `screenshotSrc: "/{folder_name}/screenshot.png"` en la entrada del reto para que el **ChallengeCard** muestre la imagen (si omites el campo, se usa solo el gradiente). |
+| [`src/app/(layout-null)/[slug]/_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) | Para Open Graph / Twitter (`summary_large_image`), añade en la entrada del slug las propiedades `openGraph.images` y `twitter.images` apuntando a `"/{folder_name}/screenshot.png"` (siguiendo el ejemplo de `ecommerce-product-page`). El [`metadataBase`](../../src/app/layout.tsx) usa `NEXT_PUBLIC_SITE_URL` para resolver URLs absolutas en redes sociales. |
+
+**Enlaces en la tarjeta** (mismos campos en `challenges-card.ts`):
+
+- **`fmChallengeUrl`**: página del **reto** en Frontend Mentor (enunciado). Si no hay `fmSolutionUrl`, el botón «Solución en FM» enlaza aquí (y conviene añadir después `fmSolutionUrl`).
+- **`fmSolutionUrl`**: URL de tu solución publicada en FM. Si existe, tiene prioridad sobre `fmChallengeUrl` para el mismo botón.
+- **`livePreviewUrl`**: URL del deploy (Vercel, etc.). Si se omite y existe `NEXT_PUBLIC_SITE_URL`, se usa automáticamente **`SITE_URL` + `implementationHref`**. Si tampoco hay variable, «Vista previa en vivo» apunta a la **ruta interna** del proyecto en esta app.
+- **`sourceCodeUrl`**: URL al código en GitHub; por defecto se usa `…/tree/main/src/features/{folder_name}` (ver [`src/lib/challenge-external-urls.ts`](../../src/lib/challenge-external-urls.ts)).
+
+Variable opcional en `.env` local o en el proveedor de hosting: `NEXT_PUBLIC_SITE_URL=https://tudominio.com` (sin barra final).
 
 ---
 
-## 3. Limpieza local opcional (ZIP)
+## 3. Metadatos y estado en el proyecto
+
+- En [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts): `status: "listo"`, título, descripción corta, `implementationHref`, `screenshotSrc` y enlaces externos según la sección 2; revisa coherencia con `readme.md`.
+- Si el reto añade o cambia SEO por slug: [`_utils/metadata.ts`](../../src/app/(layout-null)/[slug]/_utils/metadata.ts) (descripción, favicon, **Open Graph / Twitter** si hay captura) y, si aplica, README raíz.
+
+---
+
+## 4. Limpieza local opcional (ZIP)
 
 Si aún tenías la carpeta del ZIP en la raíz, tras la fase A debería estar en `backups/{folder_name}/` (no versionado; ver [FM-CHALLENGE-PLAYBOOK §7](FM-CHALLENGE-PLAYBOOK.md#7-git-y-la-carpeta-del-zip)). Antes de cerrar, confirma que no quedan restos en la raíz que deban ignorarse o moverse.
 
 ---
 
-## 4. Commit con estilo del repositorio (Conventional Commits + push)
+## 5. Commit con estilo del repositorio (Conventional Commits + push)
 
 1. Revisa cambios: `git status` y, si aplica, `git diff`.
-2. Añade solo lo del cierre: `git add` archivos puntuales o `git add` por carpetas (`src/features/{folder_name}/readme.md`, `src/features/{folder_name}/docs/`, `src/data/challenges-card.ts`, etc.).
+2. Añade solo lo del cierre: `git add` archivos puntuales o `git add` por carpetas (`public/{folder_name}/`, `src/features/{folder_name}/readme.md`, `src/features/{folder_name}/docs/`, `src/data/challenges-card.ts`, `_utils/metadata.ts`, etc.).
 
 **Mensaje de commit** (un solo bloque o varios `tipo: descripción` en la misma línea, como en el log del repo):
 
@@ -62,9 +83,10 @@ Sustituye `{folder_name}` y ajusta el mensaje a lo que realmente cambiaste. Si u
 
 ---
 
-## 5. Resumen rápido
+## 6. Resumen rápido
 
 1. `src/features/{folder_name}/readme.md` y `src/features/{folder_name}/docs/` coherentes con la solución.
-2. `challenges-card.ts` con `status: "listo"` (y metadatos correctos).
-3. Commit con prefijos `feat:` / `docs:` / etc., como en el resto del proyecto.
-4. `git push` al remoto.
+2. `public/{folder_name}/screenshot.png` + `screenshotSrc` en la tarjeta + metadatos OG/Twitter si aplica.
+3. `challenges-card.ts` con `status: "listo"` y enlaces (FM / vista previa / GitHub) según corresponda.
+4. Commit con prefijos `feat:` / `docs:` / etc., como en el resto del proyecto.
+5. `git push` al remoto.

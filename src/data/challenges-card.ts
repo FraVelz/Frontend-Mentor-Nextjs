@@ -10,10 +10,20 @@ export interface Challenge {
   /** Etiquetas tipo stack o foco (HTML, CSS, App Router, etc.) */
   tags: string[];
   status: ChallengeStatus;
-  /** Gradiente CSS para la vista previa cuando no hay imagen */
+  /** Gradiente CSS para la vista previa cuando no hay captura */
   previewGradient: string;
+  /** Ruta pública: archivo en `public/{slug}/screenshot.png` → `/${slug}/screenshot.png` */
+  screenshotSrc?: string;
   /** Ruta interna cuando el reto está implementado en la app, p. ej. /{slug} */
   implementationHref?: string;
+  /** Tu solución publicada en FM (si existe, se prioriza sobre la página del reto). */
+  fmSolutionUrl?: string;
+  /** Página del challenge en frontendmentor.io (enunciado). Usada para «Solución en FM» si no hay `fmSolutionUrl`. */
+  fmChallengeUrl?: string;
+  /** Deploy público (Vercel, etc.). Si se omite y existe `NEXT_PUBLIC_SITE_URL`, se construye con `implementationHref`. */
+  livePreviewUrl?: string;
+  /** Carpeta del feature en GitHub; por defecto `…/tree/main/src/features/{slug}`. */
+  sourceCodeUrl?: string;
 }
 
 /** Datos de muestra: sustituye o amplía cuando añadas rutas reales en la app. */
@@ -28,7 +38,9 @@ export const challenges: Challenge[] = [
     status: "listo",
     previewGradient:
       "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
+    screenshotSrc: "/ecommerce-product-page/screenshot.png",
     implementationHref: "/ecommerce-product-page",
+    fmChallengeUrl: "https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6",
   },
   
 

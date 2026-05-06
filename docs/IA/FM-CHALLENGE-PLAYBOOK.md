@@ -112,7 +112,8 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 | **Referencia (ZIP original)** | Al descargar: `/{folder_name}/` en la raíz. **Tras la fase A,** ver [§7](#7-git-y-la-carpeta-del-zip): mover a `backups/{folder_name}/` (recomendado; **no** es código de la app). |
 | **Docs del reto (plantilla, guía, previews, JPGs)** | **`src/features/{folder_name}/readme.md`** (ex-`README-template.md`) y **`src/features/{folder_name}/docs/`** — `style-guide.md`, `preview.jpg`, `design/`. |
 | **Imágenes y SVG (UI del reto)** | **`src/features/{folder_name}/images/`** — copia desde `/{folder_name}/assets/` (o equivalente). Uso: `import` en componentes. |
-| **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` solo para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes/SVG de la maquetación del reto. |
+| **`screenshot.png` (hub / redes, al cerrar el reto)** | `public/{folder_name}/screenshot.png` — ver [FM-CHALLENGE-COMPLETE §2](FM-CHALLENGE-COMPLETE.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name). No sustituye a `images/` del feature. |
+| **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` también para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes ni SVG de la maquetación del **UI** del reto. |
 | **JSON / datos** | `src/features/{folder_name}/data.json` o **`data.ts`** si conviene: para iconos/rutas a assets, preferir **imports** desde `./images/...` en TypeScript (evita depender de `public/`). |
 | **Código UI del reto** | `src/features/{folder_name}/` — componentes, hooks, estilos, `page.tsx`. |
 | **Imports dinámicos por slug** | [`src/app/(layout-null)/[slug]/_utils/lazy-imports.ts`](../../src/app/(layout-null)/[slug]/_utils/lazy-imports.ts) — mapa `challengePages`. |
@@ -162,7 +163,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 
 ## 6. Qué no hacer (anti-mezcla)
 
-- No colocar **imágenes ni SVG** del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`), nunca la galería de imágenes del feature mezclada sin convención.
+- No colocar **imágenes ni SVG** del UI del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`) y, al publicar la solución, **`screenshot.png`** para el índice y metadatos (ver [FM-CHALLENGE-COMPLETE §2](FM-CHALLENGE-COMPLETE.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name)); nunca la galería de imágenes del feature mezclada sin convención.
 - No mezclar código de dos retos en la misma carpeta bajo `src/features/`.
 - No meter UI del reto ni componentes del feature dentro de `_utils/`; ahí solo registro de imports y metadatos (o helpers mínimos de eso).
 - No reemplazar [`src/app/page.tsx`](../../src/app/page.tsx) con el HTML del ZIP.

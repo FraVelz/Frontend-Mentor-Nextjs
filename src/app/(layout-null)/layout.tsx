@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import { cn } from "@/lib/utils";
 
 /* Enlace al inicio solo relevante con teclado: oculto hasta que recibe foco (Tab). */
