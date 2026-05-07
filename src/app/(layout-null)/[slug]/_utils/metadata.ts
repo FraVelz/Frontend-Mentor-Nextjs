@@ -3,10 +3,12 @@ import type { Metadata } from "next";
 import bmiFavicon from "@/features/bmi-calculator/images/favicon-32x32.png";
 import ecommerceFavicon from "@/features/ecommerce-product-page/images/favicon-32x32.png";
 import resultsSummaryFavicon from "@/features/results-summary-component/images/favicon-32x32.png";
+import ticFavicon from "@/features/tic-tac-toe-game/images/favicon-32x32.png";
 import { ogImageAbsoluteUrl } from "@/lib/og-image-url";
 
 const ecommerceOgImageUrl = ogImageAbsoluteUrl("/ecommerce-product-page/screenshot.png");
 const bmiOgImageUrl = ogImageAbsoluteUrl("/bmi-calculator/screenshot.png");
+const ticOgImageUrl = ogImageAbsoluteUrl("/tic-tac-toe-game/screenshot.png");
 
 export const challengeMetadata: Record<string, Metadata> = {
   "bmi-calculator": {
@@ -35,6 +37,34 @@ export const challengeMetadata: Record<string, Metadata> = {
       description:
         "Calculadora de IMC: unidades métricas o imperiales, resultado, clasificación y rango de peso saludable.",
       images: [bmiOgImageUrl],
+    },
+  },
+  "tic-tac-toe-game": {
+    title: "Frontend Mentor | Tic Tac Toe Game",
+    description:
+      "Juego tres en raya: menú, solo vs CPU o dos jugadores, tablero y modales según el reto Frontend Mentor.",
+    icons: {
+      icon: ticFavicon.src,
+    },
+    openGraph: {
+      title: "Frontend Mentor | Tic Tac Toe Game",
+      description:
+        "Juego tres en raya: menú, solo vs CPU o dos jugadores, tablero y modales según el reto Frontend Mentor.",
+      images: [
+        {
+          url: ticOgImageUrl,
+          width: 1920,
+          height: 1080,
+          alt: "Captura de la solución Tic Tac Toe Game",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Frontend Mentor | Tic Tac Toe Game",
+      description:
+        "Juego tres en raya: solo vs CPU o dos jugadores; layout responsive y estados de juego.",
+      images: [ticOgImageUrl],
     },
   },
   "results-summary-component": {

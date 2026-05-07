@@ -1,0 +1,159 @@
+import { cn } from "@/lib/utils";
+
+function NextJsIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className={className} aria-hidden>
+      <path
+        fill="currentColor"
+        d="M23.749 30.005c-0.119 0.063-0.109 0.083 0.005 0.025 0.037-0.015 0.068-0.036 0.095-0.061 0-0.021 0-0.021-0.1 0.036zM23.989 29.875c-0.057 0.047-0.057 0.047 0.011 0.016 0.036-0.021 0.068-0.041 0.068-0.047 0-0.027-0.016-0.021-0.079 0.031zM24.145 29.781c-0.057 0.047-0.057 0.047 0.011 0.016 0.037-0.021 0.068-0.043 0.068-0.048 0-0.025-0.016-0.020-0.079 0.032zM24.303 29.688c-0.057 0.047-0.057 0.047 0.009 0.015 0.037-0.020 0.068-0.041 0.068-0.047 0-0.025-0.016-0.020-0.077 0.032zM24.516 29.547c-0.109 0.073-0.147 0.12-0.047 0.068 0.067-0.041 0.181-0.131 0.161-0.131-0.043 0.016-0.079 0.043-0.115 0.063zM14.953 0.011c-0.073 0.005-0.292 0.025-0.484 0.041-4.548 0.412-8.803 2.86-11.5 6.631-1.491 2.067-2.459 4.468-2.824 6.989-0.129 0.88-0.145 1.14-0.145 2.333 0 1.192 0.016 1.448 0.145 2.328 0.871 6.011 5.147 11.057 10.943 12.927 1.043 0.333 2.136 0.563 3.381 0.704 0.484 0.052 2.577 0.052 3.061 0 2.152-0.24 3.969-0.771 5.767-1.688 0.276-0.14 0.328-0.177 0.291-0.208-0.88-1.161-1.744-2.323-2.609-3.495l-2.557-3.453-3.203-4.745c-1.068-1.588-2.14-3.172-3.229-4.744-0.011 0-0.025 2.109-0.031 4.681-0.011 4.505-0.011 4.688-0.068 4.792-0.057 0.125-0.151 0.229-0.276 0.287-0.099 0.047-0.188 0.057-0.661 0.057h-0.541l-0.141-0.088c-0.088-0.057-0.161-0.136-0.208-0.229l-0.068-0.141 0.005-6.271 0.011-6.271 0.099-0.125c0.063-0.077 0.141-0.14 0.229-0.187 0.131-0.063 0.183-0.073 0.724-0.073 0.635 0 0.74 0.025 0.907 0.208 1.296 1.932 2.588 3.869 3.859 5.812 2.079 3.152 4.917 7.453 6.312 9.563l2.537 3.839 0.125-0.083c1.219-0.813 2.328-1.781 3.285-2.885 2.016-2.308 3.324-5.147 3.767-8.177 0.129-0.88 0.145-1.141 0.145-2.333 0-1.193-0.016-1.448-0.145-2.328-0.871-6.011-5.147-11.057-10.943-12.928-1.084-0.343-2.199-0.577-3.328-0.697-0.303-0.031-2.371-0.068-2.631-0.041zM21.5 9.688c0.151 0.072 0.265 0.208 0.317 0.364 0.027 0.084 0.032 1.823 0.027 5.74l-0.011 5.624-0.989-1.52-0.995-1.521v-4.083c0-2.647 0.011-4.131 0.025-4.204 0.047-0.167 0.161-0.307 0.313-0.395 0.124-0.063 0.172-0.068 0.667-0.068 0.463 0 0.541 0.005 0.645 0.063z"
+      />
+    </svg>
+  );
+}
+
+function ReactIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} aria-hidden>
+      <g fill="#61DAFB">
+        <circle cx="64" cy="64" r="11.4" />
+        <path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3-12.5 4.8-19.3 11.4-19.3 18.8s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8zm-14.8-30.5c4.1 2.4 5.5 9.8 3.8 20.3-.3 2.1-.8 4.3-1.4 6.6-5.2-1.2-10.7-2-16.5-2.5-3.4-4.8-6.9-9.1-10.4-13 7.4-7.3 14.9-12.3 21-12.3 1.3 0 2.5.3 3.5.9zm-11.2 59.3c-1.8 3.2-3.9 6.4-6.1 9.6-3.7.3-7.4.4-11.2.4-3.9 0-7.6-.1-11.2-.4-2.2-3.2-4.2-6.4-6-9.6-1.9-3.3-3.7-6.7-5.3-10 1.6-3.3 3.4-6.7 5.3-10 1.8-3.2 3.9-6.4 6.1-9.6 3.7-.3 7.4-.4 11.2-.4 3.9 0 7.6.1 11.2.4 2.2 3.2 4.2 6.4 6 9.6 1.9 3.3 3.7 6.7 5.3 10-1.7 3.3-3.4 6.6-5.3 10zm8.3-3.3c1.5 3.5 2.7 6.9 3.8 10.3-3.4.8-7 1.4-10.8 1.9 1.2-1.9 2.5-3.9 3.6-6 1.2-2.1 2.3-4.2 3.4-6.2zm-25.6 27.1c-2.4-2.6-4.7-5.4-6.9-8.3 2.3.1 4.6.2 6.9.2 2.3 0 4.6-.1 6.9-.2-2.2 2.9-4.5 5.7-6.9 8.3zm-18.6-15c-3.8-.5-7.4-1.1-10.8-1.9 1.1-3.3 2.3-6.8 3.8-10.3 1.1 2 2.2 4.1 3.4 6.1 1.2 2.2 2.4 4.1 3.6 6.1zm-7-25.5c-1.5-3.5-2.7-6.9-3.8-10.3 3.4-.8 7-1.4 10.8-1.9-1.2 1.9-2.5 3.9-3.6 6-1.2 2.1-2.3 4.2-3.4 6.2zm25.6-27.1c2.4 2.6 4.7 5.4 6.9 8.3-2.3-.1-4.6-.2-6.9-.2-2.3 0-4.6.1-6.9.2 2.2-2.9 4.5-5.7 6.9-8.3zm22.2 21l-3.6-6c3.8.5 7.4 1.1 10.8 1.9-1.1 3.3-2.3 6.8-3.8 10.3-1.1-2.1-2.2-4.2-3.4-6.2zm-54.5-16.2c-1.7-10.5-.3-17.9 3.8-20.3 1-.6 2.2-.9 3.5-.9 6 0 13.5 4.9 21 12.3-3.5 3.8-7 8.2-10.4 13-5.8.5-11.3 1.4-16.5 2.5-.6-2.3-1-4.5-1.4-6.6zm-24.7 29c0-4.7 5.7-9.7 15.7-13.4 2-.8 4.2-1.5 6.4-2.1 1.6 5 3.6 10.3 6 15.6-2.4 5.3-4.5 10.5-6 15.5-13.8-4-22.1-10-22.1-15.6zm28.5 49.3c-4.1-2.4-5.5-9.8-3.8-20.3.3-2.1.8-4.3 1.4-6.6 5.2 1.2 10.7 2 16.5 2.5 3.4 4.8 6.9 9.1 10.4 13-7.4 7.3-14.9 12.3-21 12.3-1.3 0-2.5-.3-3.5-.9zm60.8-20.3c1.7 10.5.3 17.9-3.8 20.3-1 .6-2.2.9-3.5.9-6 0-13.5-4.9-21-12.3 3.5-3.8 7-8.2 10.4-13 5.8-.5 11.3-1.4 16.5-2.5.6 2.3 1 4.5 1.4 6.6zm9-15.6c-2 .8-4.2 1.5-6.4 2.1-1.6-5-3.6-10.3-6-15.6 2.4-5.3 4.5-10.5 6-15.5 13.8 4 22.1 10 22.1 15.6 0 4.7-5.8 9.7-15.7 13.4z" />
+      </g>
+    </svg>
+  );
+}
+
+function TypeScriptIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className={className} aria-hidden>
+      <path
+        fill="#007acc"
+        d="M1.5,63.91v62.5h125V1.41H1.5Zm100.73-5a15.56,15.56,0,0,1,7.82,4.5,20.58,20.58,0,0,1,3,4c0,.16-5.4,3.81-8.69,5.85-.12.08-.6-.44-1.13-1.23a7.09,7.09,0,0,0-5.87-3.53c-3.79-.26-6.23,1.73-6.21,5a4.58,4.58,0,0,0,.54,2.34c.83,1.73,2.38,2.76,7.24,4.86,8.95,3.85,12.78,6.39,15.16,10,2.66,4,3.25,10.46,1.45,15.24-2,5.2-6.9,8.73-13.83,9.9a38.32,38.32,0,0,1-9.52-.1,23,23,0,0,1-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34,9.34,0,0,1,1.15-.73L82,101l3.59-2.08.75,1.11a16.78,16.78,0,0,0,4.74,4.54c4,2.1,9.46,1.81,12.16-.62a5.43,5.43,0,0,0,.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48,16.48,0,0,1-3.43-6.25,25,25,0,0,1-.22-8c1.33-6.23,6-10.58,12.82-11.87A31.66,31.66,0,0,1,102.23,58.93ZM72.89,64.15l0,5.12H56.66V115.5H45.15V69.26H28.88v-5A49.19,49.19,0,0,1,29,59.09C29.08,59,39,59,51,59L72.83,59Z"
+      />
+    </svg>
+  );
+}
+
+function TailwindIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" className={className} aria-hidden>
+      <defs>
+        <linearGradient id="tailwind-grad-hero" x1="0" y1="-21.333" x2="64" y2="85.333" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#2383ae" offset="0%" />
+          <stop stopColor="#6dd7b9" offset="100%" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#tailwind-grad-hero)"
+        fillRule="evenodd"
+        d="M16 25.6c2.133-8.533 7.467-12.8 16-12.8 12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8C61.867 27.733 56.533 32 48 32c-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8zM0 44.8C2.133 36.267 7.467 32 16 32c12.8 0 14.4 9.6 20.8 11.2 4.267 1.067 8-.533 11.2-4.8-2.133 8.533-7.467 12.8-16 12.8-12.8 0-14.4-9.6-20.8-11.2-4.267-1.067-8 .533-11.2 4.8z"
+      />
+    </svg>
+  );
+}
+
+const stack = [
+  {
+    label: "Next.js",
+    hint: "App Router · RSC",
+    Icon: NextJsIcon,
+    iconClass: "size-14 drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] transition-transform duration-200 group-hover:scale-[1.04] motion-reduce:group-hover:scale-100 sm:size-[3.5rem]",
+    accent: true,
+    mobileOrder: "order-4 lg:order-none",
+    mobileAlign: "-rotate-2 self-center lg:rotate-0",
+    desktopPos:
+      "lg:left-1/2 lg:top-[50%] lg:z-20 lg:w-[11.5rem] lg:max-w-[min(11.5rem,48%)] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:rotate-[2deg]",
+    zBase: "lg:z-20",
+  },
+  {
+    label: "React",
+    hint: "Componentes UI",
+    Icon: ReactIcon,
+    iconClass:
+      "size-12 shrink-0 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] transition-transform duration-200 group-hover:scale-[1.06] motion-reduce:group-hover:scale-100 sm:size-14",
+    accent: false,
+    mobileOrder: "order-1",
+    mobileAlign: "-rotate-6 self-start",
+    desktopPos:
+      "lg:left-0 lg:top-8 lg:z-10 lg:w-[10rem] lg:max-w-[40%] lg:-rotate-[6deg]",
+    zBase: "lg:z-10",
+  },
+  {
+    label: "TypeScript",
+    hint: "Tipado estricto",
+    Icon: TypeScriptIcon,
+    iconClass:
+      "size-12 shrink-0 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] transition-transform duration-200 group-hover:scale-[1.06] motion-reduce:group-hover:scale-100 sm:size-14",
+    accent: false,
+    mobileOrder: "order-2",
+    mobileAlign: "rotate-[5deg] self-end",
+    desktopPos:
+      "lg:left-1 lg:bottom-12 lg:z-10 lg:w-[10rem] lg:max-w-[40%] lg:rotate-[6deg]",
+    zBase: "lg:z-10",
+  },
+  {
+    label: "Tailwind CSS",
+    hint: "Utilidades + v4",
+    Icon: TailwindIcon,
+    iconClass:
+      "size-12 shrink-0 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)] transition-transform duration-200 group-hover:scale-[1.06] motion-reduce:group-hover:scale-100 sm:size-14",
+    accent: false,
+    mobileOrder: "order-3",
+    mobileAlign: "-rotate-[4deg] self-start lg:self-auto",
+    desktopPos:
+      "lg:right-0 lg:top-[10%] lg:z-10 lg:w-[10rem] lg:max-w-[40%] lg:rotate-[8deg]",
+    zBase: "lg:z-10",
+  },
+] as const;
+
+/**
+ * Constelación en `lg+` e hilera zigzag en móvil — solo iconos y texto (sin paneles tipo tarjeta).
+ */
+export function HeroTechStack() {
+  return (
+    <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none" aria-label="Stack tecnológico del proyecto">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-[-8%] inset-y-[-5%]
+          rounded-[2rem]
+          bg-[radial-gradient(ellipse_at_70%_28%,rgba(56,189,248,0.12),transparent_56%)]"
+      />
+
+      <ul className="isolate relative flex min-h-[18rem] list-none flex-col gap-10 py-2 lg:block lg:min-h-[26rem] lg:gap-0 lg:py-0 lg:ps-1 lg:pe-1">
+        {stack.map(({ label, hint, Icon, iconClass, accent, mobileOrder, mobileAlign, desktopPos, zBase }) => (
+          <li
+            key={label}
+            className={cn(
+              mobileOrder,
+              mobileAlign,
+              "group w-[min(100%,18rem)] max-w-[90vw] outline-none lg:absolute lg:w-auto lg:max-w-none lg:rounded-none",
+              zBase,
+              "transition-opacity duration-200 hover:opacity-100 focus-visible:opacity-100 lg:focus-within:z-50 lg:hover:z-50",
+              desktopPos,
+              accent && "-mt-6 lg:mt-0",
+            )}
+          >
+            <div
+              className={cn(
+                "flex min-w-0 gap-4",
+                accent
+                  ? "flex-col items-center gap-4 text-center px-2 sm:flex-row sm:px-0 sm:text-left lg:flex-col lg:items-center lg:text-center lg:gap-5"
+                  : "flex-col items-center gap-3 text-center sm:flex-row sm:items-start sm:text-left lg:gap-4",
+              )}
+            >
+              <Icon className={iconClass} />
+              <div
+                className={cn(
+                  "min-w-0 flex-1",
+                  accent && "flex w-full max-w-[17rem] flex-col items-center sm:items-start lg:items-center",
+                )}
+              >
+                <p className="text-sm font-semibold tracking-wide break-words text-pretty text-white">{label}</p>
+                <p className="mt-0.5 text-xs leading-snug break-words text-pretty text-slate-400">{hint}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

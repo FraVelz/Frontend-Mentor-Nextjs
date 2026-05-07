@@ -1,39 +1,42 @@
+import { HeroTechStack } from "@/components/home/hero-tech-stack";
+import { Footer } from "@/components/layout/Footer";
 import { ChallengeCard } from "@/components/ui/challenge-card";
 import { challenges } from "@/data/challenges-card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-import { Footer } from "@/components/layout/Footer";
-
 export default function HomePage() {
   return (
     <>
       <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-        <div className="mb-10 max-w-2xl lg:mb-14">
-          <p
-            className={cn(
-              "mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-[0.14em] text-sky-400 uppercase",
-              "before:h-0.5 before:w-6 before:rounded-full before:bg-linear-to-r before:from-sky-400 before:to-transparent",
-            )}
-          >
-            Frontend Mentor · Next.js
-          </p>
-          <h1
-            className={cn(
-              "mb-3 bg-linear-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-4xl font-bold",
-              "tracking-tight text-transparent sm:text-5xl",
-            )}
-          >
-            Retos del repositorio
-          </h1>
-          <p className="max-w-prose text-lg leading-relaxed text-slate-400 sm:text-xl">
-            Misma colección de desafíos que en el repo estático, con metadatos
-            extra:{" "}
-            <strong className="font-medium text-slate-300">
-              dificultad oficial
-            </strong>{" "}
-            (Newbie, Junior, Intermediate…) y etiquetas de stack.
-          </p>
+        <div className="mb-10 grid gap-10 lg:mb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-center lg:gap-12 xl:gap-14">
+          <div className="max-w-2xl">
+            <p
+              className={cn(
+                "mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-[0.14em] text-sky-400 uppercase",
+                "before:h-0.5 before:w-6 before:rounded-full before:bg-linear-to-r before:from-sky-400 before:to-transparent",
+              )}
+            >
+              Frontend Mentor · Next.js
+            </p>
+            <h1
+              className={cn(
+                "mb-3 bg-linear-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-4xl font-bold",
+                "tracking-tight text-transparent sm:text-5xl",
+              )}
+            >
+              Retos del repositorio
+            </h1>
+            <p className="max-w-prose text-lg leading-relaxed text-slate-400 sm:text-xl">
+              Misma colección de desafíos que en el repo estático, con metadatos
+              extra:{" "}
+              <strong className="font-medium text-slate-300">
+                dificultad oficial
+              </strong>{" "}
+              (Newbie, Junior, Intermediate…) y etiquetas de stack.
+            </p>
+          </div>
+          <HeroTechStack />
         </div>
 
         <div
