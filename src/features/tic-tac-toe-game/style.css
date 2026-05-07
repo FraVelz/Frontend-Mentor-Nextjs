@@ -1,0 +1,26 @@
+/* @reference "tailwindcss"; */
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-tablet: 48rem;
+  --breakpoint-desktop: 90rem;
+
+  --color-neutral-950: #000000;
+  --color-neutral-0: #ffffff;
+
+  --color-slate-900: #1a2a33;
+  --color-slate-850: #21313b;
+  --color-slate-800: #1f3641;
+  --color-slate-300: #a8bfc9;
+  --color-slate-100: #dbe8ed;
+
+  --color-amber-400: #f2b137;
+  --color-amber-300: #ffc860;
+
+  --color-teal-400: #31c3bd;
+  --color-teal-300: #65e9e4;
+
+  --text-base: 16px;
+  --leading-base: 125%;
+  --tracking-base: 1px;
+}
