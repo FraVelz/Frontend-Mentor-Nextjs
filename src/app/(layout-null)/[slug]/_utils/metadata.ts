@@ -6,6 +6,7 @@ import resultsSummaryFavicon from "@/features/results-summary-component/images/f
 import { ogImageAbsoluteUrl } from "@/lib/og-image-url";
 
 const ecommerceOgImageUrl = ogImageAbsoluteUrl("/ecommerce-product-page/screenshot.png");
+const bmiOgImageUrl = ogImageAbsoluteUrl("/bmi-calculator/screenshot.png");
 
 export const challengeMetadata: Record<string, Metadata> = {
   "bmi-calculator": {
@@ -14,6 +15,26 @@ export const challengeMetadata: Record<string, Metadata> = {
       "Calculadora de IMC: unidades métricas o imperiales, resultado, clasificación y rango de peso saludable.",
     icons: {
       icon: bmiFavicon.src,
+    },
+    openGraph: {
+      title: "Frontend Mentor | Body Mass Index Calculator",
+      description:
+        "Calculadora de IMC: unidades métricas o imperiales, resultado, clasificación y rango de peso saludable.",
+      images: [
+        {
+          url: bmiOgImageUrl,
+          width: 1440,
+          height: 1056,
+          alt: "Captura de la solución Body Mass Index Calculator",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Frontend Mentor | Body Mass Index Calculator",
+      description:
+        "Calculadora de IMC: unidades métricas o imperiales, resultado, clasificación y rango de peso saludable.",
+      images: [bmiOgImageUrl],
     },
   },
   "results-summary-component": {

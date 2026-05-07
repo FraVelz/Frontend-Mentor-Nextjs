@@ -1,0 +1,110 @@
+/* @reference "tailwindcss"; */
+@import "tailwindcss";
+
+/* Mismos cortes que el starter FM (tablet 768px, desktop 1440px). */
+@theme {
+  --breakpoint-tablet: 48rem;
+  --breakpoint-desktop: 90rem;
+
+  --color-var-grey-500: #5e6e85;
+  --color-var-grey-300: #acc1de;
+  --color-var-blue-100: #e1e7fe;
+  --color-var-blue-300: #b3d3f1;
+  --color-var-blue-500: #345ff6;
+  --color-var-blue-900: #253347;
+
+  --leading-base: 150%;
+
+  --spacing-var-0: 0rem; /* 0px */
+  --spacing-var-100: 0.5rem; /* 8px */
+  --spacing-var-200: 1rem; /* 16px */
+  --spacing-var-300: 1.5rem; /* 24px */
+  --spacing-var-400: 2rem; /* 32px */
+  --spacing-var-500: 2.5rem; /* 40px */
+  --spacing-var-600: 3rem; /* 48px */
+  --spacing-var-700: 3.5rem; /* 56px */
+  --spacing-var-900: 4.5rem; /* 72px */
+  --spacing-var-1100: 5.5rem; /* 88px */
+  --spacing-var-1200: 6rem; /* 96px */
+  --spacing-var-1300: 6.5rem; /* 104px */
+  --spacing-var-1600: 8rem; /* 128px */
+  --spacing-var-1800: 9rem; /* 144px */
+}
+
+.clr-gradient-1 {
+  background-image: linear-gradient(to right, #d6fcfe, #d6e6fe);
+}
+
+.text-preset-1 {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.05;
+}
+
+.text-preset-2 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.05;
+}
+
+.text-preset-3 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.05;
+}
+
+.text-preset-4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.05;
+}
+
+.text-preset-5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.05;
+}
+
+.text-preset-6-semibold {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.text-preset-6-regular {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.text-preset-7-bold {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.text-preset-7-regular {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+/* Igual que el ZIP del challenge (inputs numéricos). */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}

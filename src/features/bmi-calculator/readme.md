@@ -1,23 +1,24 @@
 # Frontend Mentor — Body Mass Index Calculator
 
-Reto [Body Mass Index Calculator](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T) integrado en este monorepo (fase A: organización; la maquetación completa sigue en el feature).
+Reto [Body Mass Index Calculator](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T) en este monorepo Next.js.
 
-## El reto
+## Funcionalidad
 
-- Elegir unidades **métricas** o **imperiales**.
-- Introducir altura y peso.
-- Ver el **IMC**, la **clasificación** y el **rango de peso saludable** según altura.
-- Layout responsive y estados hover/focus en controles.
+- Unidades **métricas** (cm, kg) o **imperiales** (ft/in, lbs).
+- Cálculo de **IMC**, clasificación (bajo peso / peso saludable / sobrepeso / obesidad) y **rango de peso ideal** 18.5–24.9 IMC en las unidades elegidas.
+- Secciones «What your BMI result means» e «Limitations of BMI» con textos del enunciado FM.
+- Layout responsive, estados hover/focus en controles, tipografía **Inter** (`next/font`).
 
-Comportamiento esperado (rangos IMC, texto de resultados): ver el README original del ZIP o el enunciado en FM.
-
-## Vista previa (referencia FM)
+## Vista previa (referencia del paquete FM)
 
 ![Vista previa](./docs/preview.jpg)
 
-## Implementación prevista
+## Referencia de implementación
 
-- [Next.js](https://nextjs.org/) (App Router), React, TypeScript, Tailwind.
-- Tipografía **Inter** (archivos locales bajo `public/bmi-calculator/fonts/` o vía `next/font`).
+- Lógica: [`lib/bmi.ts`](./lib/bmi.ts)
+- UI raíz: [`components/BmiCalculator.tsx`](./components/BmiCalculator.tsx), secciones bajo [`components/`](./components/), [`page.tsx`](./page.tsx)
 
-Guía de tokens: [style-guide.md](./docs/style-guide.md).
+## Índice y redes
+
+- Tarjeta del proyecto: entrada `bmi-calculator` en [`src/data/challenges-card.ts`](../../../data/challenges-card.ts).
+- Captura para tarjeta y OG/Twitter versionada en [`public/bmi-calculator/screenshot.png`](../../../public/bmi-calculator/screenshot.png) (viewport de referencia; puedes regenerarla desde tu deploy).

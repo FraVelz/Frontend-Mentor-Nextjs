@@ -35,9 +35,10 @@ export const challenges: Challenge[] = [
       "Calculadora IMC con métrico/imperial, clasificación y rango de peso saludable; layout responsive.",
     difficulty: "junior",
     tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
-    status: "en-progreso",
+    status: "listo",
     previewGradient:
       "linear-gradient(135deg, hsl(215, 100%, 93%) 0%, hsl(216, 100%, 97%) 50%, hsl(177, 61%, 87%) 100%)",
+    screenshotSrc: "/bmi-calculator/screenshot.png",
     implementationHref: "/bmi-calculator",
     fmChallengeUrl: "https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T",
   },
