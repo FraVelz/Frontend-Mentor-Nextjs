@@ -11,6 +11,7 @@ Este playbook sirve para que **no tengas que pensar en la estructura del repo**:
 **Por defecto**, cuando alguien dice «ejecuta el playbook» o «organiza el reto», el asistente debe limitarse a:
 
 - **Organización y scaffolding** (lo que está en la **fase A** del checklist).
+- **No** hacer **`git commit`** ni **`git push`** al cerrar la fase A: solo se está **configurando** el inicio del reto; el commit lo hace el humano cuando quiera (salvo que pida explícitamente «commit», «sube los cambios», etc.).
 - **No** implementar el diseño completo del Frontend Mentor (maquetación fiel al JPG, estados hover, etc.) **salvo que el usuario lo pida de forma explícita** (p. ej. «implementa el reto», «maqueta según el diseño», «haz la solución completa»).
 
 **Tú** implementas el reto en `src/features/{folder_name}/` usando el ZIP en la raíz como referencia (incluido su `index.html` como punto de partida en JSX). El asistente solo te deja el terreno listo y, si quieres, te ayuda en pasos concretos en otros mensajes.
@@ -155,6 +156,8 @@ El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
 **Fin de la fase A.** El usuario abre `/{slug}` y ve el stub o la conversión mínima del HTML; desde ahí implementa en `src/features/{folder_name}/`.
 
+**Commit / push:** no forman parte de la fase A por defecto (ver arriba). Para versionar el trabajo recién organizado, usa tu propio flujo (`git status`, `git add`, mensaje con Conventional Commits) cuando te convenga; el cierre completo con documentación y remoto va en [FM-CHALLENGE-COMPLETE.md](FM-CHALLENGE-COMPLETE.md).
+
 ### Fase B — Implementación del diseño (solo si el usuario lo pide)
 
 Solo entonces el asistente puede maquetar y completar el reto según JPG en `src/features/{folder_name}/docs/design/` y `src/features/{folder_name}/docs/style-guide.md` (componentes, estilos, accesibilidad, datos dinámicos, etc.).
@@ -168,10 +171,13 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 - No meter UI del reto ni componentes del feature dentro de `_utils/`; ahí solo registro de imports y metadatos (o helpers mínimos de eso).
 - No reemplazar [`src/app/page.tsx`](../../src/app/page.tsx) con el HTML del ZIP.
 - **En fase A:** no entregar una solución visual “terminada” como si el reto estuviera hecho; como mucho stub + rutas + datos copiados + conversión literal del `index.html` si ayuda a arrancar.
+- **En fase A (playbook por defecto):** no ejecutar **`git commit`** ni **`git push`** automáticamente; el asistente no debe “anunciar” el reto en Git al solo organizarlo.
 
 ---
 
 ## 7. Git y la carpeta del ZIP
+
+Lo habitual al **solo** ejecutar este playbook (fase A) es **no** crear commit ni push; cúmplese lo indicado al inicio de la **§5** (fase A) y en la **§6**. El flujo de commit con mensajes convencionales y subida al remoto corresponde a [FM-CHALLENGE-COMPLETE.md](FM-CHALLENGE-COMPLETE.md) cuando cierres el reto, o a tu criterio si versionas el scaffolding antes.
 
 En este repositorio, **`backups/`** está en [`.gitignore`](../../.gitignore): no se sube a Git. Sirve para **guardar en local** la carpeta del ZIP **después** de completar la fase A, sin dejar un duplicado en la raíz.
 

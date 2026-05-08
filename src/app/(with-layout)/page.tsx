@@ -10,7 +10,7 @@ export default function HomePage() {
     <>
       <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <div className="mb-10 grid gap-10 lg:mb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-center lg:gap-12 xl:gap-14">
-          <div className="max-w-2xl">
+          <div className="lg:max-w-2xl">
             <p
               className={cn(
                 "mb-3 inline-flex items-center gap-2 text-sm font-semibold tracking-[0.14em] text-sky-400 uppercase",
@@ -27,13 +27,10 @@ export default function HomePage() {
             >
               Retos del repositorio
             </h1>
-            <p className="max-w-prose text-lg leading-relaxed text-slate-400 sm:text-xl">
-              Misma colección de desafíos que en el repo estático, con metadatos
-              extra:{" "}
-              <strong className="font-medium text-slate-300">
-                dificultad oficial
-              </strong>{" "}
-              (Newbie, Junior, Intermediate…) y etiquetas de stack.
+            <p className="w-full text-lg leading-relaxed text-slate-400 sm:text-xl lg:max-w-prose">
+              Misma colección de desafíos que en el repo estático, con metadatos extra:{" "}
+              <strong className="font-medium text-slate-300">dificultad oficial</strong> (Newbie, Junior, Intermediate…)
+              y etiquetas de stack.
             </p>
           </div>
           <HeroTechStack />
@@ -47,10 +44,9 @@ export default function HomePage() {
           role="note"
         >
           <p className="text-sm leading-relaxed text-slate-400">
-            ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS
-            refuerza fundamentos sin build step. Esta app Next.js sirve para
-            practicar rutas, componentes react, datos y despliegue más cercano
-            al día a día profesional.{" "}
+            ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS refuerza fundamentos sin build step. Esta app
+            Next.js sirve para practicar rutas, componentes react, datos y despliegue más cercano al día a día
+            profesional.{" "}
             <Link
               href="/start"
               className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
