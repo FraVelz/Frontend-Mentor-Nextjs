@@ -10,8 +10,8 @@ export default function Layout({
     <div
       className={cn(
         "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-slate-950",
-        "bg-radial text-foreground bg-fixed text-[16px]",
-     )}
+        "text-foreground bg-radial bg-fixed text-[16px]",
+      )}
     >
       <Header />
       {children}

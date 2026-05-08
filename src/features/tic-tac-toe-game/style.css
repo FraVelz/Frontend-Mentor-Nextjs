@@ -1,5 +1,4 @@
-/* @reference "tailwindcss"; */
-@import "tailwindcss";
+@reference "tailwindcss";
 
 @theme {
   --breakpoint-tablet: 48rem;

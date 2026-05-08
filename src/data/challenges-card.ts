@@ -29,34 +29,6 @@ export interface Challenge {
 /** Datos de muestra: sustituye o amplía cuando añadas rutas reales en la app. */
 export const challenges: Challenge[] = [
   {
-    slug: "tic-tac-toe-game",
-    title: "Tic Tac Toe Game",
-    shortDescription:
-      "Tres en raya FM: menú, vs CPU o dos jugadores, marcador y modales; Outfit y layout responsive.",
-    difficulty: "junior",
-    tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
-    status: "listo",
-    previewGradient:
-      "linear-gradient(145deg, hsl(200, 42%, 21%) 0%, hsl(188, 61%, 53%) 55%, hsl(40, 93%, 61%) 100%)",
-    screenshotSrc: "/tic-tac-toe-game/screenshot.png",
-    implementationHref: "/tic-tac-toe-game",
-    fmChallengeUrl: "https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v",
-  },
-  {
-    slug: "bmi-calculator",
-    title: "Body Mass Index Calculator",
-    shortDescription:
-      "Calculadora IMC con métrico/imperial, clasificación y rango de peso saludable; layout responsive.",
-    difficulty: "junior",
-    tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
-    status: "listo",
-    previewGradient:
-      "linear-gradient(135deg, hsl(215, 100%, 93%) 0%, hsl(216, 100%, 97%) 50%, hsl(177, 61%, 87%) 100%)",
-    screenshotSrc: "/bmi-calculator/screenshot.png",
-    implementationHref: "/bmi-calculator",
-    fmChallengeUrl: "https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T",
-  },
-  {
     slug: "ecommerce-product-page",
     title: "E-commerce product page",
     shortDescription:
@@ -70,7 +42,34 @@ export const challenges: Challenge[] = [
     implementationHref: "/ecommerce-product-page",
     fmChallengeUrl: "https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6",
   },
-  
+  {
+    slug: "bmi-calculator",
+    title: "Body Mass Index Calculator",
+    shortDescription:
+      "Calculadora IMC con métrico/imperial, clasificación y rango de peso saludable; layout responsive.",
+    difficulty: "junior",
+    tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
+    status: "en-progreso",
+    previewGradient:
+      "linear-gradient(135deg, hsl(215, 100%, 93%) 0%, hsl(216, 100%, 97%) 50%, hsl(177, 61%, 87%) 100%)",
+    screenshotSrc: "/bmi-calculator/screenshot.png",
+    implementationHref: "/bmi-calculator",
+    fmChallengeUrl: "https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T",
+  },
+  {
+    slug: "tic-tac-toe-game",
+    title: "tic tac toe game",
+    shortDescription:
+      "tres en raya fm: menú, vs cpu o dos jugadores, marcador y modales; outfit y layout responsive.",
+    difficulty: "junior",
+    tags: ["html", "css", "js", "react", "next", "tailwindcss"],
+    status: "listo",
+    previewGradient:
+      "linear-gradient(145deg, hsl(200, 42%, 21%) 0%, hsl(188, 61%, 53%) 55%, hsl(40, 93%, 61%) 100%)",
+    screenshotSrc: "/tic-tac-toe-game/screenshot.png",
+    implementationHref: "/tic-tac-toe-game",
+    fmChallengeUrl: "https://www.frontendmentor.io/challenges/tic-tac-toe-game-re7zf_e2v",
+  },
 
 ];
 

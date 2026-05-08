@@ -1,7 +1,5 @@
-/* @reference "tailwindcss"; */
-@import "tailwindcss";
+@reference "tailwindcss";
 
-/* Mismos cortes que el starter FM (tablet 768px, desktop 1440px). */
 @theme {
   --breakpoint-tablet: 48rem;
   --breakpoint-desktop: 90rem;
@@ -98,7 +96,6 @@
   letter-spacing: 0;
 }
 
-/* Igual que el ZIP del challenge (inputs numéricos). */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
