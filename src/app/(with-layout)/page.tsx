@@ -32,29 +32,30 @@ export default function HomePage() {
               <strong className="font-medium text-slate-300">dificultad oficial</strong> (Newbie, Junior, Intermediate…)
               y etiquetas de stack.
             </p>
-          </div>
-          <HeroTechStack />
-        </div>
 
-        <div
-          className={cn(
-            "mb-10 rounded-xl border border-sky-500/15 bg-slate-900/50 p-4 backdrop-blur-md sm:p-5 lg:mb-12",
-            "shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.06)]",
-          )}
-          role="note"
-        >
-          <p className="text-sm leading-relaxed text-slate-400">
-            ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS refuerza fundamentos sin build step. Esta app
-            Next.js sirve para practicar rutas, componentes react, datos y despliegue más cercano al día a día
-            profesional.{" "}
-            <Link
-              href="/start"
-              className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
+            <div
+              className={cn(
+                "my-10 rounded-xl border border-sky-500/15 bg-slate-900/50 p-4 backdrop-blur-md sm:p-5 lg:mb-12",
+                "shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.06)]",
+              )}
+              role="note"
             >
-              Vuelve al hub de entrada para elegir track o ver capturas
-            </Link>
-            .
-          </p>
+              <p className="text-sm leading-relaxed text-slate-400">
+                ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS refuerza fundamentos sin build step. Esta
+                app Next.js sirve para practicar rutas, componentes react, datos y despliegue más cercano al día a día
+                profesional.{" "}
+                <Link
+                  href="/start"
+                  className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
+                >
+                  Vuelve al hub de entrada para elegir track o ver capturas
+                </Link>
+                .
+              </p>
+            </div>
+          </div>
+
+          <HeroTechStack />
         </div>
 
         <section aria-labelledby="challenges-heading">
