@@ -49,8 +49,8 @@ Other useful commands: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 | `src/data/` | Index data (`challenges-card.ts`, etc.) |
 | `src/features/{slug}/` | Per-challenge UI: components, `page.tsx`, **`readme.md`**, FM reference under **`docs/`** (`style-guide`, `design/`, `preview.jpg`), and **raster images and SVG** for the layout under **`images/`** (via `import`, not under `public/`) |
 | `public/` | Global statics (e.g. `public/hub/`). Per challenge, only what needs a fixed public URL, e.g. **`public/{slug}/fonts/`**; do not put the layout’s image/icon set in `public/` (keep those in the feature folder) |
-| `docs/IA/` | Playbook and `note.yaml` for assistant-driven challenge setup |
-| `backups/` | **Local** archive of the original ZIP folder (see [playbook §7](docs/IA/FM-CHALLENGE-PLAYBOOK.md#7-git-y-la-carpeta-del-zip)); listed in `.gitignore` |
+| `.cursor/commands/` | Cursor commands: **`/integrate-challenges`** (scaffold a challenge) and **`/auto-commit`** (finish: docs + commit/push) |
+| `backups/` | **Local** archive of the original ZIP folder (see [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip)); listed in `.gitignore` |
 | `*/` at repo root | Only while integrating; move the ZIP folder to `backups/` when done |
 
 ---
@@ -58,9 +58,9 @@ Other useful commands: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 ## Adding a new challenge (playbook)
 
 1. Unzip the challenge and place the folder at the **repository root** (often similar to `results-summary-component/`).
-2. Read **[`docs/IA/FM-CHALLENGE-PLAYBOOK.md`](docs/IA/FM-CHALLENGE-PLAYBOOK.md)**: folder conventions, assistant checklist, and metadata rules.
-3. Optional: fill the minimum in [`docs/IA/note.yaml`](docs/IA/note.yaml) **or** pass `folder_name` and `difficulty` in chat; the rest can be inferred from the ZIP README.
-4. **After phase A** (or once everything needed is under `src/features/{folder_name}/` — **`readme.md`**, **`docs/`**, and **`images/`** for graphics — and under `public/{folder_name}/` **only** when needed e.g. for fonts with fixed URLs), **move the ZIP folder out of the root** to `backups/{folder_name}/` so the tree does not keep duplicates. See [playbook §7](docs/IA/FM-CHALLENGE-PLAYBOOK.md#7-git-y-la-carpeta-del-zip).
+2. Read **[`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md)** (or use **`/integrate-challenges`**): folder conventions, assistant checklist, and metadata rules.
+3. Send **`folder_name`** (and optionally **`difficulty`**) **in chat** when using the command; the rest can be inferred from the ZIP README.
+4. **After phase A** (or once everything needed is under `src/features/{folder_name}/` — **`readme.md`**, **`docs/`**, and **`images/`** for graphics — and under `public/{folder_name}/` **only** when needed e.g. for fonts with fixed URLs), **move the ZIP folder out of the root** to `backups/{folder_name}/` so the tree does not keep duplicates. See [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip).
 
 The playbook describes `src/features/{slug}/`, registration in `src/app/(layout-null)/[slug]/_utils/`, and updates to [`src/data/challenges-card.ts`](src/data/challenges-card.ts). **By default** the assistant only **organizes** (assets, data, stub, index); you implement the UI unless you explicitly ask for “phase B” (full implementation) per the playbook.
 
@@ -68,8 +68,9 @@ The playbook describes `src/features/{slug}/`, registration in `src/app/(layout-
 
 ## Documentation
 
-- Challenge integration: [`docs/IA/FM-CHALLENGE-PLAYBOOK.md`](docs/IA/FM-CHALLENGE-PLAYBOOK.md)
-- Minimal per-challenge notes: [`docs/IA/note.yaml`](docs/IA/note.yaml)
+- Challenge integration (phases A/B): [`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md) — slash **`/integrate-challenges`**
+- Finishing a challenge (docs + remote): [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md) — slash **`/auto-commit`**
+- With this folder as the **workspace root** in Cursor: those commands load the full instructions from [`.cursor/commands/`](.cursor/commands/).
 
 ---
 

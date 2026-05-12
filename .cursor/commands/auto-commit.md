@@ -1,6 +1,8 @@
-# Playbook: al completar un reto Frontend Mentor (doc + subida a remoto)
+# Cerrar reto Frontend Mentor (doc + remoto)
 
-**Relacionado:** [FM-CHALLENGE-PLAYBOOK.md](FM-CHALLENGE-PLAYBOOK.md) (fase A/B y organización) · notas: [note.yaml](note.yaml)
+**Comando Cursor:** **`.cursor/commands/auto-commit.md`** (slash **`/auto-commit`**).
+
+**Relacionado:** [integrate-challenges.md](integrate-challenges.md) (fase A/B y organización); ambos están en **`.cursor/commands/`** (`/integrate-challenges`, `/auto-commit`).
 
 ---
 
@@ -21,7 +23,7 @@ Carpeta del reto: `src/features/{folder_name}/` (mismo `folder_name` kebab-case 
 | `preview.jpg` | `src/features/{folder_name}/docs/preview.jpg` | Sustituir o regenerar si quieres que el preview del challenge refleje la solución. |
 | `design/` | `src/features/{folder_name}/docs/design/` | Los JPG de referencia del ZIP; añade los que faltaron en fase A si hace falta. |
 
-Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `src/features/{folder_name}/images/` (ver playbook §6).
+Nada de esto reemplaza el código: las **imágenes y SVG** del UI siguen bajo `src/features/{folder_name}/images/` (ver [integrate-challenges §6](integrate-challenges.md#6-qué-no-hacer-anti-mezcla)).
 
 ---
 
@@ -55,7 +57,7 @@ Variable opcional en `.env` local o en el proveedor de hosting: `NEXT_PUBLIC_SIT
 
 ## 4. Limpieza local opcional (ZIP)
 
-Si aún tenías la carpeta del ZIP en la raíz, tras la fase A debería estar en `backups/{folder_name}/` (no versionado; ver [FM-CHALLENGE-PLAYBOOK §7](FM-CHALLENGE-PLAYBOOK.md#7-git-y-la-carpeta-del-zip)). Antes de cerrar, confirma que no quedan restos en la raíz que deban ignorarse o moverse.
+Si aún tenías la carpeta del ZIP en la raíz, tras la fase A debería estar en `backups/{folder_name}/` (no versionado; ver [integrate-challenges §7](integrate-challenges.md#7-git-y-la-carpeta-del-zip)). Antes de cerrar, confirma que no quedan restos en la raíz que deban ignorarse o moverse.
 
 ---
 

@@ -1,13 +1,14 @@
+// * Imports ************************************************************************************ //
 import type { Challenge } from "@/data/challenges-card";
 import { difficultyLabels } from "@/data/challenges-card";
-import {
-  githubFeatureTreeUrl,
-  resolveLivePreview,
-} from "@/lib/challenge-external-urls";
+
+import { githubFeatureTreeUrl, resolveLivePreview } from "@/lib/challenge-external-urls";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
+// * Styles ************************************************************************************ //
 const difficultyStyles: Record<Challenge["difficulty"], string> = {
   newbie: "bg-emerald-500/15 text-emerald-300 ring-emerald-400/25",
   junior: "bg-sky-500/15 text-sky-300 ring-sky-400/25",
@@ -28,23 +29,16 @@ const statusLabels: Record<Challenge["status"], string> = {
   listo: "Listo",
 };
 
-const cardSurfaceClass = cn(
-  "group flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]",
-  "shadow-[0_4px_24px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-200",
-  "hover:border-sky-400/35 hover:bg-white/[0.09]",
-  "hover:shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_16px_48px_rgba(0,0,0,0.35)]",
-  "focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-sky-400",
-  "motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-);
-
 const linkButtonClass = cn(
   "inline-flex w-full items-center justify-center rounded-lg border border-sky-400/35",
   "bg-sky-500/10 px-3 py-2.5 text-center text-sm font-semibold text-sky-100",
   "shadow-sm transition",
   "hover:border-sky-400/50 hover:bg-sky-500/20 hover:text-white",
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+  "focus-visible:outline-sky-400",
 );
 
+// * Components ********************************************************************************* //
 function PreviewHeader({ challenge }: { challenge: Challenge }) {
   if (!challenge.screenshotSrc) {
     return (
@@ -76,10 +70,7 @@ function PreviewHeader({ challenge }: { challenge: Challenge }) {
   return (
     <div className="relative aspect-[16/10] overflow-hidden bg-slate-900/80">
       {challenge.implementationHref ? (
-        <Link
-          href={challenge.implementationHref}
-          className="relative block h-full min-h-[10rem] w-full"
-        >
+        <Link href={challenge.implementationHref} className="relative block h-full min-h-[10rem] w-full">
           {image}
         </Link>
       ) : (
@@ -89,7 +80,8 @@ function PreviewHeader({ challenge }: { challenge: Challenge }) {
   );
 }
 
-function CardBody({ challenge }: { challenge: Challenge }) {
+// * CardBody *********************************************************************************** //
+export function CardBody({ challenge }: { challenge: Challenge }) {
   const live = resolveLivePreview(challenge);
   const githubUrl = challenge.sourceCodeUrl ?? githubFeatureTreeUrl(challenge.slug);
   const fmHref = challenge.fmSolutionUrl ?? challenge.fmChallengeUrl;
@@ -98,9 +90,7 @@ function CardBody({ challenge }: { challenge: Challenge }) {
       ? undefined
       : "Página del reto en Frontend Mentor (añade fmSolutionUrl cuando publiques tu solución)";
   const titleContent = (
-    <span className="block text-base font-semibold tracking-tight text-slate-100">
-      {challenge.title}
-    </span>
+    <span className="block text-base font-semibold tracking-tight text-slate-100">{challenge.title}</span>
   );
 
   return (
@@ -130,23 +120,29 @@ function CardBody({ challenge }: { challenge: Challenge }) {
             {challenge.implementationHref ? (
               <Link
                 href={challenge.implementationHref}
-                className="rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+                className={cn(
+                  "rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+                  "focus-visible:outline-sky-400",
+                )}
               >
                 {titleContent}
               </Link>
             ) : (
               titleContent
             )}
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
-              {challenge.shortDescription}
-            </p>
+            <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{challenge.shortDescription}</p>
             <span className="mt-2 block truncate font-mono text-xs font-medium text-sky-400/95">
               /{challenge.slug}/
             </span>
             <ul className="mt-3 flex list-none flex-wrap gap-1.5 [&>li]:m-0 [&>li]:p-0">
               {challenge.tags.map((tag) => (
                 <li key={tag}>
-                  <span className="inline-block rounded-md bg-white/5 px-2 py-0.5 text-[0.7rem] text-slate-400 ring-1 ring-white/10">
+                  <span
+                    className={cn(
+                      "inline-block rounded-md bg-white/5 px-2 py-0.5 text-[0.7rem] text-slate-400",
+                      "ring-1 ring-white/10",
+                    )}
+                  >
                     {tag}
                   </span>
                 </li>
@@ -176,24 +172,12 @@ function CardBody({ challenge }: { challenge: Challenge }) {
           ) : null}
         </div>
 
-        <div
-          className={cn(
-            "flex flex-col gap-2 border-t border-white/10 pt-3 text-left",
-          )}
-        >
-          <p className="text-[0.65rem] font-semibold tracking-wide text-slate-500 uppercase">
-            Enlaces
-          </p>
+        <div className={cn("flex flex-col gap-2 border-t border-white/10 pt-3 text-left")}>
+          <p className="text-[0.65rem] font-semibold tracking-wide text-slate-500 uppercase">Enlaces</p>
           <ul className="flex list-none flex-col gap-2 [&>li]:m-0 [&>li]:p-0">
             {fmHref ? (
               <li>
-                <a
-                  href={fmHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={linkButtonClass}
-                  title={fmTitle}
-                >
+                <a href={fmHref} target="_blank" rel="noopener noreferrer" className={linkButtonClass} title={fmTitle}>
                   Solución en FM
                 </a>
               </li>
@@ -201,12 +185,7 @@ function CardBody({ challenge }: { challenge: Challenge }) {
             {live ? (
               <li>
                 {live.external ? (
-                  <a
-                    href={live.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkButtonClass}
-                  >
+                  <a href={live.href} target="_blank" rel="noopener noreferrer" className={linkButtonClass}>
                     Vista previa en vivo
                   </a>
                 ) : (
@@ -217,12 +196,7 @@ function CardBody({ challenge }: { challenge: Challenge }) {
               </li>
             ) : null}
             <li>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkButtonClass}
-              >
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className={linkButtonClass}>
                 Código en GitHub
               </a>
             </li>
@@ -230,15 +204,5 @@ function CardBody({ challenge }: { challenge: Challenge }) {
         </div>
       </div>
     </>
-  );
-}
-
-export function ChallengeCard({ challenge }: { challenge: Challenge }) {
-  return (
-    <li>
-      <article className={cardSurfaceClass}>
-        <CardBody challenge={challenge} />
-      </article>
-    </li>
   );
 }

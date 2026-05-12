@@ -5,6 +5,7 @@ import { OutlinedXIcon } from "./icons/outlined-x-icon";
 import { XIcon } from "./icons/x-icon";
 
 import { useGame } from "@/features/tic-tac-toe-game/context/game-context";
+import { cn } from "@/lib/utils";
 
 export function GameBoard() {
   const { board, playRound, currentPlayer, gamemode } = useGame();
@@ -19,9 +20,12 @@ export function GameBoard() {
         {board.map((item, index) => (
           <div
             key={index}
-            className={`group flex aspect-square w-full items-center justify-center rounded-[10px] bg-slate-800 pb-2 shadow-[inset_0_-8px_0_#10212A] ${
-              isCpuTurn || item ? "cursor-not-allowed" : "cursor-pointer"
-            } ${isCpuTurn ? "opacity-60" : ""} `}
+            className={cn(
+              "group flex aspect-square w-full items-center justify-center rounded-[10px] bg-slate-800 pb-2",
+              "shadow-[inset_0_-8px_0_#10212A]",
+              isCpuTurn || item ? "cursor-not-allowed" : "cursor-pointer",
+              isCpuTurn && "opacity-60",
+            )}
             role="button"
             tabIndex={0}
             onClick={() => {
@@ -41,10 +45,20 @@ export function GameBoard() {
             {!item && !isCpuTurn && (
               <>
                 {currentPlayer.mark === "X" && (
-                  <OutlinedXIcon className="h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16 tablet:w-16" />
+                  <OutlinedXIcon
+                    className={cn(
+                      "h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16",
+                      "tablet:w-16",
+                    )}
+                  />
                 )}
                 {currentPlayer.mark === "O" && (
-                  <OutlinedOIcon className="h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16 tablet:w-16" />
+                  <OutlinedOIcon
+                    className={cn(
+                      "h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16",
+                      "tablet:w-16",
+                    )}
+                  />
                 )}
               </>
             )}

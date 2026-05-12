@@ -5,6 +5,7 @@ import { ModeSelection } from "./mode-selection";
 
 import type { Mark } from "@/features/tic-tac-toe-game/context/game-context";
 import logo from "@/features/tic-tac-toe-game/images/logo.svg";
+import { cn } from "@/lib/utils";
 
 interface NewGameMenuProps {
   mark: Extract<Mark, "X" | "O">;
@@ -25,7 +26,12 @@ export function NewGameMenu({ mark, setMark }: NewGameMenuProps) {
 
 function MarkSection({ mark, setMark }: NewGameMenuProps) {
   return (
-    <section className="flex w-full flex-col gap-4 rounded-2xl bg-slate-800 p-6 pb-8 shadow-[inset_0_-8px_0_#10212A] tablet:gap-6 tablet:pt-5 tablet:pb-7">
+    <section
+      className={cn(
+        "flex w-full flex-col gap-4 rounded-2xl bg-slate-800 p-6 pb-8 shadow-[inset_0_-8px_0_#10212A]",
+        "tablet:gap-6 tablet:pt-5 tablet:pb-7",
+      )}
+    >
       <form className="flex flex-col gap-6">
         <p className="font-bold uppercase">Pick Player 1&apos;s mark</p>
 

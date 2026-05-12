@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Reference / snapshot tree; not part of the app under lint.
+    "backups/**",
   ]),
 ]);
 

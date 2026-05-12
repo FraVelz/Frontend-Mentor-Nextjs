@@ -70,7 +70,12 @@ function LimitCard({ limit, className }: { limit: Limit; className?: string }) {
         aria-hidden
       />
       <div className="relative flex h-full flex-col gap-4 rounded-2xl bg-white p-6 tablet:p-8">
-        <div className="text-var-blue-900 flex items-start gap-4 text-[20px] font-semibold leading-base tracking-[-0.04em]">
+        <div
+          className={cn(
+            "text-var-blue-900 flex items-start gap-4 text-[20px] font-semibold tracking-[-0.04em]",
+            "leading-base",
+          )}
+        >
           <Image src={limit.icon} alt="" width={32} height={32} className="aspect-square w-8 shrink-0" />
           <h3>{limit.title}</h3>
         </div>
@@ -82,9 +87,24 @@ function LimitCard({ limit, className }: { limit: Limit; className?: string }) {
 
 export function LimitsSection() {
   return (
-    <section className="relative flex flex-col gap-14 px-5 pb-16 tablet:px-10 desktop:mx-auto desktop:grid desktop:max-w-[90rem] desktop:grid-cols-12 desktop:gap-8 desktop:px-36 desktop:py-24">
-      <div className="flex flex-col gap-8 text-center desktop:col-start-1 desktop:row-start-1 desktop:max-w-[34.5rem] desktop:text-left">
-        <h2 className="text-var-blue-900 text-[32px] leading-[110%] font-semibold tracking-[-0.04em] desktop:text-[48px]">
+    <section
+      className={cn(
+        "relative flex flex-col gap-14 px-5 pb-16 tablet:px-10",
+        "desktop:mx-auto desktop:grid desktop:max-w-[90rem] desktop:grid-cols-12 desktop:gap-8 desktop:px-36 desktop:py-24",
+      )}
+    >
+      <div
+        className={cn(
+          "flex flex-col gap-8 text-center desktop:col-start-1 desktop:row-start-1 desktop:max-w-[34.5rem]",
+          "desktop:text-left",
+        )}
+      >
+        <h2
+          className={cn(
+            "text-var-blue-900 text-[32px] leading-[110%] font-semibold tracking-[-0.04em]",
+            "desktop:text-[48px]",
+          )}
+        >
           Limitations of BMI
         </h2>
         <p className="text-var-grey-500 text-preset-6-regular">
@@ -103,7 +123,12 @@ export function LimitsSection() {
         aria-hidden
       />
 
-      <div className="flex flex-col items-center gap-4 tablet:flex-row tablet:flex-wrap tablet:items-stretch tablet:justify-center desktop:contents">
+      <div
+        className={cn(
+          "flex flex-col items-center gap-4 tablet:flex-row tablet:flex-wrap tablet:items-stretch tablet:justify-center",
+          "desktop:contents",
+        )}
+      >
         {LIMITS.map((item, index) => (
           <LimitCard
             key={item.id}

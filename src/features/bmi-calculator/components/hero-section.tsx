@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import logo from "@/features/bmi-calculator/images/logo.svg";
+import { cn } from "@/lib/utils";
 
 import { BmiCalculatorForm } from "./bmi-calculator-form";
 
@@ -10,7 +11,10 @@ export function HeroSection() {
   return (
     <section className="relative px-6 pt-8 tablet:px-10 desktop:px-36 desktop:py-22">
       <div
-        className="absolute top-0 left-0 -z-10 h-[640px] w-full rounded-b-[35px] bg-gradient-to-r from-white to-[#d6e6fe] desktop:h-full desktop:min-h-[38rem] desktop:w-[70%]"
+        className={cn(
+          "absolute top-0 left-0 -z-10 h-[640px] w-full rounded-b-[35px] bg-gradient-to-r from-white to-[#d6e6fe]",
+          "desktop:h-full desktop:min-h-[38rem] desktop:w-[70%]",
+        )}
         aria-hidden
       />
 
@@ -25,9 +29,24 @@ export function HeroSection() {
           priority
         />
 
-        <div className="flex w-full flex-col items-center gap-8 tablet:gap-10 desktop:grid desktop:grid-cols-2 desktop:items-start desktop:gap-8">
-          <header className="text-center desktop:max-w-xl desktop:justify-self-start desktop:self-center desktop:py-18 desktop:text-left">
-            <h1 className="text-var-blue-900 mb-6 text-[48px] leading-[110%] font-semibold tracking-[-0.04em] tablet:mb-8 desktop:text-[64px]">
+        <div
+          className={cn(
+            "flex w-full flex-col items-center gap-8 tablet:gap-10",
+            "desktop:grid desktop:grid-cols-2 desktop:items-start desktop:gap-8",
+          )}
+        >
+          <header
+            className={cn(
+              "text-center desktop:max-w-xl desktop:justify-self-start desktop:self-center desktop:py-18",
+              "desktop:text-left",
+            )}
+          >
+            <h1
+              className={cn(
+                "text-var-blue-900 mb-6 text-[48px] leading-[110%] font-semibold tracking-[-0.04em] tablet:mb-8",
+                "desktop:text-[64px]",
+              )}
+            >
               Body Mass
               <br />
               Index Calculator

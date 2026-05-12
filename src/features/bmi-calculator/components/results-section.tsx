@@ -2,10 +2,17 @@ import Image from "next/image";
 
 import heroImage from "@/features/bmi-calculator/images/image-man-eating.webp";
 import curveLeft from "@/features/bmi-calculator/images/pattern-curved-line-left.svg";
+import { cn } from "@/lib/utils";
 
 export function ResultsSection() {
   return (
-    <section className="relative flex flex-col items-center gap-12 px-6 tablet:flex-row tablet:gap-[4.5rem] tablet:px-10 desktop:mx-auto desktop:max-w-[90rem] desktop:translate-x-0 desktop:items-center desktop:justify-center desktop:gap-[8.4375rem] desktop:self-center desktop:px-36 desktop:pt-[3.25rem] desktop:pb-[5.375rem]">
+    <section
+      className={cn(
+        "relative flex flex-col items-center gap-12 px-6 tablet:flex-row tablet:gap-[4.5rem] tablet:px-10",
+        "desktop:mx-auto desktop:max-w-[90rem] desktop:translate-x-0 desktop:items-center desktop:justify-center",
+        "desktop:gap-[8.4375rem] desktop:self-center desktop:px-36 desktop:pt-[3.25rem] desktop:pb-[5.375rem]",
+      )}
+    >
       <Image
         src={curveLeft}
         alt=""
@@ -15,7 +22,12 @@ export function ResultsSection() {
         aria-hidden
       />
 
-      <div className="relative aspect-[565/412] w-full max-w-[21.5rem] shrink-0 tablet:max-w-[27.2rem] desktop:max-w-[35.25rem]">
+      <div
+        className={cn(
+          "relative aspect-[565/412] w-full max-w-[21.5rem] shrink-0 tablet:max-w-[27.2rem]",
+          "desktop:max-w-[35.25rem]",
+        )}
+      >
         <Image
           src={heroImage}
           alt="Hombre comiendo"
@@ -26,7 +38,12 @@ export function ResultsSection() {
       </div>
 
       <div className="flex max-w-xl flex-col gap-8 tablet:px-0 desktop:translate-y-16">
-        <h2 className="text-var-blue-900 text-[32px] leading-[110%] font-semibold tracking-[-0.04em] desktop:text-[48px]">
+        <h2
+          className={cn(
+            "text-var-blue-900 text-[32px] leading-[110%] font-semibold tracking-[-0.04em]",
+            "desktop:text-[48px]",
+          )}
+        >
           What your BMI result means
         </h2>
         <p className="text-var-grey-500 text-preset-6-regular">

@@ -1,7 +1,9 @@
 import { HeroTechStack } from "@/components/home/hero-tech-stack";
 import { Footer } from "@/components/layout/Footer";
-import { ChallengeCard } from "@/components/ui/challenge-card";
+import { CardBody } from "@/components/ui/challenge-card";
+
 import { challenges } from "@/data/challenges-card";
+
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -9,7 +11,12 @@ export default function HomePage() {
   return (
     <>
       <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-        <div className="mb-10 grid gap-10 lg:mb-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)] lg:items-center lg:gap-12 xl:gap-14">
+        <div
+          className={cn(
+            "mb-10 grid gap-10 lg:mb-14 lg:items-center lg:gap-12 xl:gap-14",
+            "lg:grid-cols-[minmax(0,1fr)_minmax(0,520px)]",
+          )}
+        >
           <div className="lg:max-w-2xl">
             <p
               className={cn(
@@ -46,7 +53,10 @@ export default function HomePage() {
                 profesional.{" "}
                 <Link
                   href="/start"
-                  className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
+                  className={cn(
+                    "font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2",
+                    "hover:text-sky-300",
+                  )}
                 >
                   Vuelve al hub de entrada para elegir track o ver capturas
                 </Link>
@@ -67,7 +77,21 @@ export default function HomePage() {
           </h2>
           <ul className="grid list-none grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 [&>li]:m-0 [&>li]:p-0">
             {challenges.map((c) => (
-              <ChallengeCard key={c.slug} challenge={c} />
+              <li key={c.slug}>
+                <article
+                  className={cn(
+                    "group flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]",
+                    "shadow-[0_4px_24px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-200",
+                    "hover:border-sky-400/35 hover:bg-white/[0.09]",
+                    "hover:shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_16px_48px_rgba(0,0,0,0.35)]",
+                    "focus-within:outline focus-within:outline-2 focus-within:outline-offset-2",
+                    "focus-within:outline-sky-400",
+                    "motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
+                  )}
+                >
+                  <CardBody challenge={c} />
+                </article>
+              </li>
             ))}
           </ul>
         </section>

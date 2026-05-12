@@ -1,6 +1,6 @@
 # Playbook: integrar un reto Frontend Mentor en este monorepo Next.js
 
-**Ubicación:** [`docs/IA/FM-CHALLENGE-PLAYBOOK.md`](FM-CHALLENGE-PLAYBOOK.md) · notas mínimas: [`docs/IA/note.yaml`](note.yaml)
+**Comando Cursor:** este playbook es **`.cursor/commands/integrate-challenges.md`** (slash **`/integrate-challenges`**). Los datos del reto se pasan **por el mensaje** (no hay `note.yaml` ni otro fichero auxiliar en el repo).
 
 ---
 
@@ -22,10 +22,10 @@ Si el usuario **no** aclara el modo, asumir **solo fase A (organización)**.
 
 ## Entrada de datos
 
-- [`note.yaml`](note.yaml) con lo mínimo (`folder_name`, opcional `difficulty`), o **el mismo contenido por chat**.
+- En el chat: **nombre de carpeta del ZIP** (`folder_name`, kebab-case) y, si quieres, **`difficulty`**. Opcionalmente pega un bloque YAML/JSON con esos campos (es solo texto en el mensaje; no se guarda ningún archivo).
 - El asistente **infiere metadatos** (§1.2) leyendo `/{folder_name}/` y **los muestra** para que puedas corregirlos antes de tocar `challenges-card.ts`.
 
-Adjunta este playbook + `note.yaml` (o solo el playbook y tu mensaje) y pide **«organiza el reto»** o **«fase A del playbook»** si quieres evitar malentendidos.
+Invoca **`/integrate-challenges`** (o adjunta este `.md`) y pide **«organiza el reto»** o **«fase A del playbook»** si quieres evitar malentendidos.
 
 ---
 
@@ -45,16 +45,18 @@ Adjunta este playbook + `note.yaml` (o solo el playbook y tu mensaje) y pide **�
 
 ## 1. Variables del reto
 
-### 1.1 Archivo mínimo (`docs/IA/note.yaml`, opcional)
+### 1.1 Datos mínimos (siempre por chat)
 
 `folder_name` debe coincidir **exactamente** con la carpeta del challenge en la raíz del repositorio.
+
+Ejemplo de lo que puedes **pegar en el mensaje** (no hace falta crear ningún archivo):
 
 ```yaml
 folder_name: results-summary-component
 difficulty: newbie # opcional; newbie | junior | intermediate | advanced | guru
 ```
 
-**Equivalente por chat:** mismo YAML o «carpeta: `mi-reto`, dificultad: newbie».
+**Equivalente:** «carpeta: `mi-reto`, dificultad: newbie» o solo el nombre de la carpeta si ya está en la raíz del repo.
 
 **Regla:** si falta un dato, infiérelo del ZIP; si no es posible, default razonable (§1.2) y **comunícalo**.
 
@@ -62,8 +64,8 @@ difficulty: newbie # opcional; newbie | junior | intermediate | advanced | guru
 
 | Campo | Origen (orden de preferencia) |
 | --- | --- |
-| `difficulty` | YAML/chat → README → **`newbie`** por defecto + aviso. |
-| `slug` | Igual a `folder_name` (kebab-case); excepciones en YAML/chat. |
+| `difficulty` | Mensaje/chat → README → **`newbie`** por defecto + aviso. |
+| `slug` | Igual a `folder_name` (kebab-case); excepciones si las indicas en el chat. |
 | `title` | `README.md`. |
 | `shortDescription` | README (1–2 frases). |
 | `tags` | Stack y foco del enunciado. |
@@ -83,7 +85,7 @@ Suele parecerse a [`results-summary-component/`](../../results-summary-component
 
 Ver [`src/data/challenges-card.ts`](../../src/data/challenges-card.ts): `slug`, `title`, `shortDescription`, `difficulty`, `tags`, `status`, `previewGradient`, `implementationHref?`.
 
-**Convención:** `slug` ≈ `folder_name`. Sufijos tipo `-main`: renombrar o documentar en YAML/chat.
+**Convención:** `slug` ≈ `folder_name`. Sufijos tipo `-main`: renombrar o documentar en el chat.
 
 ---
 
@@ -113,7 +115,7 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 | **Referencia (ZIP original)** | Al descargar: `/{folder_name}/` en la raíz. **Tras la fase A,** ver [§7](#7-git-y-la-carpeta-del-zip): mover a `backups/{folder_name}/` (recomendado; **no** es código de la app). |
 | **Docs del reto (plantilla, guía, previews, JPGs)** | **`src/features/{folder_name}/readme.md`** (ex-`README-template.md`) y **`src/features/{folder_name}/docs/`** — `style-guide.md`, `preview.jpg`, `design/`. |
 | **Imágenes y SVG (UI del reto)** | **`src/features/{folder_name}/images/`** — copia desde `/{folder_name}/assets/` (o equivalente). Uso: `import` en componentes. |
-| **`screenshot.png` (hub / redes, al cerrar el reto)** | `public/{folder_name}/screenshot.png` — ver [FM-CHALLENGE-COMPLETE §2](FM-CHALLENGE-COMPLETE.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name). No sustituye a `images/` del feature. |
+| **`screenshot.png` (hub / redes, al cerrar el reto)** | `public/{folder_name}/screenshot.png` — ver [**auto-commit** §2](auto-commit.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name). No sustituye a `images/` del feature. |
 | **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` también para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes ni SVG de la maquetación del **UI** del reto. |
 | **JSON / datos** | `src/features/{folder_name}/data.json` o **`data.ts`** si conviene: para iconos/rutas a assets, preferir **imports** desde `./images/...` en TypeScript (evita depender de `public/`). |
 | **Código UI del reto** | `src/features/{folder_name}/` — componentes, hooks, estilos, `page.tsx`. |
@@ -141,7 +143,7 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 
 El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
-1. Comprobar `/{folder_name}/` en la raíz (§1.3). Leer [`note.yaml`](note.yaml) si existe.
+1. Comprobar `/{folder_name}/` en la raíz (§1.3) y que coincide con lo indicado en el chat (§1.1).
 2. **Documentación en el feature:** si vienen en el ZIP, mover (o copiar y eliminar duplicados) `README-template.md` como **`src/features/{folder_name}/readme.md`**, y **`style-guide.md`**, **`preview.jpg`** y la carpeta **`design/`** bajo **`src/features/{folder_name}/docs/`**. Ajustar enlaces en `/{folder_name}/README.md` (ZIP) y en `readme.md` del feature (`./docs/...`) para que sigan siendo válidos.
 3. Inferir metadatos (§1.2) y **mostrarlos** al usuario.
 4. Revisar `src/features/{folder_name}/docs/style-guide.md` y el README del ZIP (`/{folder_name}/README.md`) para **resumir** requisitos (responsive, datos, bonus) en el mensaje; **no** implementarlos aún.
@@ -156,7 +158,7 @@ El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
 **Fin de la fase A.** El usuario abre `/{slug}` y ve el stub o la conversión mínima del HTML; desde ahí implementa en `src/features/{folder_name}/`.
 
-**Commit / push:** no forman parte de la fase A por defecto (ver arriba). Para versionar el trabajo recién organizado, usa tu propio flujo (`git status`, `git add`, mensaje con Conventional Commits) cuando te convenga; el cierre completo con documentación y remoto va en [FM-CHALLENGE-COMPLETE.md](FM-CHALLENGE-COMPLETE.md).
+**Commit / push:** no forman parte de la fase A por defecto (ver arriba). Para versionar el trabajo recién organizado, usa tu propio flujo (`git status`, `git add`, mensaje con Conventional Commits) cuando te convenga; el cierre completo con documentación y remoto va en [**auto-commit**](auto-commit.md).
 
 ### Fase B — Implementación del diseño (solo si el usuario lo pide)
 
@@ -166,7 +168,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 
 ## 6. Qué no hacer (anti-mezcla)
 
-- No colocar **imágenes ni SVG** del UI del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`) y, al publicar la solución, **`screenshot.png`** para el índice y metadatos (ver [FM-CHALLENGE-COMPLETE §2](FM-CHALLENGE-COMPLETE.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name)); nunca la galería de imágenes del feature mezclada sin convención.
+- No colocar **imágenes ni SVG** del UI del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`) y, al publicar la solución, **`screenshot.png`** para el índice y metadatos (ver [**auto-commit** §2](auto-commit.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name)); nunca la galería de imágenes del feature mezclada sin convención.
 - No mezclar código de dos retos en la misma carpeta bajo `src/features/`.
 - No meter UI del reto ni componentes del feature dentro de `_utils/`; ahí solo registro de imports y metadatos (o helpers mínimos de eso).
 - No reemplazar [`src/app/page.tsx`](../../src/app/page.tsx) con el HTML del ZIP.
@@ -177,7 +179,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 
 ## 7. Git y la carpeta del ZIP
 
-Lo habitual al **solo** ejecutar este playbook (fase A) es **no** crear commit ni push; cúmplese lo indicado al inicio de la **§5** (fase A) y en la **§6**. El flujo de commit con mensajes convencionales y subida al remoto corresponde a [FM-CHALLENGE-COMPLETE.md](FM-CHALLENGE-COMPLETE.md) cuando cierres el reto, o a tu criterio si versionas el scaffolding antes.
+Lo habitual al **solo** ejecutar este playbook (fase A) es **no** crear commit ni push; cúmplese lo indicado al inicio de la **§5** (fase A) y en la **§6**. El flujo de commit con mensajes convencionales y subida al remoto corresponde a [**auto-commit**](auto-commit.md) cuando cierres el reto, o a tu criterio si versionas el scaffolding antes.
 
 En este repositorio, **`backups/`** está en [`.gitignore`](../../.gitignore): no se sube a Git. Sirve para **guardar en local** la carpeta del ZIP **después** de completar la fase A, sin dejar un duplicado en la raíz.
 
@@ -196,7 +198,7 @@ mv "{folder_name}" "backups/{folder_name}"
 ## 8. Flujo rápido para el humano
 
 1. Descargar el ZIP y colocar la carpeta en la raíz del repo.
-2. Rellenar [`note.yaml`](note.yaml) o escribir `folder_name` (y `difficulty`) en el chat (el YAML incluye el recordatorio: gráficos en `src/features/{folder_name}/images/`, `public/{folder_name}/` solo p. ej. para fuentes).
+2. Escribir en el chat `folder_name` (y opcionalmente `difficulty`) o pegar el bloque de ejemplo del §1.1 — **recordatorio:** gráficos de la UI en `src/features/{folder_name}/images/`; `public/{folder_name}/` solo p. ej. para fuentes u otros con URL fija.
 3. Pedir **«organiza este reto con el playbook»** (fase A).
 4. **Mover** la carpeta del ZIP a `backups/{folder_name}/` (o pedir al asistente que lo haga) una vez hechos los copiados; ver [§7](#7-git-y-la-carpeta-del-zip).
 5. Abrir `/{slug}` y `src/features/{folder_name}/` y **implementar tú** el diseño (o pedir fase B).

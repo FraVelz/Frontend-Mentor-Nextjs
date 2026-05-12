@@ -17,11 +17,19 @@ import {
 
 type Unit = "metric" | "imperial";
 
-const radioClass =
-  "flex h-[31px] w-[31px] shrink-0 cursor-pointer appearance-none items-center justify-center rounded-full border border-var-grey-500 outline-none hover:border-var-blue-500 checked:border-0 checked:bg-var-blue-100 checked:before:block checked:before:h-[15px] checked:before:w-[15px] checked:before:rounded-full checked:before:bg-var-blue-500 checked:before:content-[''] focus-visible:ring-2 focus-visible:ring-var-blue-500 focus-visible:ring-offset-2";
+const radioClass = cn(
+  "flex h-[31px] w-[31px] shrink-0 cursor-pointer appearance-none items-center justify-center rounded-full",
+  "border border-var-grey-500 outline-none hover:border-var-blue-500",
+  "checked:border-0 checked:bg-var-blue-100",
+  "checked:before:block checked:before:h-[15px] checked:before:w-[15px] checked:before:rounded-full",
+  "checked:before:bg-var-blue-500 checked:before:content-['']",
+  "focus-visible:ring-2 focus-visible:ring-var-blue-500 focus-visible:ring-offset-2",
+);
 
-const fieldShell =
-  "border-var-grey-500 hover:border-var-blue-500 flex gap-6 rounded-xl border p-6 text-[24px] leading-[29px] font-semibold tracking-[-0.04em] transition-colors desktop:py-4";
+const fieldShell = cn(
+  "border-var-grey-500 hover:border-var-blue-500 flex gap-6 rounded-xl border p-6",
+  "text-[24px] leading-[29px] font-semibold tracking-[-0.04em] transition-colors desktop:py-4",
+);
 
 function fmt1(n: number): string {
   return n.toFixed(1);
@@ -71,7 +79,10 @@ export function BmiCalculatorForm() {
 
   return (
     <form
-      className="flex w-full flex-col gap-6 rounded-2xl bg-white p-6 shadow-[16px_32px_56px_rgba(143,174,207,0.25)] tablet:gap-8 tablet:p-8"
+      className={cn(
+        "flex w-full flex-col gap-6 rounded-2xl bg-white p-6",
+        "shadow-[16px_32px_56px_rgba(143,174,207,0.25)] tablet:gap-8 tablet:p-8",
+      )}
       onSubmit={(e) => e.preventDefault()}
     >
       <h2 className="text-var-blue-900 text-[24px] leading-[29px] font-semibold tracking-[-0.04em]">
@@ -210,7 +221,12 @@ export function BmiCalculatorForm() {
       </div>
 
       {!result ? (
-        <section className="bg-var-blue-500 flex flex-col gap-6 rounded-2xl p-8 text-white tablet:gap-4 tablet:rounded-l-2xl tablet:rounded-r-[80px]">
+        <section
+          className={cn(
+            "bg-var-blue-500 flex flex-col gap-6 rounded-2xl p-8 text-white",
+            "tablet:gap-4 tablet:rounded-l-2xl tablet:rounded-r-[80px]",
+          )}
+        >
           <h3 className="text-[24px] leading-[29px] font-semibold tracking-[-0.04em]">Welcome!</h3>
           <p className="text-[14px] leading-base">
             Enter your height and weight and you&apos;ll see your BMI result here
@@ -218,7 +234,10 @@ export function BmiCalculatorForm() {
         </section>
       ) : (
         <section
-          className="bg-var-blue-500 flex flex-col gap-6 rounded-2xl p-8 text-white tablet:grid tablet:grid-cols-2 tablet:items-center tablet:rounded-l-2xl tablet:rounded-r-[80px]"
+          className={cn(
+            "bg-var-blue-500 flex flex-col gap-6 rounded-2xl p-8 text-white",
+            "tablet:grid tablet:grid-cols-2 tablet:items-center tablet:rounded-l-2xl tablet:rounded-r-[80px]",
+          )}
           role="status"
           aria-live="polite"
         >
