@@ -11,7 +11,7 @@ interface MarkTogglerProps {
 
 export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
   return (
-    <div className="relative grid grid-cols-2 rounded-[10px] bg-slate-900 p-[9px] tablet:p-2">
+    <div className="relative grid grid-cols-2 rounded-[10px] bg-zinc-900 p-[9px] tablet:p-2">
       <div
         className={cn(
           "pointer-events-none absolute top-[9px] right-2 bottom-[9px] left-2 grid grid-cols-2",
@@ -20,7 +20,7 @@ export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
       >
         <div
           className={cn(
-            "rounded-[10px] bg-slate-300 transition-all duration-300",
+            "rounded-[10px] bg-zinc-300 transition-all duration-300",
             mark === "X" ? "translate-x-0" : "translate-x-full",
           )}
         />
@@ -29,7 +29,7 @@ export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
       <label
         className={cn(
           "relative z-10 flex h-[54px] cursor-pointer items-center justify-center rounded-[10px]",
-          "not-has-checked:hover:bg-slate-850",
+          "not-has-checked:hover:bg-zinc-850",
         )}
       >
         <input
@@ -41,14 +41,14 @@ export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
           onChange={() => setMark("X")}
         />
         <XIcon
-          className={cn("h-8 w-8 transition-all duration-300", mark === "X" ? "text-slate-900" : "text-slate-300")}
+          className={cn("h-8 w-8 transition-all duration-300", mark === "X" ? "text-zinc-900" : "text-zinc-300")}
         />
       </label>
 
       <label
         className={cn(
           "relative z-10 flex h-[54px] cursor-pointer items-center justify-center rounded-[10px]",
-          "not-has-checked:hover:bg-slate-850",
+          "not-has-checked:hover:bg-zinc-850",
         )}
       >
         <input
@@ -60,7 +60,7 @@ export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
           onChange={() => setMark("O")}
         />
         <OIcon
-          className={cn("h-8 w-8 transition-all duration-300", mark === "O" ? "text-slate-900" : "text-slate-300")}
+          className={cn("h-8 w-8 transition-all duration-300", mark === "O" ? "text-zinc-900" : "text-zinc-300")}
         />
       </label>
     </div>

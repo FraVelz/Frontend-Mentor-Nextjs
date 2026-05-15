@@ -47,12 +47,12 @@ export default function ProductInfo() {
   return (
     <div className="flex flex-col gap-4 md:gap-6 px-6 md:px-0 py-6 md:py-12 max-w-[445px]">
       {/* Marca / empresa */}
-      <h3 className="text-orange-500 uppercase tracking-widest font-bold text-xs md:text-sm">
+      <h3 className="text-xs font-semibold tracking-widest text-orange-500 uppercase md:text-sm">
         {product.company}
       </h3>
 
       {/* Título del producto */}
-      <h1 className="text-[#1d2025] text-3xl md:text-5xl font-bold leading-tight">
+      <h1 className="text-[#1d2025] text-3xl leading-tight font-semibold md:text-5xl">
         {product.name}
       </h1>
 
@@ -77,9 +77,9 @@ export default function ProductInfo() {
       </div>
 
       {/* Controles: cantidad y añadir al carrito */}
-      <div className="flex flex-col md:flex-row gap-4 mt-4">
+        <div className="mt-4 flex flex-col gap-4 md:flex-row">
         {/* Selector de cantidad */}
-        <div className="flex items-center justify-between bg-[#f7f7f9] rounded-lg px-4 py-4 md:w-1/3">
+        <div className="flex items-center justify-between rounded-lg bg-[#f7f7f9] p-4 md:w-1/3">
           <button onClick={handleDecrement} className="hover:opacity-60 transition-opacity">
             <img src={imgSrc(iconMinusImage)} alt="Decrease" />
           </button>

@@ -15,7 +15,7 @@ function TicTacToeShell({ className }: { className?: string }) {
   return (
     <div
       className={`
-        bg-slate-900 p-6 leading-base tracking-base text-base text-slate-300
+        bg-zinc-900 p-6 leading-base tracking-base text-base text-zinc-300
         flex min-h-screen justify-center ${className ?? ""} ${!isGameStarted ? "items-center" : "tablet:items-center"}
       `}
     >

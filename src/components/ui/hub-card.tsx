@@ -19,7 +19,7 @@ const focusRing = cn(
 export function HubCard({ track, imagePriority = false }: { track: HubTrack; imagePriority?: boolean }) {
   const body = (
     <>
-      <div className="relative aspect-1200/750 w-full overflow-hidden bg-slate-900/80">
+      <div className="relative aspect-1200/750 w-full overflow-hidden bg-zinc-900/80">
         <Image
           src={track.imageSrc}
           alt={track.imageAlt}
@@ -31,8 +31,8 @@ export function HubCard({ track, imagePriority = false }: { track: HubTrack; ima
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
-        <h2 className="text-lg font-semibold tracking-tight text-slate-100 sm:text-xl">{track.title}</h2>
-        <p className="flex-1 text-sm leading-relaxed text-slate-400 sm:text-[0.9375rem]">{track.description}</p>
+        <h2 className="text-lg font-semibold tracking-tight text-zinc-100 sm:text-xl">{track.title}</h2>
+        <p className="flex-1 text-sm leading-relaxed text-zinc-400 sm:text-[0.9375rem]">{track.description}</p>
 
         <div className="pt-1">
           <span

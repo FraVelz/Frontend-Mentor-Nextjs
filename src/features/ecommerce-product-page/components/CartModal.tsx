@@ -17,8 +17,8 @@ export default function CartModal() {
       )}
     >
       {/* Encabezado del panel carrito */}
-      <div className="p-6 border-b border-gray-100">
-        <h3 className="font-bold text-black">Cart</h3>
+      <div className="p-6 border-b border-zinc-100">
+        <h3 className="font-semibold text-black">Cart</h3>
       </div>
 
       {/* Líneas del carrito o mensaje vacío */}
@@ -32,11 +32,11 @@ export default function CartModal() {
                   <img 
                     src={item.image} 
                     alt={item.name} 
-                    className="w-12 h-12 rounded-md" 
+                    className="size-12 rounded-md" 
                   />
                   
                   {/* Nombre, precio y subtotal */}
-                  <div className="flex-1 text-gray-500 text-[15px]">
+                  <div className="flex-1 text-zinc-500 text-[15px]">
                     <p className="truncate w-40 md:w-full">{item.name}</p>
                     <p>
                       ${item.price.toFixed(2)} x {item.quantity}{" "}
@@ -70,7 +70,7 @@ export default function CartModal() {
         ) : (
           <div className="flex-1 flex items-center justify-center">
             {/* Carrito vacío (texto en inglés del reto) */}
-            <p className="text-gray-500 font-bold">Your cart is empty.</p>
+            <p className="text-zinc-500 font-bold">Your cart is empty.</p>
           </div>
         )}
       </div>

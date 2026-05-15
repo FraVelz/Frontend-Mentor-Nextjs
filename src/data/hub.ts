@@ -12,7 +12,7 @@ export type HubTrack = {
   imageAlt: string;
 };
 
-export const hubVanilla: HubTrack = {
+const hubVanilla: HubTrack = {
   title: "Frontend Mentor (HTML, CSS, JS)",
   description:
     "Índice estático con un reto por carpeta: refuerza fundamentos, layout, accesibilidad y JavaScript en el navegador sin framework. Ideal para dominar la base antes de subir de nivel.",
@@ -22,7 +22,7 @@ export const hubVanilla: HubTrack = {
   imageAlt: "Vista previa del índice de retos en el proyecto vanilla (HTML, CSS y JavaScript)",
 };
 
-export const hubNextjs: HubTrack = {
+const hubNextjs: HubTrack = {
   title: "Frontend Mentor · Next.js",
   description:
     "La misma línea de desafíos en una app Next.js: índice enriquecido con dificultad y etiquetas, y espacio para migrar cada reto con App Router, componentes y un flujo más cercano al profesional.",

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -25,7 +26,7 @@ export default function Navbar({ onCartClick }: NavbarProps) {
     <nav
       className={cn(
         "relative mx-auto mb-0 flex max-w-7xl items-center justify-between",
-        "border-b border-gray-100 px-6 py-5 md:mb-20 md:py-10",
+        "border-b border-zinc-100 px-6 py-5 md:mb-20 md:py-10",
       )}
     >
       <div className="flex items-center gap-4 md:gap-14">
@@ -34,11 +35,11 @@ export default function Navbar({ onCartClick }: NavbarProps) {
           <img src={imgSrc(menuImage)} alt="Menu" />
         </button>
 
-        <a href="/" className="pb-1">
+        <Link href="/" className="pb-1">
           <img src={imgSrc(logoImage)} alt="sneakers" className="h-5 md:h-6" />
-        </a>
+        </Link>
 
-        <ul className="hidden md:flex gap-8 text-gray-500 font-medium">
+        <ul className="hidden md:flex gap-8 text-zinc-500 font-medium">
           {navLinks.map((link) => (
             <li key={link}>
               <a
@@ -83,7 +84,23 @@ export default function Navbar({ onCartClick }: NavbarProps) {
       {/* Panel lateral móvil */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 flex">
-          <div className="fixed inset-0 bg-black/75" onClick={() => setIsMenuOpen(false)} />
+          <div
+            role="button"
+            tabIndex={0}
+            aria-label="Cerrar menú"
+            className="fixed inset-0 bg-black/75"
+            onClick={() => setIsMenuOpen(false)}
+            onKeyDown={(e) => {
+              if (
+                e.key === "Escape" ||
+                e.key === "Enter" ||
+                e.key === " "
+              ) {
+                e.preventDefault();
+                setIsMenuOpen(false);
+              }
+            }}
+          />
           <div className="relative bg-white w-[250px] h-full p-6 flex flex-col gap-10">
             <button onClick={() => setIsMenuOpen(false)}>
               <img src={imgSrc(closeIconImage)} alt="Close" />

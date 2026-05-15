@@ -18,7 +18,7 @@ export function GameScores() {
         scoreText={xPlayer.wins}
       />
 
-      <ScoreDiv className="bg-slate-300" headerText="Ties" scoreText={ties} />
+      <ScoreDiv className="bg-zinc-300" headerText="Ties" scoreText={ties} />
 
       <ScoreDiv
         className="bg-amber-400"

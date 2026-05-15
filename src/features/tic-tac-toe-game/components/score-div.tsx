@@ -8,7 +8,7 @@ interface ScoreDivProps {
 
 export function ScoreDiv({ className, headerText, scoreText }: ScoreDivProps) {
   return (
-    <div className={cn("flex flex-col items-center justify-center rounded-[10px] text-slate-900", className)}>
+    <div className={cn("flex flex-col items-center justify-center rounded-[10px] text-zinc-900", className)}>
       <span
         className={cn(
           "text-[12px] leading-base font-medium tracking-[0.75px] uppercase tablet:text-[14px]",

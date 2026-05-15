@@ -2,8 +2,8 @@
 
 import {
   createContext,
+  use,
   useCallback,
-  useContext,
   useMemo,
   useState,
   type ReactNode,
@@ -64,7 +64,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 export function useCart(): CartContextValue {
-  const ctx = useContext(CartContext);
+  const ctx = use(CartContext);
   if (!ctx) {
     throw new Error("useCart debe usarse dentro de CartProvider");
   }

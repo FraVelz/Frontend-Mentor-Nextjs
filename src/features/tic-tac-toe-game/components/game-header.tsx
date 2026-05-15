@@ -19,7 +19,7 @@ export function GameHeader() {
 
       <div
         className={cn(
-          "flex h-10 items-center justify-center gap-3 rounded-md bg-slate-800 text-center",
+          "flex h-10 items-center justify-center gap-3 rounded-md bg-zinc-800 text-center",
           "text-[14px] leading-[130%] font-bold tracking-[0.9px] uppercase shadow-[inset_0_-4px_0_#10212A]",
           "tablet:h-[52px] tablet:text-base tablet:leading-base tablet:tracking-base",
         )}
@@ -37,8 +37,8 @@ export function GameHeader() {
         type="button"
         onClick={() => setPaused(true)}
         className={cn(
-          "flex h-10 w-10 cursor-pointer items-center justify-center justify-self-end rounded-md bg-slate-300",
-          "shadow-[inset_0_-4px_0_#6B8997] transition-all hover:bg-slate-100 tablet:h-[52px] tablet:w-[52px]",
+          "flex h-10 w-10 cursor-pointer items-center justify-center justify-self-end rounded-md bg-zinc-300",
+          "shadow-[inset_0_-4px_0_#6B8997] transition-all hover:bg-zinc-100 tablet:h-[52px] tablet:w-[52px]",
         )}
       >
         <Image src={restartIcon} alt="Restart icon" className="h-4 w-4 tablet:h-5 tablet:w-5" width={20} height={20} />

@@ -9,7 +9,7 @@ export function githubFeatureTreeUrl(slug: string): string {
 }
 
 /** URL absoluta del deploy + ruta del reto; útil si `NEXT_PUBLIC_SITE_URL` está definida. */
-export function deployedChallengeUrl(implementationHref: string): string | undefined {
+function deployedChallengeUrl(implementationHref: string): string | undefined {
   const base = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
   if (!base) return undefined;
 

@@ -133,7 +133,7 @@ export default function Lightbox({ onClose }: LightboxProps) {
               <img
                 src={imgSrc(img.thumb)}
                 alt={`Thumbnail ${img.id}`}
-                className="w-[88px] h-[88px]"
+                className="size-[88px]"
               />
             </button>
           ))}
