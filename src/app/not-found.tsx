@@ -13,7 +13,7 @@ export default function NotFound() {
   return (
     <div
       className={cn(
-        "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-slate-950",
+        "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-zinc-950",
         "bg-radial text-foreground bg-fixed text-[16px]",
       )}
     >
@@ -30,13 +30,13 @@ export default function NotFound() {
           </p>
           <h1
             className={cn(
-              "mb-4 bg-linear-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-4xl font-bold",
+              "mb-4 bg-linear-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-4xl font-bold",
               "tracking-tight text-transparent sm:text-5xl leading-tight",
             )}
           >
             Página no encontrada
           </h1>
-          <p className="mb-10 text-lg leading-relaxed text-slate-400 sm:text-xl">
+          <p className="mb-10 text-lg leading-relaxed text-zinc-400 sm:text-xl">
             Esa ruta no existe o fue movida. Puedes volver al listado de retos
             o al hub de entrada.
           </p>
@@ -45,7 +45,7 @@ export default function NotFound() {
               href="/"
               className={cn(
                 "inline-flex min-h-11 min-w-[10rem] items-center justify-center rounded-lg px-5 text-sm font-semibold",
-                "bg-sky-500 text-slate-950 shadow-lg shadow-sky-500/20 transition hover:bg-sky-400",
+                "bg-sky-500 text-zinc-950 shadow-lg shadow-sky-500/20 transition hover:bg-sky-400",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
               )}
             >
@@ -55,7 +55,7 @@ export default function NotFound() {
               href="/start"
               className={cn(
                 "inline-flex min-h-11 min-w-[10rem] items-center justify-center rounded-lg border border-white/10 px-5 text-sm font-semibold",
-                "text-slate-200 transition hover:border-sky-400/40 hover:text-sky-400",
+                "text-zinc-200 transition hover:border-sky-400/40 hover:text-sky-400",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
               )}
             >

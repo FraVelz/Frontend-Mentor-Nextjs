@@ -18,7 +18,7 @@ export function ModeSelection({ mark }: ModeSelectionProps) {
       )}
     >
       <Button
-        handleClick={() => startGame(mark, "solo")}
+        onRoundAction={() => startGame(mark, "solo")}
         className="h-14 w-full rounded-2xl bg-amber-400 pb-1 hover:bg-amber-300 tablet:h-[72px]"
         shadowColor="#CC8B13"
         shadowWidth={8}
@@ -26,7 +26,7 @@ export function ModeSelection({ mark }: ModeSelectionProps) {
         New Game (VS CPU)
       </Button>
       <Button
-        handleClick={() => startGame(mark, "multi")}
+        onRoundAction={() => startGame(mark, "multi")}
         className="rounded-2xl bg-teal-400 pb-1 hover:bg-teal-300 h-14 w-full tablet:h-[72px]"
         shadowColor="#118C87"
         shadowWidth={8}

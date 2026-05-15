@@ -45,12 +45,23 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
     <div className="flex flex-col gap-8 w-full md:max-w-[445px]">
       {/* Imagen principal: clic abre lightbox (escritorio) */}
       <div className="relative overflow-hidden md:rounded-2xl group">
-        <img
-          src={imgSrc(images[currentIndex].main)}
-          alt="Product"
-          className="w-full h-auto cursor-pointer"
+        <button
+          type="button"
+          aria-label={
+            handleLightbox ? "Ampliar imagen del producto" : "Imagen principal"
+          }
           onClick={handleLightbox}
-        />
+          className={cn(
+            "relative block w-full border-0 bg-transparent p-0 text-left outline-none md:rounded-2xl",
+            handleLightbox ? "cursor-pointer" : "",
+          )}
+        >
+          <img
+            src={imgSrc(images[currentIndex].main)}
+            alt="Product"
+            className="h-auto w-full"
+          />
+        </button>
 
         {/* Flechas solo en móvil */}
         <div className="absolute inset-0 flex items-center justify-between px-4 md:hidden">
@@ -100,7 +111,7 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
             <img
               src={imgSrc(img.thumb)}
               alt={`Thumbnail ${img.id}`}
-              className="w-[88px] h-[88px]"
+              className="size-[88px]"
             />
           </button>
         ))}

@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <div
       className={cn(
-        "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-slate-950",
+        "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-zinc-950",
         "text-foreground bg-radial bg-fixed text-[16px]",
       )}
     >

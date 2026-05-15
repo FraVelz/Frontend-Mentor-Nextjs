@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { HeroTechStack } from "@/components/home/hero-tech-stack";
 import { Footer } from "@/components/layout/Footer";
 import { CardBody } from "@/components/ui/challenge-card";
@@ -6,6 +8,12 @@ import { challenges } from "@/data/challenges-card";
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Frontend Mentor Challenges",
+  description:
+    "Colección de retos Frontend Mentor en Next.js: App Router, componentes y despliegue.",
+};
 
 export default function HomePage() {
   return (
@@ -28,26 +36,26 @@ export default function HomePage() {
             </p>
             <h1
               className={cn(
-                "mb-3 bg-linear-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-4xl font-bold",
+                "mb-3 bg-linear-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-4xl font-bold",
                 "tracking-tight text-transparent sm:text-5xl",
               )}
             >
               Retos del repositorio
             </h1>
-            <p className="w-full text-lg leading-relaxed text-slate-400 sm:text-xl lg:max-w-prose">
+            <p className="w-full text-lg leading-relaxed text-zinc-400 sm:text-xl lg:max-w-prose">
               Misma colección de desafíos que en el repo estático, con metadatos extra:{" "}
-              <strong className="font-medium text-slate-300">dificultad oficial</strong> (Newbie, Junior, Intermediate…)
+              <strong className="font-medium text-zinc-300">dificultad oficial</strong> (Newbie, Junior, Intermediate…)
               y etiquetas de stack.
             </p>
 
             <div
               className={cn(
-                "my-10 rounded-xl border border-sky-500/15 bg-slate-900/50 p-4 backdrop-blur-md sm:p-5 lg:mb-12",
+                "my-10 rounded-xl border border-sky-500/15 bg-zinc-900/50 p-4 backdrop-blur-md sm:p-5 lg:mb-12",
                 "shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.06)]",
               )}
               role="note"
             >
-              <p className="text-sm leading-relaxed text-slate-400">
+              <p className="text-sm leading-relaxed text-zinc-400">
                 ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS refuerza fundamentos sin build step. Esta
                 app Next.js sirve para practicar rutas, componentes react, datos y despliegue más cercano al día a día
                 profesional.{" "}
@@ -71,7 +79,7 @@ export default function HomePage() {
         <section aria-labelledby="challenges-heading">
           <h2
             id="challenges-heading"
-            className="mb-5 text-[0.7rem] font-semibold tracking-[0.14em] text-slate-500 uppercase"
+            className="mb-5 text-[0.7rem] font-semibold tracking-[0.14em] text-zinc-500 uppercase"
           >
             Proyectos ({challenges.length})
           </h2>

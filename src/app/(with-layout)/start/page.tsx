@@ -24,13 +24,13 @@ export default function MainHubPage() {
         </p>
         <h1
           className={cn(
-            "mb-3 bg-linear-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent",
+            "mb-3 bg-linear-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-3xl font-bold tracking-tight text-transparent",
             "sm:text-4xl",
           )}
         >
           Dos formas de ver los mismos retos
         </h1>
-        <p className="max-w-prose text-base leading-relaxed text-slate-400">
+        <p className="max-w-prose text-base leading-relaxed text-zinc-400">
           Practico con desafíos de{" "}
           <a
             href="https://www.frontendmentor.io/"

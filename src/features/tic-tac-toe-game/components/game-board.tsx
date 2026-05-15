@@ -7,6 +7,9 @@ import { XIcon } from "./icons/x-icon";
 import { useGame } from "@/features/tic-tac-toe-game/context/game-context";
 import { cn } from "@/lib/utils";
 
+/** Position keys avoid array index keys in the static 3×3 grid. */
+const BOARD_CELL_KEYS = ["nw", "n", "ne", "w", "c", "e", "sw", "s", "se"] as const;
+
 export function GameBoard() {
   const { board, playRound, currentPlayer, gamemode } = useGame();
 
@@ -19,9 +22,9 @@ export function GameBoard() {
       <div className="grid grid-cols-3 gap-5">
         {board.map((item, index) => (
           <div
-            key={index}
+            key={BOARD_CELL_KEYS[index]}
             className={cn(
-              "group flex aspect-square w-full items-center justify-center rounded-[10px] bg-slate-800 pb-2",
+              "group flex aspect-square w-full items-center justify-center rounded-[10px] bg-zinc-800 pb-2",
               "shadow-[inset_0_-8px_0_#10212A]",
               isCpuTurn || item ? "cursor-not-allowed" : "cursor-pointer",
               isCpuTurn && "opacity-60",

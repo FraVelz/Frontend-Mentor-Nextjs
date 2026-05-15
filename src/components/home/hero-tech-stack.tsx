@@ -43,7 +43,7 @@ export function HeroTechStack() {
               <p className="w-full text-sm font-semibold tracking-wide text-pretty break-words text-white lg:text-base">
                 {label}
               </p>
-              <p className="mt-0.5 text-xs leading-snug text-pretty break-words text-slate-400 lg:text-sm">{hint}</p>
+              <p className="mt-0.5 text-xs leading-snug text-pretty break-words text-zinc-400 lg:text-sm">{hint}</p>
             </div>
           </li>
         ))}

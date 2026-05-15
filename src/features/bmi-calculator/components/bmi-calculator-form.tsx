@@ -242,7 +242,7 @@ export function BmiCalculatorForm() {
           aria-live="polite"
         >
           <div className="flex flex-col gap-2">
-            <p className="font-semibold">Your BMI is...</p>
+            <p className="font-semibold">Your BMI is…</p>
             <p className="text-[48px] leading-[110%] font-semibold tracking-[-0.04em]">{fmt1(result.bmi)}</p>
           </div>
           <p className="text-[14px] leading-base">

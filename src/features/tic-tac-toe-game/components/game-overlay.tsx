@@ -23,7 +23,7 @@ export function GameOverlay() {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-950/50">
       <div
         className={cn(
-          "flex h-[14.25rem] w-full flex-col items-center justify-center bg-slate-800 text-center",
+          "flex h-[14.25rem] w-full flex-col items-center justify-center bg-zinc-800 text-center",
           "tablet:h-[16.625rem]",
         )}
       >
@@ -31,7 +31,7 @@ export function GameOverlay() {
           <>
             <p
               className={cn(
-                "text-[14px] leading-[130%] font-bold tracking-[0.9px] text-slate-300 uppercase",
+                "text-[14px] leading-[130%] font-bold tracking-[0.9px] text-zinc-300 uppercase",
                 "tablet:text-base tablet:leading-base tablet:tracking-base",
               )}
             >
@@ -62,8 +62,8 @@ export function GameOverlay() {
 
             <div className="mt-6 flex h-[52px] gap-4">
               <Button
-                handleClick={resetGame}
-                className="bg-slate-300 p-4 hover:bg-slate-100"
+                onRoundAction={resetGame}
+                className="bg-zinc-300 p-4 hover:bg-zinc-100"
                 shadowColor="#6B8997"
                 shadowWidth={4}
               >
@@ -71,7 +71,7 @@ export function GameOverlay() {
               </Button>
 
               <Button
-                handleClick={nextRound}
+                onRoundAction={nextRound}
                 className="bg-amber-400 p-4 hover:bg-amber-300"
                 shadowColor="#CC8B13"
                 shadowWidth={4}
@@ -93,8 +93,8 @@ export function GameOverlay() {
 
             <div className="mt-6 flex h-[52px] gap-4 tablet:mt-[30px]">
               <Button
-                handleClick={resetGame}
-                className="bg-slate-300 p-4 hover:bg-slate-100"
+                onRoundAction={resetGame}
+                className="bg-zinc-300 p-4 hover:bg-zinc-100"
                 shadowColor="#6B8997"
                 shadowWidth={4}
               >
@@ -102,7 +102,7 @@ export function GameOverlay() {
               </Button>
 
               <Button
-                handleClick={nextRound}
+                onRoundAction={nextRound}
                 className="bg-amber-400 p-4 hover:bg-amber-300"
                 shadowColor="#CC8B13"
                 shadowWidth={4}
@@ -124,8 +124,8 @@ export function GameOverlay() {
 
             <div className="mt-6 flex h-[52px] gap-4">
               <Button
-                handleClick={() => setPaused(false)}
-                className="bg-slate-300 p-4 hover:bg-slate-100"
+                onRoundAction={() => setPaused(false)}
+                className="bg-zinc-300 p-4 hover:bg-zinc-100"
                 shadowColor="#6B8997"
                 shadowWidth={4}
               >
@@ -133,7 +133,7 @@ export function GameOverlay() {
               </Button>
 
               <Button
-                handleClick={resetGame}
+                onRoundAction={resetGame}
                 className="bg-amber-400 p-4 hover:bg-amber-300"
                 shadowColor="#CC8B13"
                 shadowWidth={4}

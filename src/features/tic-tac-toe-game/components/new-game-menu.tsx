@@ -28,7 +28,7 @@ function MarkSection({ mark, setMark }: NewGameMenuProps) {
   return (
     <section
       className={cn(
-        "flex w-full flex-col gap-4 rounded-2xl bg-slate-800 p-6 pb-8 shadow-[inset_0_-8px_0_#10212A]",
+        "flex w-full flex-col gap-4 rounded-2xl bg-zinc-800 p-6 pb-8 shadow-[inset_0_-8px_0_#10212A]",
         "tablet:gap-6 tablet:pt-5 tablet:pb-7",
       )}
     >

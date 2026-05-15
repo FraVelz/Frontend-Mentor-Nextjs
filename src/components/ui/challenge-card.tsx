@@ -43,7 +43,7 @@ function PreviewHeader({ challenge }: { challenge: Challenge }) {
   if (!challenge.screenshotSrc) {
     return (
       <div
-        className="relative aspect-[16/10] overflow-hidden bg-slate-900/80"
+        className="relative aspect-[16/10] overflow-hidden bg-zinc-900/80"
         style={{ backgroundImage: challenge.previewGradient }}
       >
         <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
@@ -68,7 +68,7 @@ function PreviewHeader({ challenge }: { challenge: Challenge }) {
   );
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden bg-slate-900/80">
+    <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900/80">
       {challenge.implementationHref ? (
         <Link href={challenge.implementationHref} className="relative block h-full min-h-[10rem] w-full">
           {image}
@@ -90,7 +90,7 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
       ? undefined
       : "Página del reto en Frontend Mentor (añade fmSolutionUrl cuando publiques tu solución)";
   const titleContent = (
-    <span className="block text-base font-semibold tracking-tight text-slate-100">{challenge.title}</span>
+    <span className="block text-base font-semibold tracking-tight text-zinc-100">{challenge.title}</span>
   );
 
   return (
@@ -130,7 +130,7 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
             ) : (
               titleContent
             )}
-            <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{challenge.shortDescription}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-zinc-400">{challenge.shortDescription}</p>
             <span className="mt-2 block truncate font-mono text-xs font-medium text-sky-400/95">
               /{challenge.slug}/
             </span>
@@ -139,7 +139,7 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
                 <li key={tag}>
                   <span
                     className={cn(
-                      "inline-block rounded-md bg-white/5 px-2 py-0.5 text-[0.7rem] text-slate-400",
+                      "inline-block rounded-md bg-white/5 px-2 py-0.5 text-[0.7rem] text-zinc-400",
                       "ring-1 ring-white/10",
                     )}
                   >
@@ -152,13 +152,13 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
           {challenge.implementationHref ? (
             <span
               className={cn(
-                "flex h-10 w-10 shrink-0 items-center justify-center self-start rounded-lg bg-sky-500/15 text-sky-400 transition",
+                "flex size-10 shrink-0 items-center justify-center self-start rounded-lg bg-sky-500/15 text-sky-400 transition",
                 "motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:bg-sky-500/25 motion-reduce:group-hover:translate-x-0",
               )}
               aria-hidden
             >
               <svg
-                className="h-4 w-4"
+                className="size-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -173,7 +173,7 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
         </div>
 
         <div className={cn("flex flex-col gap-2 border-t border-white/10 pt-3 text-left")}>
-          <p className="text-[0.65rem] font-semibold tracking-wide text-slate-500 uppercase">Enlaces</p>
+          <p className="text-[0.65rem] font-semibold tracking-wide text-zinc-500 uppercase">Enlaces</p>
           <ul className="flex list-none flex-col gap-2 [&>li]:m-0 [&>li]:p-0">
             {fmHref ? (
               <li>

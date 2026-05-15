@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "style": "pnpm format && pnpm lint:fix",
-    "react:doctor": "react-doctor . --verbose --full"
+    "react:doctor": "react-doctor . --verbose --full --project frontend-mentor-nextjs"
   },
   "dependencies": {
     "next": "16.2.4",

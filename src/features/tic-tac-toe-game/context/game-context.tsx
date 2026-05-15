@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, use, useState, type ReactNode } from "react";
 
 export type Mark = "X" | "O" | "";
 
@@ -54,9 +54,10 @@ function checkWinner(board: Mark[]): Mark | null {
 }
 
 function cpuMove(boardState: Mark[]): number {
-  const empty = boardState
-    .map((val, i) => (val === "" ? i : null))
-    .filter((i): i is number => i !== null);
+  const empty: number[] = [];
+  for (let i = 0; i < boardState.length; i++) {
+    if (boardState[i] === "") empty.push(i);
+  }
   return empty[Math.floor(Math.random() * empty.length)]!;
 }
 
@@ -207,7 +208,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
 }
 
 export function useGame() {
-  const ctx = useContext(GameContext);
+  const ctx = use(GameContext);
   if (!ctx) throw new Error("useGame must be used inside GameProvider");
   return ctx;
 }

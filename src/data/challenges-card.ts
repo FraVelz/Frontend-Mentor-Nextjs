@@ -1,6 +1,6 @@
 export type Difficulty = "newbie" | "junior" | "intermediate" | "advanced" | "guru";
 
-export type ChallengeStatus = "ejemplo" | "en-progreso" | "listo";
+type ChallengeStatus = "ejemplo" | "en-progreso" | "listo";
 
 export interface Challenge {
   slug: string;
