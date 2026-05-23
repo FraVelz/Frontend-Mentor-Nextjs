@@ -2,14 +2,17 @@
 
 ## Cuándo ejecutar
 
-- El usuario invoca **`/problems-search`** o pide una **búsqueda / auditoría global** de problemas que puedan afectar la web.
+- El usuario invoca **`/problems-search`** o pide una **búsqueda / auditoría global** de problemas que puedan afectar la
+  web.
 - No implica corregir nada salvo que el usuario lo pida después; el objetivo primero es **inventariar y priorizar**.
 
 ## Objetivo
 
-Recorrer el proyecto de forma **sistemática**, desde lo **más global y crítico** hasta lo **más local y menor impacto**, y entregar un informe ordenado por **prioridad** (no por carpeta al azar).
+Recorrer el proyecto de forma **sistemática**, desde lo **más global y crítico** hasta lo **más local y menor impacto**,
+y entregar un informe ordenado por **prioridad** (no por carpeta al azar).
 
-Considerar siempre el **impacto en producción** (usuarios, SEO, build/CI, rendimiento, accesibilidad, fidelidad a los retos Frontend Mentor) y la **probabilidad** de que el problema ocurra en la web desplegada.
+Considerar siempre el **impacto en producción** (usuarios, SEO, build/CI, rendimiento, accesibilidad, fidelidad a los
+retos Frontend Mentor) y la **probabilidad** de que el problema ocurra en la web desplegada.
 
 ## Qué debe hacer el asistente
 
@@ -18,7 +21,8 @@ Considerar siempre el **impacto en producción** (usuarios, SEO, build/CI, rendi
    - `pnpm run build` (como en CI)
    - Opcional si aporta valor: `pnpm run format:check`, `pnpm run react:doctor`
 2. **Revisar el código y la configuración** según las áreas del apartado «Factores y prioridades» (abajo).
-3. **No inventar problemas**: cada hallazgo debe citar archivo/ruta o salida de comando; si algo es hipótesis, marcarlo como *posible* y qué comprobaría.
+3. **No inventar problemas**: cada hallazgo debe citar archivo/ruta o salida de comando; si algo es hipótesis, marcarlo
+   como _posible_ y qué comprobaría.
 4. **Respetar reglas del repo** al evaluar estructura (p. ej. `.cursor/rules/component-scope.mdc`).
 5. **No commitear ni pushear** salvo petición explícita del usuario.
 
@@ -26,12 +30,12 @@ Considerar siempre el **impacto en producción** (usuarios, SEO, build/CI, rendi
 
 Usar esta escala en el informe:
 
-| Nivel | Etiqueta | Criterio orientativo |
-| ----- | -------- | -------------------- |
-| **P0** | Crítico | Rompe build, CI, despliegue, rutas de retos, seguridad grave o pérdida de funcionalidad visible. |
-| **P1** | Alto | Metadata roto, retos incompletos o rotos, errores runtime probables, accesibilidad que bloquea uso, regresión clara de UX. |
-| **P2** | Medio | Lint/types, rendimiento notable, duplicación, incumplimiento de convenciones del repo, deuda que facilita bugs. |
-| **P3** | Bajo | Estilo, nombres, docs desactualizadas, mejoras opcionales, nitpicks sin impacto inmediato en usuarios. |
+| Nivel  | Etiqueta | Criterio orientativo                                                                                                       |
+| ------ | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **P0** | Crítico  | Rompe build, CI, despliegue, rutas de retos, seguridad grave o pérdida de funcionalidad visible.                           |
+| **P1** | Alto     | Metadata roto, retos incompletos o rotos, errores runtime probables, accesibilidad que bloquea uso, regresión clara de UX. |
+| **P2** | Medio    | Lint/types, rendimiento notable, duplicación, incumplimiento de convenciones del repo, deuda que facilita bugs.            |
+| **P3** | Bajo     | Estilo, nombres, docs desactualizadas, mejoras opcionales, nitpicks sin impacto inmediato en usuarios.                     |
 
 ### 1. Global e infraestructura (P0–P1)
 
@@ -91,25 +95,32 @@ Responder en **español**, con esta estructura:
 
 ```markdown
 ## Resumen ejecutivo
+
 - X críticos (P0), Y altos (P1), …
 - 1–3 frases: qué duele más y qué conviene atacar primero.
 
 ## P0 — Crítico
+
 - [ ] **Título breve** — archivo/ruta — impacto — sugerencia de fix (1 línea)
 
 ## P1 — Alto
+
 …
 
 ## P2 — Medio
+
 …
 
 ## P3 — Bajo
+
 …
 
 ## Comprobaciones ejecutadas
+
 - Lista de comandos corridos y si pasaron o fallaron.
 
 ## Sin hallazgos relevantes
+
 - Áreas revisadas donde no se detectó nada (opcional, breve).
 ```
 

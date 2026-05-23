@@ -2,7 +2,8 @@
 
 [Spanish version](README.md)
 
-Monorepo to practice multiple [Frontend Mentor](https://www.frontendmentor.io/) challenges with **Next.js** (App Router), keeping each challenge isolated (assets, code, and routes) so resources do not bleed across projects.
+Monorepo to practice multiple [Frontend Mentor](https://www.frontendmentor.io/) challenges with **Next.js** (App
+Router), keeping each challenge isolated (assets, code, and routes) so resources do not bleed across projects.
 
 ![Next.js hub preview](public/hub/next-index.png)
 
@@ -34,7 +35,8 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) for the challenge index. The entry hub is at [`/start`](src/app/(with-layout)/start/page.tsx).
+Open [http://localhost:3000](http://localhost:3000) for the challenge index. The entry hub is at
+[`/start`](<src/app/(with-layout)/start/page.tsx>).
 
 Other useful commands: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 
@@ -42,36 +44,48 @@ Other useful commands: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 
 ## Repository layout
 
-| Path | Purpose |
-|------|---------|
-| `src/app/` | App routes and layout (index at `/`, hub at `/start`) |
-| `src/components/` | Shared components (header, cards, etc.) |
-| `src/data/` | Index data (`challenges-card.ts`, etc.) |
+| Path                   | Purpose                                                                                                                                                                                                                                   |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/app/`             | App routes and layout (index at `/`, hub at `/start`)                                                                                                                                                                                     |
+| `src/components/`      | Shared components (header, cards, etc.)                                                                                                                                                                                                   |
+| `src/data/`            | Index data (`challenges-card.ts`, etc.)                                                                                                                                                                                                   |
 | `src/features/{slug}/` | Per-challenge UI: components, `page.tsx`, **`readme.md`**, FM reference under **`docs/`** (`style-guide`, `design/`, `preview.jpg`), and **raster images and SVG** for the layout under **`images/`** (via `import`, not under `public/`) |
-| `public/` | Global statics (e.g. `public/hub/`). Per challenge, only what needs a fixed public URL, e.g. **`public/{slug}/fonts/`**; do not put the layout’s image/icon set in `public/` (keep those in the feature folder) |
-| `.cursor/commands/` | Cursor commands: **`/integrate-challenges`**, **`/close-challenge`**, **`/auto-commit`**, **`/update-docs`** |
-| `backups/` | **Local** archive of the original ZIP folder (see [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip)); listed in `.gitignore` |
-| `*/` at repo root | Only while integrating; move the ZIP folder to `backups/` when done |
+| `public/`              | Global statics (e.g. `public/hub/`). Per challenge, only what needs a fixed public URL, e.g. **`public/{slug}/fonts/`**; do not put the layout’s image/icon set in `public/` (keep those in the feature folder)                           |
+| `.cursor/commands/`    | Cursor commands: **`/integrate-challenges`**, **`/close-challenge`**, **`/auto-commit`**, **`/update-docs`**                                                                                                                              |
+| `backups/`             | **Local** archive of the original ZIP folder (see [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip)); listed in `.gitignore`                                                                             |
+| `*/` at repo root      | Only while integrating; move the ZIP folder to `backups/` when done                                                                                                                                                                       |
 
 ---
 
 ## Adding a new challenge (playbook)
 
 1. Unzip the challenge and place the folder at the **repository root** (often similar to `results-summary-component/`).
-2. Read **[`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md)** (or use **`/integrate-challenges`**): folder conventions, assistant checklist, and metadata rules.
-3. Send **`folder_name`** (and optionally **`difficulty`**) **in chat** when using the command; the rest can be inferred from the ZIP README.
-4. **After phase A** (or once everything needed is under `src/features/{folder_name}/` — **`readme.md`**, **`docs/`**, and **`images/`** for graphics — and under `public/{folder_name}/` **only** when needed e.g. for fonts with fixed URLs), **move the ZIP folder out of the root** to `backups/{folder_name}/` so the tree does not keep duplicates. See [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip).
+2. Read **[`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md)** (or use
+   **`/integrate-challenges`**): folder conventions, assistant checklist, and metadata rules.
+3. Send **`folder_name`** (and optionally **`difficulty`**) **in chat** when using the command; the rest can be inferred
+   from the ZIP README.
+4. **After phase A** (or once everything needed is under `src/features/{folder_name}/` — **`readme.md`**, **`docs/`**,
+   and **`images/`** for graphics — and under `public/{folder_name}/` **only** when needed e.g. for fonts with fixed
+   URLs), **move the ZIP folder out of the root** to `backups/{folder_name}/` so the tree does not keep duplicates. See
+   [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip).
 
-The playbook describes `src/features/{slug}/`, registration in `src/app/(layout-null)/[slug]/_utils/`, and updates to [`src/data/challenges-card.ts`](src/data/challenges-card.ts). **By default** the assistant only **organizes** (assets, data, stub, index); you implement the UI unless you explicitly ask for “phase B” (full implementation) per the playbook.
+The playbook describes `src/features/{slug}/`, registration in `src/app/(layout-null)/[slug]/_utils/`, and updates to
+[`src/data/challenges-card.ts`](src/data/challenges-card.ts). **By default** the assistant only **organizes** (assets,
+data, stub, index); you implement the UI unless you explicitly ask for “phase B” (full implementation) per the playbook.
 
 ---
 
 ## Documentation
 
-- Challenge integration (phases A/B): [`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md) — slash **`/integrate-challenges`**
-- Finishing a challenge (docs + remote): [`.cursor/commands/close-challenge.md`](.cursor/commands/close-challenge.md) — slash **`/close-challenge`**
-- Commits and general docs: [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md), [`.cursor/commands/update-docs.md`](.cursor/commands/update-docs.md)
-- With this folder as the **workspace root** in Cursor: those commands load the full instructions from [`.cursor/commands/`](.cursor/commands/).
+- Challenge integration (phases A/B):
+  [`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md) — slash
+  **`/integrate-challenges`**
+- Finishing a challenge (docs + remote): [`.cursor/commands/close-challenge.md`](.cursor/commands/close-challenge.md) —
+  slash **`/close-challenge`**
+- Commits and general docs: [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md),
+  [`.cursor/commands/update-docs.md`](.cursor/commands/update-docs.md)
+- With this folder as the **workspace root** in Cursor: those commands load the full instructions from
+  [`.cursor/commands/`](.cursor/commands/).
 
 ---
 

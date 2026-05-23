@@ -1,6 +1,7 @@
 # Frontend Mentor — E-commerce product page
 
-Solución al reto [E-commerce product page](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6) integrada en este monorepo Next.js.
+Solución al reto [E-commerce product page](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6)
+integrada en este monorepo Next.js.
 
 ## El reto
 
@@ -19,7 +20,8 @@ El usuario puede:
 
 ## Enlaces
 
-- **Demo local:** con el repo en marcha (`pnpm dev`), ruta [`/ecommerce-product-page`](http://localhost:3000/ecommerce-product-page).
+- **Demo local:** con el repo en marcha (`pnpm dev`), ruta
+  [`/ecommerce-product-page`](http://localhost:3000/ecommerce-product-page).
 - **Solución en FM:** añade aquí tu enlace público al publicar (Vercel, Netlify, etc.).
 
 ## Implementación

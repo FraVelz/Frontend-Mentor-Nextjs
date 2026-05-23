@@ -1,1 +1,3 @@
-@AGENTS.md
+# Project agents
+
+See [AGENTS.md](./AGENTS.md).
