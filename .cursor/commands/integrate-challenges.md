@@ -115,7 +115,7 @@ Cada ZIP trae un `index.html` en `/{folder_name}/`. **No** se usa como entrada d
 | **Referencia (ZIP original)** | Al descargar: `/{folder_name}/` en la raíz. **Tras la fase A,** ver [§7](#7-git-y-la-carpeta-del-zip): mover a `backups/{folder_name}/` (recomendado; **no** es código de la app). |
 | **Docs del reto (plantilla, guía, previews, JPGs)** | **`src/features/{folder_name}/readme.md`** (ex-`README-template.md`) y **`src/features/{folder_name}/docs/`** — `style-guide.md`, `preview.jpg`, `design/`. |
 | **Imágenes y SVG (UI del reto)** | **`src/features/{folder_name}/images/`** — copia desde `/{folder_name}/assets/` (o equivalente). Uso: `import` en componentes. |
-| **`screenshot.png` (hub / redes, al cerrar el reto)** | `public/{folder_name}/screenshot.png` — ver [**auto-commit** §2](auto-commit.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name). No sustituye a `images/` del feature. |
+| **`screenshot.png` (hub / redes, al cerrar el reto)** | `public/{folder_name}/screenshot.png` — ver [**close-challenge** §2](close-challenge.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name). No sustituye a `images/` del feature. |
 | **Fuentes y otros en `public/` (opcional)** | `public/{folder_name}/` también para lo que deba servirse con URL fija bajo el prefijo (p. ej. **`fonts/`**). **No** mezclar aquí imágenes ni SVG de la maquetación del **UI** del reto. |
 | **JSON / datos** | `src/features/{folder_name}/data.json` o **`data.ts`** si conviene: para iconos/rutas a assets, preferir **imports** desde `./images/...` en TypeScript (evita depender de `public/`). |
 | **Código UI del reto** | `src/features/{folder_name}/` — componentes, hooks, estilos, `page.tsx`. |
@@ -158,7 +158,7 @@ El asistente ejecuta **solo** esto salvo instrucción contraria del usuario.
 
 **Fin de la fase A.** El usuario abre `/{slug}` y ve el stub o la conversión mínima del HTML; desde ahí implementa en `src/features/{folder_name}/`.
 
-**Commit / push:** no forman parte de la fase A por defecto (ver arriba). Para versionar el trabajo recién organizado, usa tu propio flujo (`git status`, `git add`, mensaje con Conventional Commits) cuando te convenga; el cierre completo con documentación y remoto va en [**auto-commit**](auto-commit.md).
+**Commit / push:** no forman parte de la fase A por defecto (ver arriba). Para versionar el trabajo recién organizado, usa tu propio flujo (`git status`, `git add`, mensaje con Conventional Commits) cuando te convenga; el cierre completo con documentación y remoto va en [**close-challenge**](close-challenge.md).
 
 ### Fase B — Implementación del diseño (solo si el usuario lo pide)
 
@@ -168,7 +168,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 
 ## 6. Qué no hacer (anti-mezcla)
 
-- No colocar **imágenes ni SVG** del UI del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`) y, al publicar la solución, **`screenshot.png`** para el índice y metadatos (ver [**auto-commit** §2](auto-commit.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name)); nunca la galería de imágenes del feature mezclada sin convención.
+- No colocar **imágenes ni SVG** del UI del reto en `public/`: van en **`src/features/{folder_name}/images/`**. En `public/{folder_name}/` solo subcarpetas que lo requieran (p. ej. `fonts/`) y, al publicar la solución, **`screenshot.png`** para el índice y metadatos (ver [**close-challenge** §2](close-challenge.md#2-captura-para-tarjeta-del-índice-seo-y-convención-publicfolder_name)); nunca la galería de imágenes del feature mezclada sin convención.
 - No mezclar código de dos retos en la misma carpeta bajo `src/features/`.
 - No meter UI del reto ni componentes del feature dentro de `_utils/`; ahí solo registro de imports y metadatos (o helpers mínimos de eso).
 - No reemplazar [`src/app/page.tsx`](../../src/app/page.tsx) con el HTML del ZIP.
@@ -179,7 +179,7 @@ Solo entonces el asistente puede maquetar y completar el reto según JPG en `src
 
 ## 7. Git y la carpeta del ZIP
 
-Lo habitual al **solo** ejecutar este playbook (fase A) es **no** crear commit ni push; cúmplese lo indicado al inicio de la **§5** (fase A) y en la **§6**. El flujo de commit con mensajes convencionales y subida al remoto corresponde a [**auto-commit**](auto-commit.md) cuando cierres el reto, o a tu criterio si versionas el scaffolding antes.
+Lo habitual al **solo** ejecutar este playbook (fase A) es **no** crear commit ni push; cúmplese lo indicado al inicio de la **§5** (fase A) y en la **§6**. El flujo de commit con mensajes convencionales y subida al remoto corresponde a [**close-challenge**](close-challenge.md) cuando cierres el reto, o a tu criterio si versionas el scaffolding antes.
 
 En este repositorio, **`backups/`** está en [`.gitignore`](../../.gitignore): no se sube a Git. Sirve para **guardar en local** la carpeta del ZIP **después** de completar la fase A, sin dejar un duplicado en la raíz.
 

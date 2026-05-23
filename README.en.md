@@ -49,7 +49,7 @@ Other useful commands: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 | `src/data/` | Index data (`challenges-card.ts`, etc.) |
 | `src/features/{slug}/` | Per-challenge UI: components, `page.tsx`, **`readme.md`**, FM reference under **`docs/`** (`style-guide`, `design/`, `preview.jpg`), and **raster images and SVG** for the layout under **`images/`** (via `import`, not under `public/`) |
 | `public/` | Global statics (e.g. `public/hub/`). Per challenge, only what needs a fixed public URL, e.g. **`public/{slug}/fonts/`**; do not put the layout’s image/icon set in `public/` (keep those in the feature folder) |
-| `.cursor/commands/` | Cursor commands: **`/integrate-challenges`** (scaffold a challenge) and **`/auto-commit`** (finish: docs + commit/push) |
+| `.cursor/commands/` | Cursor commands: **`/integrate-challenges`**, **`/close-challenge`**, **`/auto-commit`**, **`/update-docs`** |
 | `backups/` | **Local** archive of the original ZIP folder (see [playbook §7](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip)); listed in `.gitignore` |
 | `*/` at repo root | Only while integrating; move the ZIP folder to `backups/` when done |
 
@@ -69,7 +69,8 @@ The playbook describes `src/features/{slug}/`, registration in `src/app/(layout-
 ## Documentation
 
 - Challenge integration (phases A/B): [`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md) — slash **`/integrate-challenges`**
-- Finishing a challenge (docs + remote): [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md) — slash **`/auto-commit`**
+- Finishing a challenge (docs + remote): [`.cursor/commands/close-challenge.md`](.cursor/commands/close-challenge.md) — slash **`/close-challenge`**
+- Commits and general docs: [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md), [`.cursor/commands/update-docs.md`](.cursor/commands/update-docs.md)
 - With this folder as the **workspace root** in Cursor: those commands load the full instructions from [`.cursor/commands/`](.cursor/commands/).
 
 ---

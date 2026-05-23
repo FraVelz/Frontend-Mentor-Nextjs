@@ -49,7 +49,7 @@ Otros comandos útiles: `pnpm build`, `pnpm start`, `pnpm lint`, `pnpm format`.
 | `src/data/` | Datos del índice (`challenges.ts`, `hub.ts`) |
 | `src/features/{slug}/` | Código de cada reto: componentes, `page.tsx`, **`readme.md`**, material FM en **`docs/`** (`style-guide`, `design/`, `preview.jpg`), e **imágenes y SVG de la UI** en **`images/`** (vía `import`, no bajo `public/`) |
 | `public/` | Estáticos globales (p. ej. `public/hub/`). Por reto, solo lo que requiera URL fija, p. ej. **`public/{slug}/fonts/`**; no volcar allí la galería o iconos de la maquetación (van en el feature) |
-| `.cursor/commands/` | Comandos Cursor: **`/integrate-challenges`** (organizar reto) y **`/auto-commit`** (cerrar reto: doc + commit/push) |
+| `.cursor/commands/` | Comandos Cursor: **`/integrate-challenges`**, **`/close-challenge`**, **`/auto-commit`**, **`/update-docs`** |
 | `backups/` | Archivo **local** del ZIP original (ver [§7 del playbook](.cursor/commands/integrate-challenges.md#7-git-y-la-carpeta-del-zip)); está en `.gitignore` |
 | `*/` en la raíz | Solo mientras integras: carpeta del ZIP; **después** conviene moverla a `backups/` |
 
@@ -69,7 +69,8 @@ El playbook describe `src/features/{slug}/`, registro en `src/app/(layout-null)/
 ## Documentación
 
 - Integración de retos (fase A/B): [`.cursor/commands/integrate-challenges.md`](.cursor/commands/integrate-challenges.md) — slash **`/integrate-challenges`**
-- Cerrar reto (doc + remoto): [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md) — slash **`/auto-commit`**
+- Cerrar reto (doc + remoto): [`.cursor/commands/close-challenge.md`](.cursor/commands/close-challenge.md) — slash **`/close-challenge`**
+- Commits y documentación general: [`.cursor/commands/auto-commit.md`](.cursor/commands/auto-commit.md), [`.cursor/commands/update-docs.md`](.cursor/commands/update-docs.md)
 - Con esta carpeta como **raíz del workspace** en Cursor: los comandos anteriores cargan el texto completo desde [`.cursor/commands/`](.cursor/commands/).
 
 ---
