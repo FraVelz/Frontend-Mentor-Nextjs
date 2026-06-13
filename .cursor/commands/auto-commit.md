@@ -17,6 +17,7 @@ habituales (hub, CI, cursor, refactors, lint de docs, etc.).
 1. `git status` — staged y unstaged.
 2. `git diff` — qué entra en el commit.
 3. `git log -15 --oneline` — tono reciente.
+4. **Respetar borrados:** si el diff elimina líneas o archivos, **no restaurarlos** ni "arreglar" el contenido antes del commit salvo petición explícita del usuario. Un borrado suele ser intencional.
 
 **No** incluir `.env`, `backups/` (ZIP local en `.gitignore`) ni `.next/` salvo petición explícita.
 
