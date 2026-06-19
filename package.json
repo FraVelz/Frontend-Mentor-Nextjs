@@ -13,7 +13,7 @@
     "lint:md": "markdownlint-cli2",
     "lint:md:fix": "markdownlint-cli2 --fix",
     "style": "pnpm format && pnpm lint:fix",
-    "react:doctor": "react-doctor . --verbose --full --project frontend-mentor-nextjs"
+    "react:doctor": "react-doctor . --verbose --project frontend-mentor-nextjs"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -34,7 +34,7 @@
     "markdownlint-cli2": "^0.17.2",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "react-doctor": "^0.1.6",
+    "react-doctor": "^0.5.7",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
