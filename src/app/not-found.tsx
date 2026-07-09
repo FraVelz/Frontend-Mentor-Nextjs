@@ -14,7 +14,7 @@ export default function NotFound() {
     <div
       className={cn(
         "flex min-h-screen flex-col font-sans selection:bg-sky-400 selection:text-zinc-950",
-        "bg-radial text-foreground bg-fixed text-[16px]",
+        "text-foreground bg-radial bg-fixed text-[16px]",
       )}
     >
       <Header />
@@ -31,14 +31,13 @@ export default function NotFound() {
           <h1
             className={cn(
               "mb-4 bg-linear-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-4xl font-bold",
-              "tracking-tight text-transparent sm:text-5xl leading-tight",
+              "leading-tight tracking-tight text-transparent sm:text-5xl",
             )}
           >
             Página no encontrada
           </h1>
           <p className="mb-10 text-lg leading-relaxed text-zinc-400 sm:text-xl">
-            Esa ruta no existe o fue movida. Puedes volver al listado de retos
-            o al hub de entrada.
+            Esa ruta no existe o fue movida. Puedes volver al listado de retos o al hub de entrada.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link

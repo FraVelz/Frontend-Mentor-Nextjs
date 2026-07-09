@@ -13,50 +13,41 @@ export default function CartModal() {
       className={cn(
         "absolute top-20 z-50 mx-auto flex min-h-[256px] w-[95%]",
         "flex-col rounded-lg bg-white shadow-2xl",
-        "left-2 right-2 md:left-auto md:right-0 md:w-[360px]",
+        "right-2 left-2 md:right-0 md:left-auto md:w-[360px]",
       )}
     >
       {/* Encabezado del panel carrito */}
-      <div className="p-6 border-b border-zinc-100">
+      <div className="border-b border-zinc-100 p-6">
         <h3 className="font-semibold text-black">Cart</h3>
       </div>
 
       {/* Líneas del carrito o mensaje vacío */}
-      <div className="flex-1 flex flex-col p-6">
+      <div className="flex flex-1 flex-col p-6">
         {cartItems.length > 0 ? (
           <>
-            <div className="flex flex-col gap-6 mb-6">
+            <div className="mb-6 flex flex-col gap-6">
               {cartItems.map((item) => (
                 <div key={item.id} className="flex items-center justify-between gap-4">
                   {/* Miniatura */}
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="size-12 rounded-md" 
-                  />
-                  
+                  <img src={item.image} alt={item.name} className="size-12 rounded-md" />
+
                   {/* Nombre, precio y subtotal */}
-                  <div className="flex-1 text-zinc-500 text-[15px]">
-                    <p className="truncate w-40 md:w-full">{item.name}</p>
+                  <div className="flex-1 text-[15px] text-zinc-500">
+                    <p className="w-40 truncate md:w-full">{item.name}</p>
                     <p>
                       ${item.price.toFixed(2)} x {item.quantity}{" "}
-                      <span className="font-bold text-black ml-1">
-                        ${(item.price * item.quantity).toFixed(2)}
-                      </span>
+                      <span className="ml-1 font-bold text-black">${(item.price * item.quantity).toFixed(2)}</span>
                     </p>
                   </div>
 
                   {/* Quitar línea */}
-                  <button 
-                    onClick={() => removeFromCart(item.id)}
-                    className="hover:opacity-70 transition-opacity"
-                  >
+                  <button onClick={() => removeFromCart(item.id)} className="transition-opacity hover:opacity-70">
                     <img src={imgSrc(iconDeleteImage)} alt="Delete item" />
                   </button>
                 </div>
               ))}
             </div>
-            
+
             {/* Pagar (enunciado: sin lógica real) */}
             <button
               className={cn(
@@ -68,9 +59,9 @@ export default function CartModal() {
             </button>
           </>
         ) : (
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex flex-1 items-center justify-center">
             {/* Carrito vacío (texto en inglés del reto) */}
-            <p className="text-zinc-500 font-bold">Your cart is empty.</p>
+            <p className="font-bold text-zinc-500">Your cart is empty.</p>
           </div>
         )}
       </div>

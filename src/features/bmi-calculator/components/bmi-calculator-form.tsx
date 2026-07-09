@@ -81,7 +81,7 @@ export function BmiCalculatorForm() {
     <form
       className={cn(
         "flex w-full flex-col gap-6 rounded-2xl bg-white p-6",
-        "shadow-[16px_32px_56px_rgba(143,174,207,0.25)] tablet:gap-8 tablet:p-8",
+        "tablet:gap-8 tablet:p-8 shadow-[16px_32px_56px_rgba(143,174,207,0.25)]",
       )}
       onSubmit={(e) => e.preventDefault()}
     >
@@ -113,14 +113,9 @@ export function BmiCalculatorForm() {
         </label>
       </fieldset>
 
-      <div
-        className={cn(
-          "flex flex-col gap-4 tablet:gap-6",
-          unit === "metric" && "tablet:grid tablet:grid-cols-2",
-        )}
-      >
+      <div className={cn("tablet:gap-6 flex flex-col gap-4", unit === "metric" && "tablet:grid tablet:grid-cols-2")}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="height-cm" className="text-var-grey-500 text-[14px] leading-base">
+          <label htmlFor="height-cm" className="text-var-grey-500 leading-base text-[14px]">
             Height
           </label>
           {unit === "metric" ? (
@@ -138,7 +133,7 @@ export function BmiCalculatorForm() {
               <span className="text-var-blue-500">cm</span>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-4 tablet:gap-6">
+            <div className="tablet:gap-6 grid grid-cols-2 gap-4">
               <div className={fieldShell}>
                 <input
                   id="height-ft"
@@ -170,7 +165,7 @@ export function BmiCalculatorForm() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="weight-kg" className="text-var-grey-500 text-[14px] leading-base">
+          <label htmlFor="weight-kg" className="text-var-grey-500 leading-base text-[14px]">
             Weight
           </label>
           {unit === "metric" ? (
@@ -188,7 +183,7 @@ export function BmiCalculatorForm() {
               <span className="text-var-blue-500">kg</span>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-4 tablet:gap-6">
+            <div className="tablet:gap-6 grid grid-cols-2 gap-4">
               <div className={fieldShell}>
                 <input
                   id="weight-st"
@@ -228,7 +223,7 @@ export function BmiCalculatorForm() {
           )}
         >
           <h3 className="text-[24px] leading-[29px] font-semibold tracking-[-0.04em]">Welcome!</h3>
-          <p className="text-[14px] leading-base">
+          <p className="leading-base text-[14px]">
             Enter your height and weight and you&apos;ll see your BMI result here
           </p>
         </section>
@@ -245,7 +240,7 @@ export function BmiCalculatorForm() {
             <p className="font-semibold">Your BMI is…</p>
             <p className="text-[48px] leading-[110%] font-semibold tracking-[-0.04em]">{fmt1(result.bmi)}</p>
           </div>
-          <p className="text-[14px] leading-base">
+          <p className="leading-base text-[14px]">
             Your BMI suggests you&apos;re {categoryPhrase(result.cat)}. Your ideal weight is between{" "}
             <strong>
               {result.metric

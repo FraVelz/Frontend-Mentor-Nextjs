@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  use,
-  useCallback,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
+import { createContext, use, useCallback, useMemo, useState, type ReactNode } from "react";
 
 /** Línea del carrito (un producto; aquí un solo `id` de reto) */
 export type CartLine = {
@@ -38,9 +31,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return [...prev, line];
       }
       // Mismo producto: suma cantidades
-      return prev.map((p, j) =>
-        j === i ? { ...p, quantity: p.quantity + line.quantity } : p,
-      );
+      return prev.map((p, j) => (j === i ? { ...p, quantity: p.quantity + line.quantity } : p));
     });
   }, []);
 
@@ -48,19 +39,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setCartItems((prev) => prev.filter((p) => p.id !== id));
   }, []);
 
-  const totalItems = useMemo(
-    () => cartItems.reduce((n, p) => n + p.quantity, 0),
-    [cartItems],
-  );
+  const totalItems = useMemo(() => cartItems.reduce((n, p) => n + p.quantity, 0), [cartItems]);
 
   const value = useMemo(
     () => ({ cartItems, totalItems, addToCart, removeFromCart }),
     [cartItems, totalItems, addToCart, removeFromCart],
   );
 
-  return (
-    <CartContext.Provider value={value}>{children}</CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
 export function useCart(): CartContextValue {

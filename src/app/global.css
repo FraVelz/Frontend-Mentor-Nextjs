@@ -17,20 +17,9 @@
       rgba(167, 139, 250, 0.05) 40%,
       transparent 70%
     ),
-    radial-gradient(
-      ellipse 70% 50% at 0% 20%,
-      rgba(14, 165, 233, 0.08) 0%,
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      #020617 0%,
-      #0b1120 30%,
-      #0f172a 65%,
-      #020617 100%
-    );
+    radial-gradient(ellipse 70% 50% at 0% 20%, rgba(14, 165, 233, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #020617 0%, #0b1120 30%, #0f172a 65%, #020617 100%);
 }
-
 
 @theme inline {
   --color-background: var(--background);

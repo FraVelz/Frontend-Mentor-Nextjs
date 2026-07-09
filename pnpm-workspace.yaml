@@ -1,10 +1,12 @@
 packages:
   - "."
 
+# pnpm 11+
 allowBuilds:
-  sharp: set this to true or false
-  unrs-resolver: set this to true or false
+  sharp: true
+  unrs-resolver: true
 
+# pnpm 9 (CI)
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver

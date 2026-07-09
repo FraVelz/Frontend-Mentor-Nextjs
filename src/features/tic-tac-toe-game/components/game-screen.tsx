@@ -8,7 +8,7 @@ export function GameScreen() {
   const { winner, isTie, paused } = useGame();
 
   return (
-    <section className="flex w-full max-w-[28.75rem] flex-col items-center gap-16 tablet:gap-5">
+    <section className="tablet:gap-5 flex w-full max-w-[28.75rem] flex-col items-center gap-16">
       <GameHeader />
 
       <GameBoard />

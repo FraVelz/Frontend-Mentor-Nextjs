@@ -14,10 +14,7 @@ function TicTacToeShell({ className }: { className?: string }) {
 
   return (
     <div
-      className={`
-        bg-zinc-900 p-6 leading-base tracking-base text-base text-zinc-300
-        flex min-h-screen justify-center ${className ?? ""} ${!isGameStarted ? "items-center" : "tablet:items-center"}
-      `}
+      className={`leading-base tracking-base flex min-h-screen justify-center bg-zinc-900 p-6 text-base text-zinc-300 ${className ?? ""} ${!isGameStarted ? "items-center" : "tablet:items-center"} `}
     >
       {isGameStarted ? <GameScreen /> : <NewGameMenu mark={mark} setMark={setMark} />}
     </div>

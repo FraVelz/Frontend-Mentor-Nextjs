@@ -10,13 +10,7 @@ interface ButtonProps {
   children: ReactNode;
 }
 
-export function Button({
-  onRoundAction,
-  className = "",
-  shadowColor,
-  shadowWidth,
-  children,
-}: ButtonProps) {
+export function Button({ onRoundAction, className = "", shadowColor, shadowWidth, children }: ButtonProps) {
   return (
     <button
       type="button"

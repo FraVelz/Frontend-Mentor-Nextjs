@@ -14,7 +14,7 @@ interface NewGameMenuProps {
 
 export function NewGameMenu({ mark, setMark }: NewGameMenuProps) {
   return (
-    <section className="flex w-full max-w-[28.75rem] flex-col items-center gap-8 text-center tablet:gap-10">
+    <section className="tablet:gap-10 flex w-full max-w-[28.75rem] flex-col items-center gap-8 text-center">
       <Image src={logo} alt="Tic tac toe logo" className="h-auto w-[72px]" priority width={72} height={72} />
 
       <MarkSection mark={mark} setMark={setMark} />
@@ -38,7 +38,7 @@ function MarkSection({ mark, setMark }: NewGameMenuProps) {
         <MarkToggler mark={mark} setMark={setMark} />
       </form>
 
-      <p className="text-[14px] font-medium leading-[130%] tracking-[0.9px] uppercase">Remember : X goes first</p>
+      <p className="text-[14px] leading-[130%] font-medium tracking-[0.9px] uppercase">Remember : X goes first</p>
     </section>
   );
 }

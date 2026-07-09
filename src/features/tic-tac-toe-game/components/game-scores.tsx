@@ -11,7 +11,7 @@ export function GameScores() {
   const isSolo = gamemode === "solo";
 
   return (
-    <section className="grid h-16 w-full grid-cols-3 gap-5 tablet:h-[72px]">
+    <section className="tablet:h-[72px] grid h-16 w-full grid-cols-3 gap-5">
       <ScoreDiv
         className="bg-teal-400"
         headerText={`X ${isSolo ? (xPlayer.id === 1 ? "(You)" : "(CPU)") : `(P${xPlayer.id})`}`}

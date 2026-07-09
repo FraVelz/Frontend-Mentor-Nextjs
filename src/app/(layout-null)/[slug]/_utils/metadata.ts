@@ -62,30 +62,26 @@ export const challengeMetadata: Record<string, Metadata> = {
     twitter: {
       card: "summary_large_image",
       title: "Frontend Mentor | Tic Tac Toe Game",
-      description:
-        "Juego tres en raya: solo vs CPU o dos jugadores; layout responsive y estados de juego.",
+      description: "Juego tres en raya: solo vs CPU o dos jugadores; layout responsive y estados de juego.",
       images: [ticOgImageUrl],
     },
   },
   "results-summary-component": {
     title: "Frontend Mentor | Results summary component",
-    description:
-      "Results summary component: layout responsive, estados hover/focus y datos opcionales desde JSON.",
+    description: "Results summary component: layout responsive, estados hover/focus y datos opcionales desde JSON.",
     icons: {
       icon: resultsSummaryFavicon.src,
     },
   },
   "ecommerce-product-page": {
     title: "Frontend Mentor | E-commerce product page",
-    description:
-      "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
+    description: "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
     icons: {
       icon: ecommerceFavicon.src,
     },
     openGraph: {
       title: "Frontend Mentor | E-commerce product page",
-      description:
-        "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
+      description: "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
       images: [
         {
           url: ecommerceOgImageUrl,
@@ -98,8 +94,7 @@ export const challengeMetadata: Record<string, Metadata> = {
     twitter: {
       card: "summary_large_image",
       title: "Frontend Mentor | E-commerce product page",
-      description:
-        "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
+      description: "Página de producto e-commerce: galería, lightbox, carrito, menú móvil y layout responsive.",
       images: [ecommerceOgImageUrl],
     },
   },

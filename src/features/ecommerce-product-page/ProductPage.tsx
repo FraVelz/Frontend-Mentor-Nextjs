@@ -20,15 +20,15 @@ export default function ProductPage() {
   const closeLightbox = () => setIsLightboxOpen(false);
 
   return (
-    <div className={`min-h-screen bg-white relative ${kumbh.className}`}>
+    <div className={`relative min-h-screen bg-white ${kumbh.className}`}>
       <header className="relative">
         <Navbar onCartClick={toggleCart} />
         {isCartOpen && <CartModal />}
       </header>
 
-      <main className="max-w-7xl mx-auto md:px-12 lg:px-24">
+      <main className="mx-auto max-w-7xl md:px-12 lg:px-24">
         {/* Layout: una columna en móvil, dos en escritorio */}
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8 lg:gap-32 md:py-20">
+        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:py-20 lg:gap-32">
           {/* Galería de imágenes */}
           <section>
             <ProductGallery handleLightbox={openLightbox} />

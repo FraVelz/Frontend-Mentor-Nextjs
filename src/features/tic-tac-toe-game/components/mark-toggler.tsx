@@ -11,7 +11,7 @@ interface MarkTogglerProps {
 
 export function MarkToggler({ mark, setMark }: MarkTogglerProps) {
   return (
-    <div className="relative grid grid-cols-2 rounded-[10px] bg-zinc-900 p-[9px] tablet:p-2">
+    <div className="tablet:p-2 relative grid grid-cols-2 rounded-[10px] bg-zinc-900 p-[9px]">
       <div
         className={cn(
           "pointer-events-none absolute top-[9px] right-2 bottom-[9px] left-2 grid grid-cols-2",

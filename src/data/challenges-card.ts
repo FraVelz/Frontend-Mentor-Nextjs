@@ -36,8 +36,7 @@ export const challenges: Challenge[] = [
     difficulty: "intermediate",
     tags: ["HTML", "CSS", "JS", "TailwindCSS", "React", "Next"],
     status: "listo",
-    previewGradient:
-      "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
+    previewGradient: "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
     screenshotSrc: "/ecommerce-product-page/screenshot.png",
     implementationHref: "/ecommerce-product-page",
     fmChallengeUrl: "https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6",
@@ -59,18 +58,15 @@ export const challenges: Challenge[] = [
   {
     slug: "tic-tac-toe-game",
     title: "tic tac toe game",
-    shortDescription:
-      "tres en raya fm: menú, vs cpu o dos jugadores, marcador y modales; outfit y layout responsive.",
+    shortDescription: "tres en raya fm: menú, vs cpu o dos jugadores, marcador y modales; outfit y layout responsive.",
     difficulty: "junior",
     tags: ["html", "css", "js", "react", "next", "tailwindcss"],
     status: "listo",
-    previewGradient:
-      "linear-gradient(145deg, hsl(200, 42%, 21%) 0%, hsl(188, 61%, 53%) 55%, hsl(40, 93%, 61%) 100%)",
+    previewGradient: "linear-gradient(145deg, hsl(200, 42%, 21%) 0%, hsl(188, 61%, 53%) 55%, hsl(40, 93%, 61%) 100%)",
     screenshotSrc: "/tic-tac-toe-game/screenshot.png",
     implementationHref: "/tic-tac-toe-game",
     fmChallengeUrl: "https://www.frontendmentor.io/challenges/tic-tac-toe-game-re7zf_e2v",
   },
-
 ];
 
 export const difficultyLabels: Record<Difficulty, string> = {

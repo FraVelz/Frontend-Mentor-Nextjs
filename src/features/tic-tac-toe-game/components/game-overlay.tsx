@@ -45,14 +45,14 @@ export function GameOverlay() {
               )}
             >
               {winner === "X" ? (
-                <XIcon className="h-[26px] w-[26px] tablet:h-16 tablet:w-16" />
+                <XIcon className="tablet:h-16 tablet:w-16 h-[26px] w-[26px]" />
               ) : (
-                <OIcon className="h-[26px] w-[26px] tablet:h-16 tablet:w-16" />
+                <OIcon className="tablet:h-16 tablet:w-16 h-[26px] w-[26px]" />
               )}
 
               <span
                 className={cn(
-                  "text-[24px] leading-base font-bold tracking-[1.5px] uppercase",
+                  "leading-base text-[24px] font-bold tracking-[1.5px] uppercase",
                   "tablet:text-[40px] tablet:tracking-[2.5px]",
                 )}
               >
@@ -84,14 +84,14 @@ export function GameOverlay() {
           <>
             <h2
               className={cn(
-                "text-2xl leading-base font-bold tracking-[1.25px] uppercase",
+                "leading-base text-2xl font-bold tracking-[1.25px] uppercase",
                 "tablet:text-[40px] tablet:tracking-[2.5px]",
               )}
             >
               Round tied
             </h2>
 
-            <div className="mt-6 flex h-[52px] gap-4 tablet:mt-[30px]">
+            <div className="tablet:mt-[30px] mt-6 flex h-[52px] gap-4">
               <Button
                 onRoundAction={resetGame}
                 className="bg-zinc-300 p-4 hover:bg-zinc-100"
@@ -115,7 +115,7 @@ export function GameOverlay() {
           <>
             <h2
               className={cn(
-                "text-2xl leading-base font-bold tracking-[1.25px] uppercase",
+                "leading-base text-2xl font-bold tracking-[1.25px] uppercase",
                 "tablet:text-[40px] tablet:tracking-[2.5px]",
               )}
             >

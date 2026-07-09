@@ -42,15 +42,15 @@ export function GameBoard() {
               }
             }}
           >
-            {item === "X" && <XIcon className="h-10 w-10 text-teal-400 tablet:h-16 tablet:w-16" />}
-            {item === "O" && <OIcon className="h-10 w-10 text-amber-400 tablet:h-16 tablet:w-16" />}
+            {item === "X" && <XIcon className="tablet:h-16 tablet:w-16 h-10 w-10 text-teal-400" />}
+            {item === "O" && <OIcon className="tablet:h-16 tablet:w-16 h-10 w-10 text-amber-400" />}
 
             {!item && !isCpuTurn && (
               <>
                 {currentPlayer.mark === "X" && (
                   <OutlinedXIcon
                     className={cn(
-                      "h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16",
+                      "tablet:h-16 h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100",
                       "tablet:w-16",
                     )}
                   />
@@ -58,7 +58,7 @@ export function GameBoard() {
                 {currentPlayer.mark === "O" && (
                   <OutlinedOIcon
                     className={cn(
-                      "h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100 tablet:h-16",
+                      "tablet:h-16 h-10 w-10 opacity-0 transition-all duration-300 group-hover:opacity-100",
                       "tablet:w-16",
                     )}
                   />

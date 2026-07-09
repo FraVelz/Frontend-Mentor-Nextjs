@@ -18,16 +18,13 @@ export function Footer() {
         <div className="max-w-md">
           <p className="text-sm font-semibold text-zinc-200">(FV) Fravelz</p>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-            Versión Next.js de la colección de retos. Pensada para practicar App
-            Router, componentes react y despliegues más cercanos a un entorno
-            profesional.
+            Versión Next.js de la colección de retos. Pensada para practicar App Router, componentes react y despliegues
+            más cercanos a un entorno profesional.
           </p>
         </div>
 
         <nav aria-label="Enlaces">
-          <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-zinc-500 uppercase">
-            Enlaces
-          </p>
+          <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-zinc-500 uppercase">Enlaces</p>
           <ul className="mt-3 flex list-none flex-col gap-2 text-sm [&>li]:m-0 [&>li]:p-0">
             <li>
               <a

@@ -16,7 +16,6 @@ import thumbnailImage4 from "../images/image-product-4-thumbnail.jpg";
 import iconPrevious from "../images/icon-previous.svg";
 import iconNext from "../images/icon-next.svg";
 
-
 // Imágenes del producto (principal + miniatura)
 const images = [
   { id: 1, main: productImage1, thumb: thumbnailImage1 },
@@ -42,25 +41,19 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
   };
 
   return (
-    <div className="flex flex-col gap-8 w-full md:max-w-[445px]">
+    <div className="flex w-full flex-col gap-8 md:max-w-[445px]">
       {/* Imagen principal: clic abre lightbox (escritorio) */}
-      <div className="relative overflow-hidden md:rounded-2xl group">
+      <div className="group relative overflow-hidden md:rounded-2xl">
         <button
           type="button"
-          aria-label={
-            handleLightbox ? "Ampliar imagen del producto" : "Imagen principal"
-          }
+          aria-label={handleLightbox ? "Ampliar imagen del producto" : "Imagen principal"}
           onClick={handleLightbox}
           className={cn(
             "relative block w-full border-0 bg-transparent p-0 text-left outline-none md:rounded-2xl",
             handleLightbox ? "cursor-pointer" : "",
           )}
         >
-          <img
-            src={imgSrc(images[currentIndex].main)}
-            alt="Product"
-            className="h-auto w-full"
-          />
+          <img src={imgSrc(images[currentIndex].main)} alt="Product" className="h-auto w-full" />
         </button>
 
         {/* Flechas solo en móvil */}
@@ -87,32 +80,24 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
       </div>
 
       {/* Miniaturas solo en md+ */}
-      <div className="hidden md:flex justify-between gap-4">
+      <div className="hidden justify-between gap-4 md:flex">
         {images.map((img, index) => (
           <button
             key={img.id}
             onClick={() => setCurrentIndex(index)}
             className={cn(
               "relative overflow-hidden rounded-xl border-2 transition-all",
-              currentIndex === index
-                ? "border-orange-500"
-                : "border-transparent",
+              currentIndex === index ? "border-orange-500" : "border-transparent",
             )}
           >
             {/* Overlay en la miniatura activa o al hover */}
             <div
               className={cn(
                 "absolute inset-0 bg-white/50 transition-opacity",
-                currentIndex === index
-                  ? "opacity-100"
-                  : "opacity-0 hover:opacity-30",
+                currentIndex === index ? "opacity-100" : "opacity-0 hover:opacity-30",
               )}
             />
-            <img
-              src={imgSrc(img.thumb)}
-              alt={`Thumbnail ${img.id}`}
-              className="size-[88px]"
-            />
+            <img src={imgSrc(img.thumb)} alt={`Thumbnail ${img.id}`} className="size-[88px]" />
           </button>
         ))}
       </div>

@@ -1,8 +1,7 @@
 import type { Challenge } from "@/data/challenges-card";
 
 /** Repo remoto (rama `main`). Cambia si el fork o la rama por defecto difieren. */
-const GITHUB_REPO_TREE =
-  "https://github.com/FraVelz/Frontend-Mentor-Nextjs/tree/main";
+const GITHUB_REPO_TREE = "https://github.com/FraVelz/Frontend-Mentor-Nextjs/tree/main";
 
 export function githubFeatureTreeUrl(slug: string): string {
   return `${GITHUB_REPO_TREE}/src/features/${slug}`;
@@ -26,9 +25,7 @@ export function resolveLivePreview(challenge: Challenge): LivePreviewResolved | 
     return { href: explicit, external: true };
   }
 
-  const deployed =
-    challenge.implementationHref &&
-    deployedChallengeUrl(challenge.implementationHref);
+  const deployed = challenge.implementationHref && deployedChallengeUrl(challenge.implementationHref);
 
   if (deployed) {
     return { href: deployed, external: true };

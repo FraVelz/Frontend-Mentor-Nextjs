@@ -40,16 +40,12 @@ export default function MainHubPage() {
           >
             Frontend Mentor
           </a>
-          . Aquí eliges si entras al índice clásico (HTML, CSS y JavaScript) o
-          al hub en Next.js con el listado enriquecido.
+          . Aquí eliges si entras al índice clásico (HTML, CSS y JavaScript) o al hub en Next.js con el listado
+          enriquecido.
         </p>
       </header>
 
-      <div
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8"
-        role="list"
-        aria-label="Tracks de proyectos"
-      >
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8" role="list" aria-label="Tracks de proyectos">
         {hubTracks.map((track, index) => (
           <div key={track.title} className="min-w-0" role="listitem">
             <HubCard track={track} imagePriority={index === 0} />

@@ -69,7 +69,7 @@ function LimitCard({ limit, className }: { limit: Limit; className?: string }) {
         className="pointer-events-none absolute inset-0 rounded-2xl shadow-[16px_32px_56px_rgba(143,174,207,0.25)]"
         aria-hidden
       />
-      <div className="relative flex h-full flex-col gap-4 rounded-2xl bg-white p-6 tablet:p-8">
+      <div className="tablet:p-8 relative flex h-full flex-col gap-4 rounded-2xl bg-white p-6">
         <div
           className={cn(
             "text-var-blue-900 flex items-start gap-4 text-[20px] font-semibold tracking-[-0.04em]",
@@ -89,13 +89,13 @@ export function LimitsSection() {
   return (
     <section
       className={cn(
-        "relative flex flex-col gap-14 px-5 pb-16 tablet:px-10",
+        "tablet:px-10 relative flex flex-col gap-14 px-5 pb-16",
         "desktop:mx-auto desktop:grid desktop:max-w-[90rem] desktop:grid-cols-12 desktop:gap-8 desktop:px-36 desktop:py-24",
       )}
     >
       <div
         className={cn(
-          "flex flex-col gap-8 text-center desktop:col-start-1 desktop:row-start-1 desktop:max-w-[34.5rem]",
+          "desktop:col-start-1 desktop:row-start-1 desktop:max-w-[34.5rem] flex flex-col gap-8 text-center",
           "desktop:text-left",
         )}
       >
@@ -119,13 +119,13 @@ export function LimitsSection() {
         alt=""
         width={85}
         height={185}
-        className="absolute top-[22.5rem] left-[18.75rem] hidden desktop:block"
+        className="desktop:block absolute top-[22.5rem] left-[18.75rem] hidden"
         aria-hidden
       />
 
       <div
         className={cn(
-          "flex flex-col items-center gap-4 tablet:flex-row tablet:flex-wrap tablet:items-stretch tablet:justify-center",
+          "tablet:flex-row tablet:flex-wrap tablet:items-stretch tablet:justify-center flex flex-col items-center gap-4",
           "desktop:contents",
         )}
       >
@@ -134,7 +134,7 @@ export function LimitsSection() {
             key={item.id}
             limit={item}
             className={cn(
-              "w-full max-w-[33.5rem] tablet:max-w-[20.9rem] desktop:w-[22.8rem] desktop:max-w-none",
+              "tablet:max-w-[20.9rem] desktop:w-[22.8rem] desktop:max-w-none w-full max-w-[33.5rem]",
               LIMIT_GRID_POSITIONS[index],
             )}
           />

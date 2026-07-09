@@ -25,9 +25,9 @@ export function GameHeader() {
         )}
       >
         {currentPlayer.mark === "X" ? (
-          <XIcon className="h-4 w-4 tablet:h-5 tablet:w-5" />
+          <XIcon className="tablet:h-5 tablet:w-5 h-4 w-4" />
         ) : (
-          <OIcon className="h-4 w-4 tablet:h-5 tablet:w-5" />
+          <OIcon className="tablet:h-5 tablet:w-5 h-4 w-4" />
         )}
 
         <span>Turn</span>
@@ -38,10 +38,10 @@ export function GameHeader() {
         onClick={() => setPaused(true)}
         className={cn(
           "flex h-10 w-10 cursor-pointer items-center justify-center justify-self-end rounded-md bg-zinc-300",
-          "shadow-[inset_0_-4px_0_#6B8997] transition-all hover:bg-zinc-100 tablet:h-[52px] tablet:w-[52px]",
+          "tablet:h-[52px] tablet:w-[52px] shadow-[inset_0_-4px_0_#6B8997] transition-all hover:bg-zinc-100",
         )}
       >
-        <Image src={restartIcon} alt="Restart icon" className="h-4 w-4 tablet:h-5 tablet:w-5" width={20} height={20} />
+        <Image src={restartIcon} alt="Restart icon" className="tablet:h-5 tablet:w-5 h-4 w-4" width={20} height={20} />
       </button>
     </header>
   );

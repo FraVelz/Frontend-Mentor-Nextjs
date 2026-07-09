@@ -13,15 +13,7 @@ const navItems = [
   },
 ] as const;
 
-function NavLink({
-  href,
-  label,
-  active,
-}: {
-  href: string;
-  label: string;
-  active: boolean;
-}) {
+function NavLink({ href, label, active }: { href: string; label: string; active: boolean }) {
   return (
     <Link
       href={href}
@@ -57,8 +49,7 @@ export function Header() {
             "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
           )}
         >
-          Frontend Mentor{" "}
-          <span className="font-normal text-zinc-500">· Next.js</span>
+          Frontend Mentor <span className="font-normal text-zinc-500">· Next.js</span>
         </Link>
         <nav aria-label="Principal" className="flex flex-wrap items-center gap-6">
           {navItems.map(({ href, label, isActive }) => (

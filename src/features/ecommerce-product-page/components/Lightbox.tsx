@@ -38,34 +38,26 @@ export default function Lightbox({ onClose }: LightboxProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] hidden md:flex flex-col items-center justify-center bg-black/75">
-      <div className="relative flex flex-col gap-6 max-w-[550px]">
-        
+    <div className="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/75 md:flex">
+      <div className="relative flex max-w-[550px] flex-col gap-6">
         {/* Cerrar: hover naranja */}
-        <button 
-          onClick={onClose}
-          className="self-end group"
-        >
+        <button onClick={onClose} className="group self-end">
           <svg
             width="14"
             height="15"
             xmlns="http://www.w3.org/2000/svg"
-            className={cn(
-              "scale-125 fill-[#69707D] transition-colors",
-              "group-hover:fill-orange-500",
-            )}
+            className={cn("scale-125 fill-[#69707D] transition-colors", "group-hover:fill-orange-500")}
           >
-            <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fillRule="evenodd"/>
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fillRule="evenodd"
+            />
           </svg>
         </button>
 
         {/* Imagen y flechas anterior/siguiente */}
         <div className="relative">
-          <img
-            src={imgSrc(images[currentIndex].main)}
-            alt="Product Focus"
-            className="w-full rounded-2xl"
-          />
+          <img src={imgSrc(images[currentIndex].main)} alt="Product Focus" className="w-full rounded-2xl" />
 
           <button
             onClick={prevImage}
@@ -78,15 +70,12 @@ export default function Lightbox({ onClose }: LightboxProps) {
               width="12"
               height="18"
               xmlns="http://www.w3.org/2000/svg"
-              className={cn(
-                "stroke-[#1D2026] transition-colors",
-                "group-hover:stroke-orange-500",
-              )}
+              className={cn("stroke-[#1D2026] transition-colors", "group-hover:stroke-orange-500")}
             >
-              <path d="M11 1 3 9l8 8" strokeWidth="3" fill="none" fillRule="evenodd"/>
+              <path d="M11 1 3 9l8 8" strokeWidth="3" fill="none" fillRule="evenodd" />
             </svg>
           </button>
-          
+
           <button
             onClick={nextImage}
             className={cn(
@@ -98,12 +87,9 @@ export default function Lightbox({ onClose }: LightboxProps) {
               width="13"
               height="18"
               xmlns="http://www.w3.org/2000/svg"
-              className={cn(
-                "stroke-[#1D2026] transition-colors",
-                "group-hover:stroke-orange-500",
-              )}
+              className={cn("stroke-[#1D2026] transition-colors", "group-hover:stroke-orange-500")}
             >
-              <path d="m2 1 8 8-8 8" strokeWidth="3" fill="none" fillRule="evenodd"/>
+              <path d="m2 1 8 8-8 8" strokeWidth="3" fill="none" fillRule="evenodd" />
             </svg>
           </button>
         </div>
@@ -117,24 +103,16 @@ export default function Lightbox({ onClose }: LightboxProps) {
               className={cn(
                 "relative overflow-hidden rounded-xl border-2 bg-white",
                 "transition-all",
-                currentIndex === index
-                  ? "border-orange-500"
-                  : "border-transparent",
+                currentIndex === index ? "border-orange-500" : "border-transparent",
               )}
             >
               <div
                 className={cn(
                   "absolute inset-0 bg-white/50 transition-opacity",
-                  currentIndex === index
-                    ? "opacity-100"
-                    : "opacity-0 hover:opacity-30",
+                  currentIndex === index ? "opacity-100" : "opacity-0 hover:opacity-30",
                 )}
               />
-              <img
-                src={imgSrc(img.thumb)}
-                alt={`Thumbnail ${img.id}`}
-                className="size-[88px]"
-              />
+              <img src={imgSrc(img.thumb)} alt={`Thumbnail ${img.id}`} className="size-[88px]" />
             </button>
           ))}
         </div>

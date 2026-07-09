@@ -40,7 +40,7 @@ function TipsItem({ tip }: { tip: Tip }) {
   return (
     <article
       className={cn(
-        "flex flex-col gap-8 tablet:flex-row tablet:items-center tablet:gap-10",
+        "tablet:flex-row tablet:items-center tablet:gap-10 flex flex-col gap-8",
         "desktop:flex-col desktop:items-start desktop:gap-12",
       )}
     >

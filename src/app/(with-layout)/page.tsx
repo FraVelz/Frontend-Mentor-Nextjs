@@ -11,8 +11,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Frontend Mentor Challenges",
-  description:
-    "Colección de retos Frontend Mentor en Next.js: App Router, componentes y despliegue.",
+  description: "Colección de retos Frontend Mentor en Next.js: App Router, componentes y despliegue.",
 };
 
 export default function HomePage() {
