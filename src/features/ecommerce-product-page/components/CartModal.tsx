@@ -41,7 +41,11 @@ export default function CartModal() {
                   </div>
 
                   {/* Quitar línea */}
-                  <button onClick={() => removeFromCart(item.id)} className="transition-opacity hover:opacity-70">
+                  <button
+                    type="button"
+                    onClick={() => removeFromCart(item.id)}
+                    className="transition-opacity hover:opacity-70"
+                  >
                     <img src={imgSrc(iconDeleteImage)} alt="Delete item" />
                   </button>
                 </div>
@@ -50,6 +54,7 @@ export default function CartModal() {
 
             {/* Pagar (enunciado: sin lógica real) */}
             <button
+              type="button"
               className={cn(
                 "w-full rounded-lg bg-orange-500 py-4 font-bold text-white shadow-md",
                 "transition-colors hover:bg-orange-400",

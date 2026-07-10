@@ -59,6 +59,7 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
         {/* Flechas solo en móvil */}
         <div className="absolute inset-0 flex items-center justify-between px-4 md:hidden">
           <button
+            type="button"
             onClick={prevImage}
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-full",
@@ -68,6 +69,7 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
             <img src={imgSrc(iconPrevious)} alt="Previous" className="h-3" />
           </button>
           <button
+            type="button"
             onClick={nextImage}
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-full",
@@ -83,6 +85,7 @@ export default function ProductGallery({ handleLightbox }: GalleryProps) {
       <div className="hidden justify-between gap-4 md:flex">
         {images.map((img, index) => (
           <button
+            type="button"
             key={img.id}
             onClick={() => setCurrentIndex(index)}
             className={cn(

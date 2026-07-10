@@ -16,11 +16,11 @@ interface NavbarProps {
   onCartClick: () => void;
 }
 
+const NAV_LINKS = ["Collections", "Men", "Women", "About", "Contact"];
+
 export default function Navbar({ onCartClick }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { totalItems } = useCart();
-
-  const navLinks = ["Collections", "Men", "Women", "About", "Contact"];
 
   return (
     <nav
@@ -31,7 +31,7 @@ export default function Navbar({ onCartClick }: NavbarProps) {
     >
       <div className="flex items-center gap-4 md:gap-14">
         {/* Menú hamburguesa (móvil) */}
-        <button onClick={() => setIsMenuOpen(true)} className="pt-1 md:hidden">
+        <button type="button" onClick={() => setIsMenuOpen(true)} className="pt-1 md:hidden">
           <img src={imgSrc(menuImage)} alt="Menu" />
         </button>
 
@@ -40,7 +40,7 @@ export default function Navbar({ onCartClick }: NavbarProps) {
         </Link>
 
         <ul className="hidden gap-8 font-medium text-zinc-500 md:flex">
-          {navLinks.map((link) => (
+          {NAV_LINKS.map((link) => (
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
@@ -58,7 +58,7 @@ export default function Navbar({ onCartClick }: NavbarProps) {
 
       <div className="flex items-center gap-5 md:gap-11">
         {/* Carrito: abre el panel (CartModal en el padre) */}
-        <button onClick={onCartClick} className="group relative">
+        <button type="button" onClick={onCartClick} className="group relative">
           <img src={imgSrc(iconCardImage)} alt="Cart" className="h-5 md:h-6" />
           {totalItems > 0 && (
             <span
@@ -72,7 +72,10 @@ export default function Navbar({ onCartClick }: NavbarProps) {
           )}
         </button>
 
-        <button className="rounded-full border-2 border-transparent transition-all hover:border-orange-500">
+        <button
+          type="button"
+          className="rounded-full border-2 border-transparent transition-all hover:border-orange-500"
+        >
           <img src={imgSrc(userAvatarImage)} alt="User Profile" className="h-6 md:h-12" />
         </button>
       </div>
@@ -80,25 +83,24 @@ export default function Navbar({ onCartClick }: NavbarProps) {
       {/* Panel lateral móvil */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 flex">
-          <div
-            role="button"
-            tabIndex={0}
+          <button
+            type="button"
             aria-label="Cerrar menú"
             className="fixed inset-0 bg-black/75"
             onClick={() => setIsMenuOpen(false)}
             onKeyDown={(e) => {
-              if (e.key === "Escape" || e.key === "Enter" || e.key === " ") {
+              if (e.key === "Escape") {
                 e.preventDefault();
                 setIsMenuOpen(false);
               }
             }}
           />
           <div className="relative flex h-full w-[250px] flex-col gap-10 bg-white p-6">
-            <button onClick={() => setIsMenuOpen(false)}>
-              <img src={imgSrc(closeIconImage)} alt="Close" />
+            <button type="button" aria-label="Cerrar menú" onClick={() => setIsMenuOpen(false)}>
+              <img src={imgSrc(closeIconImage)} alt="" />
             </button>
             <ul className="flex flex-col gap-6 text-lg font-bold text-black">
-              {navLinks.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <li key={link}>
                   <a href={`#${link.toLowerCase()}`} onClick={() => setIsMenuOpen(false)}>
                     {link}

@@ -41,7 +41,7 @@ export default function Lightbox({ onClose }: LightboxProps) {
     <div className="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/75 md:flex">
       <div className="relative flex max-w-[550px] flex-col gap-6">
         {/* Cerrar: hover naranja */}
-        <button onClick={onClose} className="group self-end">
+        <button type="button" aria-label="Cerrar lightbox" onClick={onClose} className="group self-end">
           <svg
             width="14"
             height="15"
@@ -60,6 +60,8 @@ export default function Lightbox({ onClose }: LightboxProps) {
           <img src={imgSrc(images[currentIndex].main)} alt="Product Focus" className="w-full rounded-2xl" />
 
           <button
+            type="button"
+            aria-label="Imagen anterior"
             onClick={prevImage}
             className={cn(
               "group absolute top-1/2 flex h-14 w-14 -translate-y-1/2",
@@ -77,6 +79,8 @@ export default function Lightbox({ onClose }: LightboxProps) {
           </button>
 
           <button
+            type="button"
+            aria-label="Imagen siguiente"
             onClick={nextImage}
             className={cn(
               "group absolute top-1/2 flex h-14 w-14 -translate-y-1/2",
@@ -98,6 +102,7 @@ export default function Lightbox({ onClose }: LightboxProps) {
         <div className="flex justify-center gap-6 px-8">
           {images.map((img, index) => (
             <button
+              type="button"
               key={img.id}
               onClick={() => setCurrentIndex(index)}
               className={cn(

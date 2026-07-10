@@ -21,25 +21,19 @@ export function GameBoard() {
     <section className="flex w-full flex-col gap-5">
       <div className="grid grid-cols-3 gap-5">
         {board.map((item, index) => (
-          <div
+          <button
+            type="button"
             key={BOARD_CELL_KEYS[index]}
+            aria-label={item ? `Cell ${index + 1}: ${item}` : `Place ${currentPlayer.mark} in cell ${index + 1}`}
+            disabled={isCpuTurn || Boolean(item)}
             className={cn(
               "group flex aspect-square w-full items-center justify-center rounded-[10px] bg-zinc-800 pb-2",
               "shadow-[inset_0_-8px_0_#10212A]",
               isCpuTurn || item ? "cursor-not-allowed" : "cursor-pointer",
               isCpuTurn && "opacity-60",
             )}
-            role="button"
-            tabIndex={0}
             onClick={() => {
-              if (isCpuTurn) return;
               playRound(index);
-            }}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                if (!isCpuTurn) playRound(index);
-              }
             }}
           >
             {item === "X" && <XIcon className="tablet:h-16 tablet:w-16 h-10 w-10 text-teal-400" />}
@@ -65,7 +59,7 @@ export function GameBoard() {
                 )}
               </>
             )}
-          </div>
+          </button>
         ))}
       </div>
 

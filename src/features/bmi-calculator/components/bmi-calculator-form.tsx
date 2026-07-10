@@ -137,6 +137,7 @@ export function BmiCalculatorForm() {
               <div className={fieldShell}>
                 <input
                   id="height-ft"
+                  aria-label="Height in feet"
                   type="number"
                   inputMode="numeric"
                   min={0}
@@ -150,6 +151,7 @@ export function BmiCalculatorForm() {
               <div className={fieldShell}>
                 <input
                   id="height-in"
+                  aria-label="Height in inches"
                   type="number"
                   inputMode="decimal"
                   min={0}
@@ -187,6 +189,7 @@ export function BmiCalculatorForm() {
               <div className={fieldShell}>
                 <input
                   id="weight-st"
+                  aria-label="Weight in stone"
                   type="number"
                   inputMode="decimal"
                   min={0}
@@ -200,6 +203,7 @@ export function BmiCalculatorForm() {
               <div className={fieldShell}>
                 <input
                   id="weight-lbs"
+                  aria-label="Weight in pounds"
                   type="number"
                   inputMode="decimal"
                   min={0}

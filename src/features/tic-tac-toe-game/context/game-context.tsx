@@ -61,6 +61,12 @@ function cpuMove(boardState: Mark[]): number {
   return empty[Math.floor(Math.random() * empty.length)]!;
 }
 
+function runCpuTurn(boardState: Mark[], cpuPlayer: Player) {
+  const move = cpuMove(boardState);
+
+  return boardState.map((cell, i) => (i === move ? cpuPlayer.mark : cell));
+}
+
 export function GameProvider({ children }: { children: ReactNode }) {
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [board, setBoard] = useState<Mark[]>(emptyBoard);
@@ -93,12 +99,6 @@ export function GameProvider({ children }: { children: ReactNode }) {
     }
 
     return false;
-  }
-
-  function runCpuTurn(boardState: Mark[], cpuPlayer: Player) {
-    const move = cpuMove(boardState);
-
-    return boardState.map((cell, i) => (i === move ? cpuPlayer.mark : cell));
   }
 
   function startGame(mark: Mark, mode: Gamemode = "solo") {
