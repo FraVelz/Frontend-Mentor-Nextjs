@@ -1,6 +1,6 @@
 # Frontend Mentor · Next.js
 
-[Spanish version](README.md)
+This document is in English. [Versión en español](./README.md)
 
 Monorepo to practice multiple [Frontend Mentor](https://www.frontendmentor.io/) challenges with **Next.js** (App
 Router), keeping each challenge isolated (assets, code, and routes) so resources do not bleed across projects.
