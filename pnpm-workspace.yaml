@@ -6,10 +6,12 @@ trustPolicy: no-downgrade
 
 # pnpm 11+
 allowBuilds:
+  esbuild: true
   sharp: true
   unrs-resolver: true
 
 # pnpm 9 (CI)
 onlyBuiltDependencies:
+  - esbuild
   - sharp
   - unrs-resolver
