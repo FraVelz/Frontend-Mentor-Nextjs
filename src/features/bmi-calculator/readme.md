@@ -3,6 +3,14 @@
 Reto [Body Mass Index Calculator](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T) en
 este monorepo Next.js.
 
+**Craft tier:** gold (see [`DOD.md`](./DOD.md)).
+
+## whatILearned
+
+- Separar dominio IMC (`lib/bmi.ts`) de la UI facilita Vitest sin montar el formulario.
+- Radios métrico/imperial necesitan `fieldset` + `legend` (sr-only) para nombre accesible del grupo.
+- El rango de peso saludable en kg/stone exige cuidado con redondeo para no divergir del copy FM.
+
 ## Funcionalidad
 
 - Unidades **métricas** (cm, kg) o **imperiales** (ft/in, lbs).
@@ -10,6 +18,7 @@ este monorepo Next.js.
   18.5–24.9 IMC en las unidades elegidas.
 - Secciones «What your BMI result means» e «Limitations of BMI» con textos del enunciado FM.
 - Layout responsive, estados hover/focus en controles, tipografía **Inter** (`next/font`).
+- Atribución FM visible al pie de la ruta.
 
 ## Vista previa (referencia del paquete FM)
 
@@ -18,6 +27,7 @@ este monorepo Next.js.
 ## Referencia de implementación
 
 - Lógica: [`lib/bmi.ts`](./lib/bmi.ts)
+- Tests: [`lib/bmi.test.ts`](./lib/bmi.test.ts)
 - UI raíz: [`components/BmiCalculator.tsx`](./components/BmiCalculator.tsx), secciones bajo
   [`components/`](./components/), [`page.tsx`](./page.tsx)
 

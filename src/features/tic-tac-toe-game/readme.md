@@ -3,12 +3,21 @@
 Reto [Tic Tac Toe](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v) integrado en esta app Next.js a
 partir del código de referencia en `tic-tac-toe-game/` (Vite + React).
 
+**Craft tier:** gold (see [`DOD.md`](./DOD.md)).
+
+## whatILearned
+
+- Extraer `checkWinner` / empates a `lib/game.ts` permite tests sin React context.
+- Celdas como `<button>` + `aria-label` cubren teclado y lectores de pantalla.
+- CPU aleatoria es suficiente para el brief; minimax queda fuera del DoD gold actual.
+
 ## Funcionalidad
 
 - Menú nueva partida: elegir marca del jugador 1 (X u O), modo **solo vs CPU** o **dos jugadores**.
 - Tablero 3×3 con turnos, marcador (X / empates / O) y modal de fin de ronda o reinicio.
 - CPU con movimiento aleatorio (misma lógica que el proyecto de referencia).
 - Layout responsive (mobile / tablet) y sombras interiores tipo diseño FM.
+- Atribución FM visible al pie de la ruta.
 
 ## Vista previa de referencia
 
@@ -16,6 +25,7 @@ partir del código de referencia en `tic-tac-toe-game/` (Vite + React).
 
 ## En el monorepo
 
+- Dominio puro: [`lib/game.ts`](./lib/game.ts), tests [`lib/game.test.ts`](./lib/game.test.ts)
 - Lógica y estado: [`context/game-context.tsx`](./context/game-context.tsx)
 - Entrada de la ruta: [`page.tsx`](./page.tsx), raíz de UI:
   [`components/tic-tac-toe-app.tsx`](./components/tic-tac-toe-app.tsx)

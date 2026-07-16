@@ -29,6 +29,7 @@ export function GameBoard() {
             className={cn(
               "group flex aspect-square w-full items-center justify-center rounded-[10px] bg-zinc-800 pb-2",
               "shadow-[inset_0_-8px_0_#10212A]",
+              "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-400",
               isCpuTurn || item ? "cursor-not-allowed" : "cursor-pointer",
               isCpuTurn && "opacity-60",
             )}
