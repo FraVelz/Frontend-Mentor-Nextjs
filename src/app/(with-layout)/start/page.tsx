@@ -6,8 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Fravelz · Retos Frontend Mentor",
-  description:
-    "Elige cómo explorar los retos: proyecto vanilla (HTML, CSS, JS) o índice Next.js con metadatos y stack profesional.",
+  description: "Practice hub: desafíos Frontend Mentor en vanilla o Next.js. Diseños de FM — no producto original.",
 };
 
 export default function MainHubPage() {
@@ -20,7 +19,7 @@ export default function MainHubPage() {
             "before:h-0.5 before:w-6 before:rounded-full before:bg-linear-to-r before:from-sky-400 before:to-transparent",
           )}
         >
-          Portafolio · Frontend Mentor
+          Practice hub · Frontend Mentor
         </p>
         <h1
           className={cn(
@@ -31,7 +30,7 @@ export default function MainHubPage() {
           Dos formas de ver los mismos retos
         </h1>
         <p className="max-w-prose text-base leading-relaxed text-zinc-400">
-          Practico con desafíos de{" "}
+          Practico craft front con desafíos de{" "}
           <a
             href="https://www.frontendmentor.io/"
             className="font-medium text-sky-400 underline decoration-sky-400/35 underline-offset-2 hover:text-sky-300"
@@ -40,8 +39,8 @@ export default function MainHubPage() {
           >
             Frontend Mentor
           </a>
-          . Aquí eliges si entras al índice clásico (HTML, CSS y JavaScript) o al hub en Next.js con el listado
-          enriquecido.
+          . Los diseños son de FM (atribución obligatoria); este repo no es un producto ni un design system propio.
+          Elige el índice clásico (HTML/CSS/JS) o el hub Next.js con badges honestos y retos gold.
         </p>
       </header>
 

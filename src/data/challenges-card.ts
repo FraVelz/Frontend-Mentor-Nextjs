@@ -2,6 +2,9 @@ export type Difficulty = "newbie" | "junior" | "intermediate" | "advanced" | "gu
 
 type ChallengeStatus = "ejemplo" | "en-progreso" | "listo";
 
+/** Craft tier: only set `gold` when DoD in docs/DOD-template.md is green. */
+export type CraftTier = "gold";
+
 export interface Challenge {
   slug: string;
   title: string;
@@ -10,6 +13,8 @@ export interface Challenge {
   /** Etiquetas tipo stack o foco (HTML, CSS, App Router, etc.) */
   tags: string[];
   status: ChallengeStatus;
+  /** Presentable as interview craft sample — requires DoD (pixel + a11y ≥90 + test). */
+  craftTier?: CraftTier;
   /** Gradiente CSS para la vista previa cuando no hay captura */
   previewGradient: string;
   /** Ruta pública: archivo en `public/{slug}/screenshot.png` → `/${slug}/screenshot.png` */
@@ -26,21 +31,11 @@ export interface Challenge {
   sourceCodeUrl?: string;
 }
 
-/** Datos de muestra: sustituye o amplía cuando añadas rutas reales en la app. */
+/**
+ * Hub metadata — badges must match reality.
+ * `listo` + `craftTier: "gold"` only after DoD (see docs/DOD-template.md).
+ */
 export const challenges: Challenge[] = [
-  {
-    slug: "ecommerce-product-page",
-    title: "E-commerce product page",
-    shortDescription:
-      "Página de producto con galería/lightbox, selector de cantidad, carrito y menú mobile; mobile y desktop 1440px.",
-    difficulty: "intermediate",
-    tags: ["HTML", "CSS", "JS", "TailwindCSS", "React", "Next"],
-    status: "listo",
-    previewGradient: "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
-    screenshotSrc: "/ecommerce-product-page/screenshot.png",
-    implementationHref: "/ecommerce-product-page",
-    fmChallengeUrl: "https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6",
-  },
   {
     slug: "bmi-calculator",
     title: "Body Mass Index Calculator",
@@ -48,7 +43,8 @@ export const challenges: Challenge[] = [
       "Calculadora IMC con métrico/imperial, clasificación y rango de peso saludable; layout responsive.",
     difficulty: "junior",
     tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
-    status: "en-progreso",
+    status: "listo",
+    craftTier: "gold",
     previewGradient:
       "linear-gradient(135deg, hsl(215, 100%, 93%) 0%, hsl(216, 100%, 97%) 50%, hsl(177, 61%, 87%) 100%)",
     screenshotSrc: "/bmi-calculator/screenshot.png",
@@ -57,15 +53,29 @@ export const challenges: Challenge[] = [
   },
   {
     slug: "tic-tac-toe-game",
-    title: "tic tac toe game",
-    shortDescription: "tres en raya fm: menú, vs cpu o dos jugadores, marcador y modales; outfit y layout responsive.",
+    title: "Tic Tac Toe game",
+    shortDescription: "Tres en raya FM: menú, vs CPU o dos jugadores, marcador y modales; Outfit y layout responsive.",
     difficulty: "junior",
-    tags: ["html", "css", "js", "react", "next", "tailwindcss"],
+    tags: ["HTML", "CSS", "JS", "React", "Next", "TailwindCSS"],
     status: "listo",
+    craftTier: "gold",
     previewGradient: "linear-gradient(145deg, hsl(200, 42%, 21%) 0%, hsl(188, 61%, 53%) 55%, hsl(40, 93%, 61%) 100%)",
     screenshotSrc: "/tic-tac-toe-game/screenshot.png",
     implementationHref: "/tic-tac-toe-game",
     fmChallengeUrl: "https://www.frontendmentor.io/challenges/tic-tac-toe-game-re7zf_e2v",
+  },
+  {
+    slug: "ecommerce-product-page",
+    title: "E-commerce product page",
+    shortDescription:
+      "Página de producto con galería/lightbox, selector de cantidad, carrito y menú mobile; aún sin DoD gold.",
+    difficulty: "intermediate",
+    tags: ["HTML", "CSS", "JS", "TailwindCSS", "React", "Next"],
+    status: "en-progreso",
+    previewGradient: "linear-gradient(135deg, hsl(26, 100%, 55%) 0%, hsl(220, 13%, 13%) 50%, hsl(219, 9%, 45%) 100%)",
+    screenshotSrc: "/ecommerce-product-page/screenshot.png",
+    implementationHref: "/ecommerce-product-page",
+    fmChallengeUrl: "https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6",
   },
 ];
 
@@ -77,98 +87,19 @@ export const difficultyLabels: Record<Difficulty, string> = {
   guru: "Guru",
 };
 
-/*
-{
-    slug: "results-summary-component",
-    title: "Results summary component",
-    shortDescription:
-      "Resumen de puntuación con gradiente, filas por categoría y datos desde JSON; layout responsive.",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS", "JSON", "App Router"],
-    status: "en-progreso",
-    previewGradient:
-      "linear-gradient(135deg, hsl(252, 100%, 67%) 0%, hsl(241, 81%, 54%) 100%)",
-    implementationHref: "/results-summary-component",
-  },
-  {
-    slug: "qr-code-component",
-    title: "QR code component",
-    shortDescription: "Tarjeta con código QR y tipografía clara; ideal para practicar sombras y espaciado.",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #1e3a5f 0%, #0f172a 50%, #312e81 100%)",
-  },
-  {
-    slug: "blog-preview-card",
-    title: "Blog preview card",
-    shortDescription: "Componente de vista previa con imagen, etiqueta y tipografía fluida.",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS", "Responsive"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #14532d 0%, #022c22 45%, #134e4a 100%)",
-  },
-  {
-    slug: "social-links-profile",
-    title: "Social links profile",
-    shortDescription: "Perfil compacto con enlaces; buen ejercicio de accesibilidad y estados hover.",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS", "A11y"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #3b0764 0%, #1e1b4b 50%, #0f172a 100%)",
-  },
-  {
-    slug: "recipe-page",
-    title: "Recipe page",
-    shortDescription: "Página de receta con listas, tipografía dual y detalle en mobile.",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS", "Tipografía"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #78350f 0%, #431407 40%, #292524 100%)",
-  },
-  {
-    slug: "product-preview-card",
-    title: "Product preview card",
-    shortDescription: "Layout producto con precio, descuento y variante responsive (mobile/desktop).",
-    difficulty: "newbie",
-    tags: ["HTML", "CSS", "Flexbox"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #134e4a 0%, #042f2e 50%, #0c4a6e 100%)",
-  },
-  {
-    slug: "four-card-feature-section",
-    title: "Four card feature section",
-    shortDescription: "Grid de características con iconos y jerarquía visual.",
-    difficulty: "junior",
-    tags: ["HTML", "CSS", "Grid"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #1c1917 0%, #44403c 45%, #0c0a09 100%)",
-  },
-  {
-    slug: "testimonials-grid-section",
-    title: "Testimonials grid section",
-    shortDescription: "Grid tipo bento con testimonios y fondos diferenciados.",
-    difficulty: "junior",
-    tags: ["HTML", "CSS", "Grid"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #4c1d95 0%, #1e1b4b 40%, #312e81 100%)",
-  },
-  {
-    slug: "meet-landing-page",
-    title: "Meet landing page",
-    shortDescription: "Landing con hero, ilustraciones y secciones; salto a layout más complejo.",
-    difficulty: "intermediate",
-    tags: ["HTML", "CSS", "Landing"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #0e7490 0%, #164e63 35%, #0f172a 100%)",
-  },
-  {
-    slug: "article-preview-component",
-    title: "Article preview component",
-    shortDescription: "Preview de artículo con interacción de compartir y estados.",
-    difficulty: "intermediate",
-    tags: ["HTML", "CSS", "JS"],
-    status: "ejemplo",
-    previewGradient: "linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%)",
-  },
-*/
+const statusRank: Record<ChallengeStatus, number> = {
+  listo: 0,
+  "en-progreso": 1,
+  ejemplo: 2,
+};
+
+/** Gold first, then listo, in-progress, ejemplo; stable by title. */
+export function sortChallengesForHub(list: Challenge[]): Challenge[] {
+  return [...list].sort((a, b) => {
+    const goldA = a.craftTier === "gold" ? 0 : 1;
+    const goldB = b.craftTier === "gold" ? 0 : 1;
+    if (goldA !== goldB) return goldA - goldB;
+    if (statusRank[a.status] !== statusRank[b.status]) return statusRank[a.status] - statusRank[b.status];
+    return a.title.localeCompare(b.title);
+  });
+}

@@ -29,6 +29,8 @@ const statusLabels: Record<Challenge["status"], string> = {
   listo: "Listo",
 };
 
+const goldBadgeClass = "bg-amber-400/15 text-amber-100 ring-amber-300/35";
+
 const linkButtonClass = cn(
   "inline-flex w-full items-center justify-center rounded-lg border border-sky-400/35",
   "bg-sky-500/10 px-3 py-2.5 text-center text-sm font-semibold text-sky-100",
@@ -114,6 +116,16 @@ export function CardBody({ challenge }: { challenge: Challenge }) {
           >
             {statusLabels[challenge.status]}
           </span>
+          {challenge.craftTier === "gold" ? (
+            <span
+              className={cn(
+                "inline-flex items-center rounded-md px-2 py-0.5 text-[0.65rem] font-semibold tracking-wide uppercase ring-1 ring-inset",
+                goldBadgeClass,
+              )}
+            >
+              Gold
+            </span>
+          ) : null}
         </div>
         <div className="flex flex-1 items-start justify-between gap-3">
           <div className="min-w-0">

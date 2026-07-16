@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
+import { ChallengeGrid } from "@/components/home/challenge-grid";
 import { HeroTechStack } from "@/components/home/hero-tech-stack";
 import { Footer } from "@/components/layout/Footer";
-import { CardBody } from "@/components/ui/challenge-card";
 
 import { challenges } from "@/data/challenges-card";
 
@@ -11,10 +11,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Frontend Mentor Challenges",
-  description: "Colección de retos Frontend Mentor en Next.js: App Router, componentes y despliegue.",
+  description: "Hub de práctica Frontend Mentor en Next.js: badges honestos, retos gold y atribución de diseño.",
 };
 
 export default function HomePage() {
+  const goldCount = challenges.filter((c) => c.craftTier === "gold").length;
+
   return (
     <>
       <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
@@ -31,7 +33,7 @@ export default function HomePage() {
                 "before:h-0.5 before:w-6 before:rounded-full before:bg-linear-to-r before:from-sky-400 before:to-transparent",
               )}
             >
-              Frontend Mentor · Next.js
+              Practice hub · Frontend Mentor
             </p>
             <h1
               className={cn(
@@ -42,9 +44,10 @@ export default function HomePage() {
               Retos del repositorio
             </h1>
             <p className="w-full text-lg leading-relaxed text-zinc-400 sm:text-xl lg:max-w-prose">
-              Misma colección de desafíos que en el repo estático, con metadatos extra:{" "}
-              <strong className="font-medium text-zinc-300">dificultad oficial</strong> (Newbie, Junior, Intermediate…)
-              y etiquetas de stack.
+              Entrenamiento de craft front con diseños de{" "}
+              <strong className="font-medium text-zinc-300">Frontend Mentor</strong> — no es un design system propio ni
+              un producto. Badge <strong className="font-medium text-zinc-300">Gold</strong> solo si el DoD (pixel,
+              a11y, test) está verde.
             </p>
 
             <div
@@ -55,9 +58,8 @@ export default function HomePage() {
               role="note"
             >
               <p className="text-sm leading-relaxed text-zinc-400">
-                ¿Por qué hay dos repos? El directorio clásico en HTML/CSS/JS refuerza fundamentos sin build step. Esta
-                app Next.js sirve para practicar rutas, componentes react, datos y despliegue más cercano al día a día
-                profesional.{" "}
+                Hoy: {goldCount} gold · {challenges.length} en el índice. Los retos «en progreso» no se venden como
+                listos.{" "}
                 <Link
                   href="/start"
                   className={cn(
@@ -65,9 +67,9 @@ export default function HomePage() {
                     "hover:text-sky-300",
                   )}
                 >
-                  Vuelve al hub de entrada para elegir track o ver capturas
-                </Link>
-                .
+                  Onboarding /start
+                </Link>{" "}
+                explica el propósito del hub.
               </p>
             </div>
           </div>
@@ -82,25 +84,7 @@ export default function HomePage() {
           >
             Proyectos ({challenges.length})
           </h2>
-          <ul className="grid list-none grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 [&>li]:m-0 [&>li]:p-0">
-            {challenges.map((c) => (
-              <li key={c.slug}>
-                <article
-                  className={cn(
-                    "group flex flex-1 flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06]",
-                    "shadow-[0_4px_24px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-200",
-                    "hover:border-sky-400/35 hover:bg-white/[0.09]",
-                    "hover:shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_16px_48px_rgba(0,0,0,0.35)]",
-                    "focus-within:outline focus-within:outline-2 focus-within:outline-offset-2",
-                    "focus-within:outline-sky-400",
-                    "motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0",
-                  )}
-                >
-                  <CardBody challenge={c} />
-                </article>
-              </li>
-            ))}
-          </ul>
+          <ChallengeGrid challenges={challenges} />
         </section>
       </main>
 
