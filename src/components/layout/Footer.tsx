@@ -1,9 +1,7 @@
 import { cn } from "@/lib/utils";
 
-const footerNavLinkClass = cn(
-  "text-zinc-300 transition hover:text-sky-400",
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
-);
+const footerNavLinkClass =
+  "text-zinc-300 transition hover:text-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400";
 
 export function Footer() {
   const year = new Date().getFullYear();

@@ -31,14 +31,8 @@ const statusLabels: Record<Challenge["status"], string> = {
 
 const goldBadgeClass = "bg-amber-400/15 text-amber-100 ring-amber-300/35";
 
-const linkButtonClass = cn(
-  "inline-flex w-full items-center justify-center rounded-lg border border-sky-400/35",
-  "bg-sky-500/10 px-3 py-2.5 text-center text-sm font-semibold text-sky-100",
-  "shadow-sm transition",
-  "hover:border-sky-400/50 hover:bg-sky-500/20 hover:text-white",
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
-  "focus-visible:outline-sky-400",
-);
+const linkButtonClass =
+  "inline-flex w-full items-center justify-center rounded-lg border border-sky-400/35 bg-sky-500/10 px-3 py-2.5 text-center text-sm font-semibold text-sky-100 shadow-sm transition hover:border-sky-400/50 hover:bg-sky-500/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400";
 
 // * Components ********************************************************************************* //
 function PreviewHeader({ challenge }: { challenge: Challenge }) {

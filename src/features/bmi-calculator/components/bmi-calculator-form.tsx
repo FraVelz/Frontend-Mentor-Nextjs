@@ -17,19 +17,11 @@ import {
 
 type Unit = "metric" | "imperial";
 
-const radioClass = cn(
-  "flex h-[31px] w-[31px] shrink-0 cursor-pointer appearance-none items-center justify-center rounded-full",
-  "border border-var-grey-500 outline-none hover:border-var-blue-500",
-  "checked:border-0 checked:bg-var-blue-100",
-  "checked:before:block checked:before:h-[15px] checked:before:w-[15px] checked:before:rounded-full",
-  "checked:before:bg-var-blue-500 checked:before:content-['']",
-  "focus-visible:ring-2 focus-visible:ring-var-blue-500 focus-visible:ring-offset-2",
-);
+const radioClass =
+  "flex h-[31px] w-[31px] shrink-0 cursor-pointer appearance-none items-center justify-center rounded-full border border-var-grey-500 outline-none hover:border-var-blue-500 checked:border-0 checked:bg-var-blue-100 checked:before:block checked:before:h-[15px] checked:before:w-[15px] checked:before:rounded-full checked:before:bg-var-blue-500 checked:before:content-[''] focus-visible:ring-2 focus-visible:ring-var-blue-500 focus-visible:ring-offset-2";
 
-const fieldShell = cn(
-  "border-var-grey-500 hover:border-var-blue-500 flex gap-6 rounded-xl border p-6",
-  "text-[24px] leading-[29px] font-semibold tracking-[-0.04em] transition-colors desktop:py-4",
-);
+const fieldShell =
+  "border-var-grey-500 hover:border-var-blue-500 flex gap-6 rounded-xl border p-6 text-[24px] leading-[29px] font-semibold tracking-[-0.04em] transition-colors desktop:py-4";
 
 function fmt1(n: number): string {
   return n.toFixed(1);

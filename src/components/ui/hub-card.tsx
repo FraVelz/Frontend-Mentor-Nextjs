@@ -4,17 +4,11 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-const cardShell = cn(
-  "group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]",
-  "shadow-[0_4px_24px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-200",
-  "hover:border-sky-400/35 hover:bg-white/[0.06]",
-  "hover:shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_16px_48px_rgba(0,0,0,0.35)]",
-);
+const cardShell =
+  "group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-[0_4px_24px_rgba(0,0,0,0.35)] backdrop-blur-md transition duration-200 hover:border-sky-400/35 hover:bg-white/[0.06] hover:shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_16px_48px_rgba(0,0,0,0.35)]";
 
-const focusRing = cn(
-  "flex h-full flex-col rounded-2xl",
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400",
-);
+const focusRing =
+  "flex h-full flex-col rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400";
 
 export function HubCard({ track, imagePriority = false }: { track: HubTrack; imagePriority?: boolean }) {
   const body = (
