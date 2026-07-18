@@ -60,7 +60,7 @@ export function ChallengeGrid({ challenges }: { challenges: Challenge[] }) {
           <legend className="mb-2 text-[0.65rem] font-semibold tracking-[0.14em] text-zinc-500 uppercase">
             Estado
           </legend>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por estado">
+          <div className="flex flex-wrap gap-2" aria-label="Filtrar por estado">
             {statusFilters.map((f) => (
               <button
                 key={f.id}
@@ -78,7 +78,7 @@ export function ChallengeGrid({ challenges }: { challenges: Challenge[] }) {
           <legend className="mb-2 text-[0.65rem] font-semibold tracking-[0.14em] text-zinc-500 uppercase">
             Dificultad
           </legend>
-          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por dificultad">
+          <div className="flex flex-wrap gap-2" aria-label="Filtrar por dificultad">
             {difficultyFilters.map((f) => (
               <button
                 key={f.id}

@@ -22,7 +22,7 @@ export function checkWinner(board: Mark[]): Mark | null {
   return null;
 }
 
-export function isBoardFull(board: Mark[]): boolean {
+function isBoardFull(board: Mark[]): boolean {
   return board.every((cell) => cell !== "");
 }
 
